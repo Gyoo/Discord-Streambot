@@ -1,19 +1,9 @@
 package ovh.gyoo.bot.data;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class LocalServer implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    enum Mode{
-        GAME_LIST,
-        USER_LIST,
-        TAGS_LIST
-    }
+public class LocalServer{
 
     String serverID;
     String id;
@@ -21,7 +11,6 @@ public class LocalServer implements Serializable {
     List<String> userList;
     List<String> tagList;
     List<String> managers;
-    List<Mode> modes;
     boolean active;
 
     public LocalServer(String id, String serverID){
@@ -30,8 +19,8 @@ public class LocalServer implements Serializable {
         userList = new ArrayList<>();
         tagList = new ArrayList<>();
         managers = new ArrayList<>();
-        modes = new ArrayList<>();
         active = false;
+        this.serverID = serverID;
     }
 
     public List<String> getGameList() {
@@ -50,17 +39,8 @@ public class LocalServer implements Serializable {
         return managers;
     }
 
-    public List<Mode> getModes() {
-        return modes;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public void setModes(Mode... modes){
-        this.modes.clear();
-        this.modes.addAll(Arrays.asList(modes));
     }
 
     public boolean addGame(String game){

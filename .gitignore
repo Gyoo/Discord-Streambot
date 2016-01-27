@@ -96,4 +96,5 @@ hs_err_pid*
 
 ### Other stuff
 tokens.json
-src/main/resources/credentials.xml
+ServerList.ser
+/src/main/resources/credentials.xml

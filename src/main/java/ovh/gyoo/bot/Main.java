@@ -6,9 +6,11 @@ import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.ServerList;
 import ovh.gyoo.bot.handlers.TwitchChecker;
+import ovh.gyoo.bot.writer.Logger;
 
 import javax.security.auth.login.LoginException;
 import java.io.*;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -19,21 +21,11 @@ public class Main {
         //Discord
         DiscordInstance.getInstance();
         //Backup data after restart
-        File f = new File("ServerList.ser");
+        File f = new File("ServerList.xml");
         if(f.exists()){
-            try {
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("ServerList.ser"));
-                Map<String, LocalServer> tempInstance = (Map<String, LocalServer>) ois.readObject();
-                ois.close();
-                for(Map.Entry<String, LocalServer> entry : tempInstance.entrySet()){
-                    LocalServer ls = entry.getValue();
-                    TextChannel server = DiscordInstance.getInstance().getDiscord().getTextChannelById(ls.getId());
-                    if(null != server) ls.setServerID(server.getGuild().getId());
-                    else continue;
-                    ServerList.getInstance().addServer(entry.getKey(), ls);
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+            List<LocalServer> servers = Logger.loadData("ServerList.xml");
+            for(LocalServer server : servers){
+                ServerList.getInstance().addServer(server.getServerID(), server);
             }
         }
 
@@ -62,13 +54,7 @@ public class Main {
                 ticks = 0;
             }
 
-            try {
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("ServerList.ser"));
-                oos.writeObject(ServerList.getInstance().getMap());
-                oos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Logger.saveData(ServerList.getInstance().getMap(), "ServerList.xml");
 
             try {
                 Thread.sleep(10000);
