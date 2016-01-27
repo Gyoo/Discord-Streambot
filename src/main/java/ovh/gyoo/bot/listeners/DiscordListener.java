@@ -275,7 +275,7 @@ public class DiscordListener extends ListenerAdapter {
     }
 
     private Message commandAddChannel(String serverId, String channel){
-        boolean res = ServerList.getInstance().getServer(serverId).addUser(channel.toLowerCase());
+        boolean res = ServerList.getInstance().getServer(serverId).addUser(channel.replaceAll("`", "").toLowerCase());
         if(res)
             return new MessageBuilder()
                     .appendString("Channel " + channel + " added to the channels list")
