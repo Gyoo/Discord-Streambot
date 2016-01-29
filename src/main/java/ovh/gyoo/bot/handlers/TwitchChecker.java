@@ -89,7 +89,7 @@ public class TwitchChecker {
                                 if (!OnlineMap.getInstance().getNameList(server.getServerID()).contains(stream.getChannel().getName())) {
                                     OnlineMap.getInstance().addToList(server.getServerID(),stream.getChannel().getName());
                                     /*DiscordInstance.getInstance().getDiscord().getTextChannelById(server.getId()).sendMessage(new MessageBuilder()
-                                            .appendString("NOW LIVE : `http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus())
+                                            .appendString("NOW LIVE : `http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")")
                                             .build());*/ //Keep this commented while testing.
                                 }
                             }
