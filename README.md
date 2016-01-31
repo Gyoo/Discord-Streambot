@@ -3,7 +3,7 @@ A bot for Discord that alerts a channel when Twitch streams go live
 
 Created by [Gyoo](http://twitter.com/GyooRunsStuff)
 
-Join the [Discord server](https://discord.gg/0jXAp5dkKPSyUBFi) to invite Streambot to your server !
+Join the [Discord server](https://discord.gg/0jXAp5dkKPUoM7ZW) to invite Streambot to your server !
 
 # How to use (Commands, process)
 
