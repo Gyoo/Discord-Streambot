@@ -1,5 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <servers>
+  <server id="101291987465945088">
+    <active>true</active>
+    <serverID>101291987465945088</serverID>
+    <channelID>136923389997744128</channelID>
+    <games>
+      <game>Phantasy Star Online: Blue Burst</game>
+      <game>Phantasy Star Online Episode I &amp; II</game>
+      <game>Phantasy Star Online Episode I &amp; II Plus</game>
+      <game>Phantasy Star Online</game>
+    </games>
+    <tags>
+      <tag>glitched</tag>
+      <tag>any%</tag>
+      <tag>all missions</tag>
+      <tag>100%</tag>
+      <tag>glitchless</tag>
+    </tags>
+    <managers>
+      <manager>63263941735755776</manager>
+    </managers>
+  </server>
+  <server id="130778671488172032">
+    <active>true</active>
+    <serverID>130778671488172032</serverID>
+    <channelID>135780091572649984</channelID>
+    <games>
+      <game>FEZ</game>
+    </games>
+    <tags>
+      <tag>speedrun</tag>
+      <tag>any%</tag>
+      <tag>clockless</tag>
+      <tag>209.4%</tag>
+      <tag>derust</tag>
+    </tags>
+    <managers>
+      <manager>63263941735755776</manager>
+    </managers>
+  </server>
+  <server id="89893939829551104">
+    <active>true</active>
+    <serverID>89893939829551104</serverID>
+    <channelID>137196813928103937</channelID>
+    <channels>
+      <channel>gedrith</channel>
+      <channel>ghoul02</channel>
+      <channel>kn4life2010</channel>
+      <channel>trushade</channel>
+      <channel>lefrozer</channel>
+      <channel>ckarl_bobadine</channel>
+    </channels>
+    <managers>
+      <manager>89893748401504256</manager>
+    </managers>
+  </server>
+  <server id="130742441417375744">
+    <active>true</active>
+    <serverID>130742441417375744</serverID>
+    <channelID>130742441417375744</channelID>
+    <channels>
+      <channel>demoon9</channel>
+    </channels>
+    <managers>
+      <manager>63263941735755776</manager>
+      <manager>115941671568408582</manager>
+    </managers>
+  </server>
+  <server id="126065407504285696">
+    <active>true</active>
+    <serverID>126065407504285696</serverID>
+    <channelID>136890449762713610</channelID>
+    <games>
+      <game>Baten Kaitos: Eternal Wings and the Lost Ocean</game>
+      <game>Baten Kaitos Origins</game>
+    </games>
+    <managers>
+      <manager>83016733987704832</manager>
+    </managers>
+  </server>
+  <server id="83564664058806272">
+    <active>true</active>
+    <serverID>83564664058806272</serverID>
+    <channelID>83564664058806272</channelID>
+    <channels>
+      <channel>torcalool</channel>
+      <channel>onizuka6669</channel>
+      <channel>d0natsu</channel>
+      <channel>erotth</channel>
+      <channel>headick</channel>
+      <channel>mr_pity</channel>
+      <channel>oxxyga</channel>
+      <channel>zelkystv</channel>
+      <channel>jeuxrome</channel>
+      <channel>marshallobob</channel>
+      <channel>harricot_beurre</channel>
+      <channel>sewasd</channel>
+      <channel>celio24</channel>
+    </channels>
+    <managers>
+      <manager>82929797939855360</manager>
+      <manager>82941457014456320</manager>
+    </managers>
+  </server>
   <server id="81276677837029376">
     <active>true</active>
     <serverID>81276677837029376</serverID>
@@ -56,27 +159,6 @@
       <manager>83308678567956480</manager>
     </managers>
   </server>
-  <server id="101291987465945088">
-    <active>true</active>
-    <serverID>101291987465945088</serverID>
-    <channelID>136923389997744128</channelID>
-    <games>
-      <game>Phantasy Star Online: Blue Burst</game>
-      <game>Phantasy Star Online Episode I &amp; II</game>
-      <game>Phantasy Star Online Episode I &amp; II Plus</game>
-      <game>Phantasy Star Online</game>
-    </games>
-    <tags>
-      <tag>glitched</tag>
-      <tag>any%</tag>
-      <tag>all missions</tag>
-      <tag>100%</tag>
-      <tag>glitchless</tag>
-    </tags>
-    <managers>
-      <manager>63263941735755776</manager>
-    </managers>
-  </server>
   <server id="84175423419744256">
     <active>true</active>
     <serverID>84175423419744256</serverID>
@@ -105,13 +187,11 @@
     <games>
       <game>Tales of Phantasia</game>
       <game>Tales of Vesperia</game>
-      <game>Tales of Symphonia</game>
       <game>Tales of Xillia</game>
       <game>Tales of Graces F</game>
       <game>Tales of Innocence</game>
       <game>Tales of Eternia</game>
       <game>Tales of Destiny</game>
-      <game>Tales of Symphonia Chronicles</game>
       <game>Tales of Graces</game>
       <game>Tales of Legendia</game>
       <game>Tales of the Abyss</game>
@@ -154,62 +234,64 @@
       <manager>103984988956917760</manager>
     </managers>
   </server>
-  <server id="130778671488172032">
+  <server id="102062028868308992">
     <active>true</active>
-    <serverID>130778671488172032</serverID>
-    <channelID>135780091572649984</channelID>
+    <serverID>102062028868308992</serverID>
+    <channelID>140913358315454466</channelID>
+    <channels>
+      <channel>deceax</channel>
+      <channel>r3dninjajosh</channel>
+      <channel>rymonol</channel>
+      <channel>a3r1us</channel>
+      <channel>darkbeardini</channel>
+      <channel>danzel_glovington</channel>
+    </channels>
+    <managers>
+      <manager>102061852833386496</manager>
+    </managers>
+  </server>
+  <server id="133282579393675264">
+    <active>true</active>
+    <serverID>133282579393675264</serverID>
+    <channelID>133283168651444225</channelID>
+    <channels>
+      <channel>klc_</channel>
+      <channel>loos_guccreen</channel>
+      <channel>wondermouleman</channel>
+      <channel>axorm</channel>
+      <channel>dio_mark_ii</channel>
+      <channel>huile_smith</channel>
+      <channel>powaman55</channel>
+      <channel>oxydoreduction</channel>
+      <channel>pcecile</channel>
+      <channel>rouksos</channel>
+      <channel>yamato_fr</channel>
+      <channel>biscuitmouth</channel>
+      <channel>whinypoo</channel>
+      <channel>hainamora</channel>
+      <channel>darkkoubi</channel>
+      <channel>jogau</channel>
+    </channels>
+    <managers>
+      <manager>95607074938949632</manager>
+      <manager>91179146989805568</manager>
+    </managers>
+  </server>
+  <server id="142371988697120768">
+    <active>true</active>
+    <serverID>142371988697120768</serverID>
+    <channelID>142374288672948225</channelID>
     <games>
-      <game>FEZ</game>
+      <game>Kalimba</game>
     </games>
     <tags>
-      <tag>speedrun</tag>
+      <tag>run</tag>
       <tag>any%</tag>
-      <tag>clockless</tag>
-      <tag>209.4%</tag>
-      <tag>derust</tag>
+      <tag>race</tag>
     </tags>
     <managers>
-      <manager>63263941735755776</manager>
-    </managers>
-  </server>
-  <server id="89893939829551104">
-    <active>true</active>
-    <serverID>89893939829551104</serverID>
-    <channelID>137196813928103937</channelID>
-    <channels>
-      <channel>twitch.tv/gedrith</channel>
-      <channel>twitch.tv/ghoul02</channel>
-      <channel>twitch.tv/kn4life2010</channel>
-      <channel>twitch.tv/trushade</channel>
-      <channel>twitch.tv/lefrozer</channel>
-      <channel>twitch.tv/ckarl_bobadine</channel>
-    </channels>
-    <managers>
-      <manager>89893748401504256</manager>
-    </managers>
-  </server>
-  <server id="130742441417375744">
-    <active>true</active>
-    <serverID>130742441417375744</serverID>
-    <channelID>130742441417375744</channelID>
-    <channels>
-      <channel>demoon9</channel>
-    </channels>
-    <managers>
-      <manager>63263941735755776</manager>
-      <manager>115941671568408582</manager>
-    </managers>
-  </server>
-  <server id="126065407504285696">
-    <active>true</active>
-    <serverID>126065407504285696</serverID>
-    <channelID>136890449762713610</channelID>
-    <games>
-      <game>Baten Kaitos: Eternal Wings and the Lost Ocean</game>
-      <game>Baten Kaitos Origins</game>
-    </games>
-    <managers>
-      <manager>83016733987704832</manager>
+      <manager>109682977520238592</manager>
+      <manager>137757065635561481</manager>
     </managers>
   </server>
   <server id="139535251235012609">
@@ -250,7 +332,6 @@
       <channel>smisher</channel>
       <channel>tenshotstv</channel>
       <channel>torikslv</channel>
-      <channel>feurigerilias</channel>
       <channel>dispersor</channel>
       <channel>lysteriha</channel>
       <channel>karl__k</channel>
@@ -363,67 +444,10 @@
       <channel>misterpost</channel>
       <channel>zoton2</channel>
       <channel>melis</channel>
-      <channel>'oasiz____'</channel>
-      <channel>`oasiz____`</channel>
+      <channel>oasiz____</channel>
     </channels>
     <managers>
       <manager>85381244245798912</manager>
-    </managers>
-  </server>
-  <server id="83564664058806272">
-    <active>true</active>
-    <serverID>83564664058806272</serverID>
-    <channelID>83564664058806272</channelID>
-    <channels>
-      <channel>torcalool</channel>
-      <channel>onizuka6669</channel>
-      <channel>d0natsu</channel>
-      <channel>erotth</channel>
-      <channel>headick</channel>
-      <channel>mr_pity</channel>
-      <channel>oxxyga</channel>
-      <channel>zelkystv</channel>
-      <channel>jeuxrome</channel>
-      <channel>marshallobob</channel>
-      <channel>harricot_beurre</channel>
-    </channels>
-    <managers>
-      <manager>82929797939855360</manager>
-      <manager>82941457014456320</manager>
-    </managers>
-  </server>
-  <server id="82567141361975296">
-    <active>true</active>
-    <serverID>82567141361975296</serverID>
-    <channelID>135845618575867904</channelID>
-    <channels>
-      <channel>forstride</channel>
-      <channel>gyoo_</channel>
-      <channel>socialspeedrunner</channel>
-      <channel>marxvile</channel>
-      <channel>chibi</channel>
-      <channel>unalive</channel>
-      <channel>huzi_</channel>
-    </channels>
-    <tags>
-      <tag>speedrun</tag>
-      <tag>any%</tag>
-      <tag>100%</tag>
-      <tag>attempt</tag>
-      <tag>no reset</tag>
-      <tag>run</tag>
-      <tag>derust</tag>
-      <tag>learn</tag>
-      <tag>practice</tag>
-      <tag>route</tag>
-      <tag>routing</tag>
-      <tag>practicing</tag>
-      <tag>rta</tag>
-      <tag>race</tag>
-      <tag>srl</tag>
-    </tags>
-    <managers>
-      <manager>70958500863287296</manager>
     </managers>
   </server>
 </servers>
