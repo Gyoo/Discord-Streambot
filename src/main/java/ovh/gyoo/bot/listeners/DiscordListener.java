@@ -92,6 +92,7 @@ public class DiscordListener extends ListenerAdapter {
     private void commands(GuildMessageReceivedEvent e, String command){
         String[] split = command.split(" ");
         String content;
+        String[] contents;
         switch(split[0]){
             case "commands":
                 e.getChannel().sendMessage(commandCommands());
@@ -115,15 +116,16 @@ public class DiscordListener extends ListenerAdapter {
             case "add":
                 if(ServerList.getInstance().getServer(e.getGuild().getId()).getManagers().contains(e.getAuthor().getId())){
                     content = command.substring(command.indexOf(" ", command.indexOf(" ")+1) + 1);
+                    contents = content.split("\\|");
                     switch (split[1]){
                         case "game":
-                            e.getChannel().sendMessage(commandAddGame(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandAddGame(e.getGuild().getId(), contents));
                             break;
                         case "channel":
-                            e.getChannel().sendMessage(commandAddChannel(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandAddChannel(e.getGuild().getId(), contents));
                             break;
                         case "tag":
-                            e.getChannel().sendMessage(commandAddTag(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandAddTag(e.getGuild().getId(), contents));
                             break;
                         case "manager":
                             e.getChannel().sendMessage(commandAddManagers(e.getGuild().getId(), e.getMessage().getMentionedUsers()));
@@ -140,15 +142,16 @@ public class DiscordListener extends ListenerAdapter {
             case "remove":
                 if(ServerList.getInstance().getServer(e.getGuild().getId()).getManagers().contains(e.getAuthor().getId())){
                     content = command.substring(command.indexOf(" ", command.indexOf(" ")+1) + 1);
+                    contents = content.split("|");
                     switch (split[1]){
                         case "game":
-                            e.getChannel().sendMessage(commandRemoveGame(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandRemoveGame(e.getGuild().getId(), contents));
                             break;
                         case "channel":
-                            e.getChannel().sendMessage(commandRemoveChannel(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandRemoveChannel(e.getGuild().getId(), contents));
                             break;
                         case "tag":
-                            e.getChannel().sendMessage(commandRemoveTag(e.getGuild().getId(), content));
+                            e.getChannel().sendMessage(commandRemoveTag(e.getGuild().getId(), contents));
                             break;
                         case "manager":
                             e.getChannel().sendMessage(commandRemoveManagers(e.getGuild().getId(), e.getAuthor().getId(), e.getMessage().getMentionedUsers()));
@@ -241,28 +244,30 @@ public class DiscordListener extends ListenerAdapter {
         return TwitchChecker.getInstance().checkStreamsPM(serverId);
     }
 
-    private Message commandAddGame(String serverId, String game){
-        boolean res = ServerList.getInstance().getServer(serverId).addGame(game);
-        if(res)
-            return new MessageBuilder()
-                .appendString("Game " + game + " added to the game list")
-                .build();
-        else
-            return new MessageBuilder()
-                .appendString("Game " + game + " is already in the game list")
-                .build();
+    private Message commandAddGame(String serverId, String[] game){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : game){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).addGame(s);
+            if(res)
+                mb.appendString("Game " + s + " added to the game list\n");
+            else
+                mb.appendString("Game " + s + " is already in the game list\n");
+        }
+        return mb.build();
     }
 
-    private Message commandRemoveGame(String serverId, String game){
-        boolean res = ServerList.getInstance().getServer(serverId).removeGame(game);
-        if(res)
-            return new MessageBuilder()
-                    .appendString("Game " + game + " removed from the game list")
-                    .build();
-        else
-            return new MessageBuilder()
-                    .appendString("Game " + game + " is not in the game list")
-                    .build();
+    private Message commandRemoveGame(String serverId, String[] game){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : game){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).removeGame(s);
+            if(res)
+                mb.appendString("Game " + s + " removed from the game list\n");
+            else
+                mb.appendString("Game " + s + " is not in the game list\n");
+        }
+        return mb.build();
     }
 
     private Message commandListGame(String serverId){
@@ -274,28 +279,30 @@ public class DiscordListener extends ListenerAdapter {
         return builder.build();
     }
 
-    private Message commandAddChannel(String serverId, String channel){
-        boolean res = ServerList.getInstance().getServer(serverId).addUser(channel.replaceAll("`", "").toLowerCase());
-        if(res)
-            return new MessageBuilder()
-                    .appendString("Channel " + channel + " added to the channels list")
-                    .build();
-        else
-            return new MessageBuilder()
-                    .appendString("Channel " + channel + " is already in the channels list")
-                    .build();
+    private Message commandAddChannel(String serverId, String[] channels){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : channels){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).addUser(s.replaceAll("`", "").toLowerCase());
+            if(res)
+                mb.appendString("Channel " + s + " added to the channels list\n");
+            else
+                mb.appendString("Channel " + s + " is already in the channels list\n");
+        }
+        return mb.build();
     }
 
-    private Message commandRemoveChannel(String serverId, String channel){
-        boolean res = ServerList.getInstance().getServer(serverId).removeUser(channel.toLowerCase());
-        if(res)
-            return new MessageBuilder()
-                    .appendString("Channel " + channel + " removed from the channels list")
-                    .build();
-        else
-            return new MessageBuilder()
-                    .appendString("Channel " + channel + " is not in the channels list")
-                    .build();
+    private Message commandRemoveChannel(String serverId, String[] channels){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : channels){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).removeUser(s.replaceAll("`", "").toLowerCase());
+            if(res)
+                mb.appendString("Channel " + s + " removed from the channels list\n");
+            else
+                mb.appendString("Channel " + s + " is not in the channels list\n");
+        }
+        return mb.build();
     }
 
     private Message commandListChannel(String serverId){
@@ -307,28 +314,30 @@ public class DiscordListener extends ListenerAdapter {
         return builder.build();
     }
 
-    private Message commandAddTag(String serverId, String tag){
-        boolean res = ServerList.getInstance().getServer(serverId).addTag(tag.toLowerCase());
-        if(res)
-            return new MessageBuilder()
-                    .appendString("Tag " + tag + " added to the tags list")
-                    .build();
-        else
-            return new MessageBuilder()
-                    .appendString("Tag " + tag + " is already in the tags list")
-                    .build();
+    private Message commandAddTag(String serverId, String[] tags){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : tags){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).addTag(s);
+            if(res)
+                mb.appendString("Tag " + s + " added to the tags list\n");
+            else
+                mb.appendString("Tag " + s + " is already in the tags list\n");
+        }
+        return mb.build();
     }
 
-    private Message commandRemoveTag(String serverId, String tag){
-        boolean res = ServerList.getInstance().getServer(serverId).removeTag(tag.toLowerCase());
-        if(res)
-            return new MessageBuilder()
-                    .appendString("Tag " + tag + " removed from the tags list")
-                    .build();
-        else
-            return new MessageBuilder()
-                    .appendString("Tag " + tag + " is not in the tags list")
-                    .build();
+    private Message commandRemoveTag(String serverId, String[] tags){
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : tags){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).removeTag(s);
+            if(res)
+                mb.appendString("Tag " + s + " removed from the tags list\n");
+            else
+                mb.appendString("Tag " + s + " is not in the tags list\n");
+        }
+        return mb.build();
     }
 
     private Message commandListTag(String serverId){
