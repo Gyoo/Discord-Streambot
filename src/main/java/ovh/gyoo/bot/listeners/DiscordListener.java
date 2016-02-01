@@ -142,7 +142,7 @@ public class DiscordListener extends ListenerAdapter {
             case "remove":
                 if(ServerList.getInstance().getServer(e.getGuild().getId()).getManagers().contains(e.getAuthor().getId())){
                     content = command.substring(command.indexOf(" ", command.indexOf(" ")+1) + 1);
-                    contents = content.split("|");
+                    contents = content.split("\\|");
                     switch (split[1]){
                         case "game":
                             e.getChannel().sendMessage(commandRemoveGame(e.getGuild().getId(), contents));
