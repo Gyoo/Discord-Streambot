@@ -8,6 +8,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import ovh.gyoo.bot.data.LocalServer;
+import ovh.gyoo.bot.data.Permissions;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -77,6 +78,30 @@ public class Logger {
                 }
                 server.addContent(managers);
             }
+
+            Element permissions = new Element("permissions");
+            for(Map.Entry<String, Permissions> permissionsEntry : entry.getValue().getPermissionsMap().entrySet()){
+                Element permission = new Element("permission");
+                permission.setAttribute("name", permissionsEntry.getKey());
+                for(Map.Entry<String, Integer> permissionEntry : permissionsEntry.getValue().getPerms().entrySet()){
+                    Element role = new Element("role");
+                    role.setAttribute("name", permissionEntry.getKey());
+                    role.setText(Integer.toString(permissionEntry.getValue()));
+                    permission.addContent(role);
+                }
+                permissions.addContent(permission);
+            }
+            server.addContent(permissions);
+
+            if(entry.getValue().getCommandsQueue().size() > 0) {
+                Element commandsQueue = new Element("commandsQueue");
+                for (String s : entry.getValue().getCommandsQueue()) {
+                    Element queue = new Element("queue");
+                    queue.setText(s);
+                    commandsQueue.addContent(queue);
+                }
+                server.addContent(commandsQueue);
+            }
         }
 
         XMLOutputter output = new XMLOutputter(Format.getPrettyFormat());
@@ -130,6 +155,24 @@ public class Logger {
                 Element managers = server.getChild("managers");
                 for (Element manager : managers.getChildren()){
                     ls.addManager(manager.getText());
+                }
+            }
+
+            if(server.getChild("permissions") != null){
+                Element permissions = server.getChild("permissions");
+                for(Element permission : permissions.getChildren()){
+                    Permissions p = new Permissions();
+                    for(Element role : permission.getChildren()){
+                        p.addPermission(role.getAttributeValue("name"), Integer.parseInt(role.getText()));
+                    }
+                    ls.addPermission(permission.getAttributeValue("name"), p);
+                }
+            }
+
+            if(server.getChild("commandsQueue") != null){
+                Element commandsQueue = server.getChild("commandsQueue");
+                for (Element command : commandsQueue.getChildren()){
+                    ls.queueCommand(command.getText());
                 }
             }
 

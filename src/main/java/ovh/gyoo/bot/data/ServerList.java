@@ -46,7 +46,4 @@ public class ServerList{
         return servers;
     }
 
-    private Object readResolve() throws ObjectStreamException {
-        return ourInstance;
-    }
 }

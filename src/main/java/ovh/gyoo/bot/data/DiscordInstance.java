@@ -7,6 +7,7 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import ovh.gyoo.bot.listeners.DiscordListener;
+import ovh.gyoo.bot.writer.Logger;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
@@ -39,7 +40,7 @@ public class DiscordInstance {
             discord = new JDABuilder(mail, pass).buildBlocking();
             discord.addEventListener(new DiscordListener(discord));
         } catch (LoginException | InterruptedException | JDOMException | IOException e) {
-            e.printStackTrace();
+            Logger.writeToErr(e.getMessage());
         }
     }
 
