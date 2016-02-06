@@ -12,9 +12,11 @@ import ovh.gyoo.bot.writer.Logger;
 import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class DiscordInstance {
     private static DiscordInstance ourInstance = new DiscordInstance();
+    private static final LinkedBlockingQueue<MessageItem> queue = new LinkedBlockingQueue<>();
     private JDA discord;
 
     public static DiscordInstance getInstance() {
@@ -25,6 +27,15 @@ public class DiscordInstance {
     }
 
     public JDA getDiscord(){return discord;}
+
+    public void addToQueue(MessageItem m){
+        synchronized (queue){
+            queue.add(m);
+            queue.notify();
+        }
+    }
+
+    public LinkedBlockingQueue<MessageItem> getQueue(){return queue;}
 
     private DiscordInstance() {
         setInstance();

@@ -9,10 +9,7 @@ import com.mb3364.twitch.api.models.Channel;
 import com.mb3364.twitch.api.models.Stream;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
-import ovh.gyoo.bot.data.DiscordInstance;
-import ovh.gyoo.bot.data.LocalServer;
-import ovh.gyoo.bot.data.OnlineMap;
-import ovh.gyoo.bot.data.ServerList;
+import ovh.gyoo.bot.data.*;
 
 import java.util.*;
 
@@ -52,7 +49,7 @@ public class TwitchChecker {
         }
     }
 
-    public void checkStreams() {
+    public void checkStreams(boolean startup) {
         List<LocalServer> servers = ServerList.getInstance().getServerList();
         for (final LocalServer server : servers) {
             if (!OnlineMap.getInstance().getMap().containsKey(server.getServerID())) OnlineMap.getInstance().addServer(server.getServerID());
@@ -88,9 +85,9 @@ public class TwitchChecker {
                                 }
                                 if (!OnlineMap.getInstance().getNameList(server.getServerID()).contains(stream.getChannel().getName())) {
                                     OnlineMap.getInstance().addToList(server.getServerID(),stream.getChannel().getName());
-                                    /*DiscordInstance.getInstance().getDiscord().getTextChannelById(server.getId()).sendMessage(new MessageBuilder()
+                                    if(!startup)DiscordInstance.getInstance().addToQueue(new MessageItem(server.getId(), MessageItem.Type.GUILD, new MessageBuilder()
                                             .appendString("NOW LIVE : `http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")")
-                                            .build());*/ //Keep this commented while testing.
+                                            .build()));
                                 }
                             }
                         }

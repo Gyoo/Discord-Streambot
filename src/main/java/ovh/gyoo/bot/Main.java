@@ -1,26 +1,26 @@
 package ovh.gyoo.bot;
 
-import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.impl.JDAImpl;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.ServerList;
 import ovh.gyoo.bot.handlers.TwitchChecker;
+import ovh.gyoo.bot.listeners.MessageConsumer;
 import ovh.gyoo.bot.writer.Logger;
 
 import javax.security.auth.login.LoginException;
-import java.io.*;
+import java.io.File;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) throws LoginException, InterruptedException {
+        boolean startup = true;
         // Twitch
         TwitchChecker.getInstance();
-        //Discord
+        // Discord
         DiscordInstance.getInstance();
-        //Backup data after restart
+        // Backup data after restart
         File f = new File("ServerList.xml");
         if(f.exists()){
             List<LocalServer> servers = Logger.loadData("ServerList.xml");
@@ -28,6 +28,9 @@ public class Main {
                 ServerList.getInstance().addServer(server.getServerID(), server);
             }
         }
+        // Message Consumer (anti rate limiter)
+        Thread messageConsumer = new MessageConsumer(DiscordInstance.getInstance().getQueue());
+        messageConsumer.start();
 
         int ticks = 0;
         while(true){
@@ -39,20 +42,21 @@ public class Main {
                 Thread.sleep(5000);
                 if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
                 {
-                    //Uh, we didn't connect again. No internet? Bad password?   You should stop completely here.
-                    //If you want, you could wait for like 5 minutes (Thread.sleep(300000)) and try the login again
-                    break;
+                    Thread.sleep(300000); //Sleep for 5 minutes, and retry
+                    continue;
                 }
             }
 
             if(ticks < 180) {
-                TwitchChecker.getInstance().checkStreams();
+                TwitchChecker.getInstance().checkStreams(startup);
                 ticks++;
             }
             else {
                 TwitchChecker.getInstance().checkStillOnline();
                 ticks = 0;
             }
+
+            startup = false;
 
             Logger.saveData(ServerList.getInstance().getMap(), "ServerList.xml");
 
