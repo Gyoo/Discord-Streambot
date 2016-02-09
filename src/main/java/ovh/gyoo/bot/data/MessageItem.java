@@ -19,8 +19,17 @@ public class MessageItem {
         id = _id;
     }
 
+    public MessageItem(String _id, Type _type){
+        type = _type;
+        id = _id;
+    }
+
     public Message getMessage() {
         return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
     }
 
     public String getId() {

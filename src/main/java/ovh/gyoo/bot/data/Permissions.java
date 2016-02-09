@@ -1,7 +1,5 @@
 package ovh.gyoo.bot.data;
 
-import net.dv8tion.jda.entities.Role;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,24 +12,11 @@ public class Permissions {
     Map<String, Integer> perms = new HashMap<>();
 
     public Permissions(){
-        perms.put("StreambotManager", USE);
+
     }
 
-    public boolean addPermission(String r, int level){
-        if(!perms.containsKey(r))
-        {
-            perms.put(r, level);
-            return true;
-        }
-        else return false;
-    }
-
-    public boolean removePermission(String r){
-        if(perms.containsKey(r)) {
-            perms.remove(r);
-            return true;
-        }
-        else return false;
+    public void addPermission(String r, int level){
+        perms.put(r, level);
     }
 
     public Map<String, Integer> getPerms() {

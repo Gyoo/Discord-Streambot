@@ -16,7 +16,7 @@ public class LocalServer{
     List<String> tagList;
     List<String> managers;
     Map<String, Permissions> permissionsMap = new HashMap<>();
-    List<String> commandsQueue = new ArrayList<>();
+    List<QueueItem> commandsQueue = new ArrayList<>();
     boolean active;
 
     public LocalServer(String id, String serverID){
@@ -31,7 +31,10 @@ public class LocalServer{
     }
 
     public void initPermissions(){
-
+        Permissions p = new Permissions();
+        p.addPermission("everyone", Permissions.FORBID);
+        addPermission("add", p);
+        addPermission("remove", p);
     }
 
     public List<String> getGameList() {
@@ -140,15 +143,19 @@ public class LocalServer{
         return permissionsMap;
     }
 
-    public void addPermission(String command, Permissions p){ //Used only when loading data from XML
+    public void addPermission(String command, Permissions p){
         permissionsMap.put(command, p);
     }
 
-    public void queueCommand(String s){
-        commandsQueue.add(s);
+    public void queueCommand(String author, String s){
+        commandsQueue.add(new QueueItem(author, s));
     }
 
-    public List<String> getCommandsQueue() {
+    public List<QueueItem> getCommandsQueue() {
         return commandsQueue;
+    }
+
+    public void clearQueue(){
+        commandsQueue.clear();
     }
 }

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <servers>
-  <server id="101291987465945088">
+  <server id="82567141361975296">
     <active>true</active>
-    <serverID>101291987465945088</serverID>
-    <channelID>136923389997744128</channelID>
-    <games>
-      <game>Phantasy Star Online: Blue Burst</game>
-      <game>Phantasy Star Online Episode I &amp; II</game>
-      <game>Phantasy Star Online Episode I &amp; II Plus</game>
-      <game>Phantasy Star Online</game>
-    </games>
-    <tags>
-      <tag>glitched</tag>
-      <tag>any%</tag>
-      <tag>all missions</tag>
-      <tag>100%</tag>
-      <tag>glitchless</tag>
-    </tags>
+    <serverID>82567141361975296</serverID>
+    <channelID>135845618575867904</channelID>
+    <channels>
+      <channel>channel forstride</channel>
+      <channel>channel gyoo_</channel>
+      <channel>channel lordmau5</channel>
+    </channels>
     <managers>
-      <manager>63263941735755776</manager>
+      <manager>70958500863287296</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">1</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <commandsQueue>
+      <queue author="A3r1uS">`!streambot add channel A3r1uS`</queue>
+    </commandsQueue>
   </server>
   <server id="130778671488172032">
     <active>true</active>
@@ -38,6 +41,14 @@
     <managers>
       <manager>63263941735755776</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="89893939829551104">
     <active>true</active>
@@ -54,30 +65,67 @@
     <managers>
       <manager>89893748401504256</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
-  <server id="130742441417375744">
+  <server id="137678375346110464">
     <active>true</active>
-    <serverID>130742441417375744</serverID>
-    <channelID>130742441417375744</channelID>
+    <serverID>137678375346110464</serverID>
+    <channelID>137678375346110464</channelID>
     <channels>
-      <channel>demoon9</channel>
+      <channel>hammertimegames</channel>
+      <channel>psuhamma</channel>
+      <channel>psujennyboo</channel>
     </channels>
     <managers>
-      <manager>63263941735755776</manager>
-      <manager>115941671568408582</manager>
+      <manager>99756869714706432</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
-  <server id="126065407504285696">
+  <server id="113297881741455360">
     <active>true</active>
-    <serverID>126065407504285696</serverID>
-    <channelID>136890449762713610</channelID>
+    <serverID>113297881741455360</serverID>
+    <channelID>144624087665213440</channelID>
     <games>
-      <game>Baten Kaitos: Eternal Wings and the Lost Ocean</game>
-      <game>Baten Kaitos Origins</game>
+      <game>Super Mario Galaxy</game>
+      <game>Super Mario Galaxy 2</game>
     </games>
+    <tags>
+      <tag>any%</tag>
+      <tag>Any%</tag>
+      <tag>Speedrun</tag>
+      <tag>speedrun</tag>
+      <tag>120</tag>
+      <tag>242</tag>
+      <tag>100%</tag>
+      <tag>run</tag>
+      <tag>Run</tag>
+      <tag>[srl]</tag>
+    </tags>
     <managers>
-      <manager>83016733987704832</manager>
+      <manager>87928853812482048</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="83564664058806272">
     <active>true</active>
@@ -97,11 +145,20 @@
       <channel>harricot_beurre</channel>
       <channel>sewasd</channel>
       <channel>celio24</channel>
+      <channel>skittleliciousx</channel>
     </channels>
     <managers>
       <manager>82929797939855360</manager>
       <manager>82941457014456320</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="81276677837029376">
     <active>true</active>
@@ -147,17 +204,14 @@
     <managers>
       <manager>70958500863287296</manager>
     </managers>
-  </server>
-  <server id="140743940545445888">
-    <active>true</active>
-    <serverID>140743940545445888</serverID>
-    <channelID>140743940545445888</channelID>
-    <channels>
-      <channel>themartonfi1228</channel>
-    </channels>
-    <managers>
-      <manager>83308678567956480</manager>
-    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="84175423419744256">
     <active>true</active>
@@ -179,6 +233,14 @@
     <managers>
       <manager>83308678567956480</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="83029388601327616">
     <active>true</active>
@@ -210,45 +272,77 @@
     <managers>
       <manager>83016733987704832</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
-  <server id="116250700685508615">
+  <server id="94656796987236352">
     <active>true</active>
-    <serverID>116250700685508615</serverID>
-    <channelID>137532566654812160</channelID>
-    <games>
-      <game>Ori and the Blind Forest</game>
-    </games>
-    <tags>
-      <tag>any%</tag>
-      <tag>All skills</tag>
-      <tag>asnoob</tag>
-      <tag>All Cells</tag>
-      <tag>speedrun</tag>
-      <tag>practice</tag>
-      <tag>no oob</tag>
-      <tag>training</tag>
-      <tag>derust</tag>
-    </tags>
-    <managers>
-      <manager>63263941735755776</manager>
-      <manager>103984988956917760</manager>
-    </managers>
-  </server>
-  <server id="102062028868308992">
-    <active>true</active>
-    <serverID>102062028868308992</serverID>
-    <channelID>140913358315454466</channelID>
+    <serverID>94656796987236352</serverID>
+    <channelID>120524234001743872</channelID>
     <channels>
-      <channel>deceax</channel>
-      <channel>r3dninjajosh</channel>
-      <channel>rymonol</channel>
-      <channel>a3r1us</channel>
-      <channel>darkbeardini</channel>
-      <channel>danzel_glovington</channel>
+      <channel>negatronbear</channel>
     </channels>
     <managers>
-      <manager>102061852833386496</manager>
+      <manager>66214870705516544</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="130718996109590538">
+    <active>true</active>
+    <serverID>130718996109590538</serverID>
+    <channelID>130718996109590538</channelID>
+    <channels>
+      <channel>makastorm</channel>
+    </channels>
+    <managers>
+      <manager>123237820977381376</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="101822561133789184">
+    <active>true</active>
+    <serverID>101822561133789184</serverID>
+    <channelID>101822561309949952</channelID>
+    <channels>
+      <channel>gearsofwar</channel>
+      <channel>oshi7</channel>
+      <channel>girlpoison</channel>
+      <channel>xminks</channel>
+      <channel>bobross</channel>
+      <channel>toysxldier</channel>
+      <channel>summit1g game grand theft auto: v</channel>
+    </channels>
+    <managers>
+      <manager>101822426681196544</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="133282579393675264">
     <active>true</active>
@@ -271,11 +365,58 @@
       <channel>hainamora</channel>
       <channel>darkkoubi</channel>
       <channel>jogau</channel>
+      <channel>frqise</channel>
+      <channel>mutsuii</channel>
     </channels>
     <managers>
       <manager>95607074938949632</manager>
       <manager>91179146989805568</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="138820679423361024">
+    <active>true</active>
+    <serverID>138820679423361024</serverID>
+    <channelID>146704839596834816</channelID>
+    <games>
+      <game>Guitar Hero Live</game>
+    </games>
+    <managers>
+      <manager>82988905682440192</manager>
+      <manager>138820121173950464</manager>
+      <manager>120973434866892802</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="126487854565163009">
+    <active>false</active>
+    <serverID>126487854565163009</serverID>
+    <channelID>126487854565163009</channelID>
+    <managers>
+      <manager>138127082390683648</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="142371988697120768">
     <active>true</active>
@@ -288,11 +429,21 @@
       <tag>run</tag>
       <tag>any%</tag>
       <tag>race</tag>
+      <tag>gold%</tag>
+      <tag>gold totem%</tag>
     </tags>
     <managers>
       <manager>109682977520238592</manager>
       <manager>137757065635561481</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
   <server id="139535251235012609">
     <active>true</active>
@@ -449,5 +600,483 @@
     <managers>
       <manager>85381244245798912</manager>
     </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="101291987465945088">
+    <active>true</active>
+    <serverID>101291987465945088</serverID>
+    <channelID>136923389997744128</channelID>
+    <games>
+      <game>Phantasy Star Online: Blue Burst</game>
+      <game>Phantasy Star Online Episode I &amp; II</game>
+      <game>Phantasy Star Online Episode I &amp; II Plus</game>
+      <game>Phantasy Star Online</game>
+    </games>
+    <tags>
+      <tag>glitched</tag>
+      <tag>any%</tag>
+      <tag>all missions</tag>
+      <tag>100%</tag>
+      <tag>glitchless</tag>
+    </tags>
+    <managers>
+      <manager>63263941735755776</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="83332588340510720">
+    <active>true</active>
+    <serverID>83332588340510720</serverID>
+    <channelID>143494634658725888</channelID>
+    <games>
+      <game>Guitar Hero Live</game>
+      <game>Guitar Hero III: Legends of Rock</game>
+      <game>Rock Band 3</game>
+      <game>Guitar Hero II</game>
+      <game>Guitar Hero</game>
+      <game>Guitar Hero World Tour</game>
+      <game>Guitar Hero: Smash Hits</game>
+      <game>Guitar Hero Encore: Rocks the 80s</game>
+      <game>Guitar Hero 5</game>
+      <game>Guitar Hero: Warriors of Rock</game>
+      <game>Guitar Hero: Metallica</game>
+      <game>Guitar Hero: Aerosmith</game>
+      <game>Guitar Hero Arcade</game>
+      <game>Guitar Hero: On Tour</game>
+      <game>Guitar Hero On Tour: Modern Hits</game>
+      <game>Guitar Hero: Van Halen</game>
+      <game>Guitar Hero On Tour: Decades</game>
+      <game>Rock Band</game>
+      <game>Rock Band 2</game>
+      <game>K-Shoot Mania</game>
+      <game>beatmania IIDX</game>
+      <game>StepMania</game>
+      <game>Phase Shift</game>
+    </games>
+    <managers>
+      <manager>82988905682440192</manager>
+      <manager>87074520778706944</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="71689324613074944">
+    <active>true</active>
+    <serverID>71689324613074944</serverID>
+    <channelID>71689324613074944</channelID>
+    <channels>
+      <channel>&lt;lirik&gt;</channel>
+      <channel>&lt;s1mpleof&gt;</channel>
+    </channels>
+    <managers>
+      <manager>71270107371802624</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="123874004640464896">
+    <active>true</active>
+    <serverID>123874004640464896</serverID>
+    <channelID>123874004640464896</channelID>
+    <channels>
+      <channel>hammertimegames</channel>
+    </channels>
+    <managers>
+      <manager>99756869714706432</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="117379472424042497">
+    <active>false</active>
+    <serverID>117379472424042497</serverID>
+    <channelID>144619191121477633</channelID>
+    <managers>
+      <manager>87928853812482048</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="83090266910621696">
+    <active>true</active>
+    <serverID>83090266910621696</serverID>
+    <channelID>143501491087343616</channelID>
+    <games>
+      <game>Tony  Hawk's Underground</game>
+      <game>Tony Hawk's Pro Skater</game>
+      <game>Tony Hawk's Pro Skater 2</game>
+      <game>Tony Hawk's Pro Skater 3</game>
+      <game>Tony Hawk's Pro Skater 4</game>
+      <game>Tony Hawk's Proving Ground</game>
+      <game>Tony Hawk's Project 8</game>
+      <game>Tony Hawk's Underground 2</game>
+      <game>Tony Hawk's American Wasteland</game>
+      <game>Tony Hawk's Pro Skater HD</game>
+      <game>Tony Hawk's Downhill Jam</game>
+      <game>Tony Hawk's Motion and Hue Pixel Painter</game>
+      <game>Tony Hawk's Underground 2: Remix</game>
+      <game>Tony Hawk's Shred Session</game>
+      <game>Tony Hawk's Pro Skater 2x</game>
+      <game>Tony Hawk's American Sk8land</game>
+      <game>Tony Hawk: RIDE</game>
+      <game>Tony Hawk's Pro Skater 5</game>
+      <game>Disney's Extreme Skate Adventure</game>
+    </games>
+    <channels>
+      <channel>chrnothesinner</channel>
+      <channel>domakr</channel>
+      <channel>moofinmoofin</channel>
+      <channel>plumato</channel>
+      <channel>pokemonace101</channel>
+      <channel>pyatters</channel>
+      <channel>asaltypickle</channel>
+      <channel>slowfreq</channel>
+      <channel>fuccboyflex</channel>
+      <channel>tkmala</channel>
+      <channel>yib123</channel>
+      <channel>subzeroreptile</channel>
+      <channel>crystal_kamikaze</channel>
+      <channel>guished</channel>
+      <channel>georgetheplushie</channel>
+      <channel>th126</channel>
+      <channel>bluemorning104</channel>
+      <channel>thepackle</channel>
+      <channel>silentlaws</channel>
+      <channel>m_tt</channel>
+      <channel>guywithalightsaber</channel>
+      <channel>papa_fog</channel>
+      <channel>theavidgamer45</channel>
+      <channel>parallaxdg</channel>
+      <channel>unpromoonz</channel>
+      <channel>111gamerguy</channel>
+      <channel>sparte19</channel>
+      <channel>horseofthesea</channel>
+      <channel>typls</channel>
+      <channel>austinthegamer</channel>
+      <channel>zen_ivan</channel>
+      <channel>nrgzam</channel>
+      <channel>deal_4_real</channel>
+      <channel>remedy1502</channel>
+      <channel>faytethps</channel>
+      <channel>crazycow013</channel>
+      <channel>darkshibara</channel>
+      <channel>creepahweegee</channel>
+      <channel>mildew0</channel>
+      <channel>fivves</channel>
+      <channel>amyrlinn</channel>
+      <channel>rhodders94</channel>
+      <channel>cmacthegreat</channel>
+      <channel>redmoss101</channel>
+      <channel>catastrophic4</channel>
+    </channels>
+    <managers>
+      <manager>82988905682440192</manager>
+      <manager>83023691486597120</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="130742441417375744">
+    <active>true</active>
+    <serverID>130742441417375744</serverID>
+    <channelID>130742441417375744</channelID>
+    <channels>
+      <channel>demoon9</channel>
+    </channels>
+    <managers>
+      <manager>63263941735755776</manager>
+      <manager>115941671568408582</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="126065407504285696">
+    <active>true</active>
+    <serverID>126065407504285696</serverID>
+    <channelID>136890449762713610</channelID>
+    <games>
+      <game>Baten Kaitos: Eternal Wings and the Lost Ocean</game>
+      <game>Baten Kaitos Origins</game>
+    </games>
+    <managers>
+      <manager>83016733987704832</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="96009747320299520">
+    <active>false</active>
+    <serverID>96009747320299520</serverID>
+    <channelID>96009747320299520</channelID>
+    <channels>
+      <channel>cirno_tv</channel>
+      <channel>gamesdonequick</channel>
+      <channel>europeanspeedsterassembly</channel>
+    </channels>
+    <managers>
+      <manager>96009429547241472</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="140743940545445888">
+    <active>true</active>
+    <serverID>140743940545445888</serverID>
+    <channelID>140743940545445888</channelID>
+    <channels>
+      <channel>themartonfi1228</channel>
+    </channels>
+    <managers>
+      <manager>83308678567956480</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="84489531616657408">
+    <active>true</active>
+    <serverID>84489531616657408</serverID>
+    <channelID>113678818769764361</channelID>
+    <channels>
+      <channel>thetechboy</channel>
+      <channel>manofbass</channel>
+      <channel>alexander_lionheart</channel>
+    </channels>
+    <managers>
+      <manager>84489176573022208</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="115262980102291460">
+    <active>true</active>
+    <serverID>115262980102291460</serverID>
+    <channelID>146623240326873088</channelID>
+    <channels>
+      <channel>mathil1</channel>
+      <channel>etup</channel>
+    </channels>
+    <managers>
+      <manager>115262332548022276</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="144182456642306052">
+    <active>true</active>
+    <serverID>144182456642306052</serverID>
+    <channelID>144230924794593281</channelID>
+    <tags>
+      <tag>Super Mario 602</tag>
+      <tag>Super Mario 246</tag>
+      <tag>Super Mario 247</tag>
+      <tag>Super Mario Any%</tag>
+    </tags>
+    <managers>
+      <manager>82592278882816000</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="116250700685508615">
+    <active>true</active>
+    <serverID>116250700685508615</serverID>
+    <channelID>137532566654812160</channelID>
+    <games>
+      <game>Ori and the Blind Forest</game>
+    </games>
+    <tags>
+      <tag>any%</tag>
+      <tag>All skills</tag>
+      <tag>asnoob</tag>
+      <tag>All Cells</tag>
+      <tag>speedrun</tag>
+      <tag>practice</tag>
+      <tag>no oob</tag>
+      <tag>training</tag>
+      <tag>derust</tag>
+    </tags>
+    <managers>
+      <manager>63263941735755776</manager>
+      <manager>103984988956917760</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="102062028868308992">
+    <active>true</active>
+    <serverID>102062028868308992</serverID>
+    <channelID>140913358315454466</channelID>
+    <channels>
+      <channel>deceax</channel>
+      <channel>r3dninjajosh</channel>
+      <channel>rymonol</channel>
+      <channel>a3r1us</channel>
+      <channel>darkbeardini</channel>
+      <channel>danzel_glovington</channel>
+    </channels>
+    <managers>
+      <manager>102061852833386496</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="126887758584217600">
+    <active>true</active>
+    <serverID>126887758584217600</serverID>
+    <channelID>144243393935966208</channelID>
+    <games>
+      <game>Mario Party</game>
+      <game>Mario Party 2</game>
+      <game>Mario Party 3</game>
+      <game>Mario Party 4</game>
+      <game>Mario Party 5</game>
+      <game>Mario Party 6</game>
+      <game>Mario Party 7</game>
+      <game>Mario Party 8</game>
+      <game>Mario Party 9</game>
+      <game>Mario Party 10</game>
+    </games>
+    <tags>
+      <tag>speedrun</tag>
+      <tag>run</tag>
+      <tag>runs</tag>
+      <tag>speedruns</tag>
+      <tag>Any%</tag>
+      <tag>100%</tag>
+      <tag>coaster</tag>
+      <tag>island</tag>
+    </tags>
+    <managers>
+      <manager>82592278882816000</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="122275215421079552">
+    <active>true</active>
+    <serverID>122275215421079552</serverID>
+    <channelID>136383840980566016</channelID>
+    <channels>
+      <channel>channel hermelinkluntjes</channel>
+      <channel>mraptor</channel>
+      <channel>gsl</channel>
+      <channel>nowado</channel>
+      <channel>t00l91</channel>
+    </channels>
+    <managers>
+      <manager>121927331815227392</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
   </server>
 </servers>

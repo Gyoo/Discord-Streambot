@@ -30,25 +30,6 @@ public class TwitchChecker {
         OnlineMap.getInstance();
     }
 
-    public Message checkStreamsPM(String serverId){
-        if(!OnlineMap.getInstance().getMap().containsKey(serverId)){
-            OnlineMap.getInstance().addServer(serverId);
-            return new MessageBuilder()
-                    .appendString("No streams online ! :(")
-                    .build();
-        }
-        else{
-            if(OnlineMap.getInstance().getNameList(serverId).size() == 0) return new MessageBuilder()
-                    .appendString("No streams online ! :(")
-                    .build();
-            MessageBuilder builder = new MessageBuilder();
-            for(String name : OnlineMap.getInstance().getNameList(serverId)){
-                builder.appendString("http://twitch.tv/" + name + "\n");
-            }
-            return builder.build();
-        }
-    }
-
     public void checkStreams(boolean startup) {
         List<LocalServer> servers = ServerList.getInstance().getServerList();
         for (final LocalServer server : servers) {

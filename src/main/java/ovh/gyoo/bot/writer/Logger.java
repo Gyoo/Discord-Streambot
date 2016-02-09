@@ -7,14 +7,13 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.Permissions;
+import ovh.gyoo.bot.data.QueueItem;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Logger {
 
@@ -95,9 +94,10 @@ public class Logger {
 
             if(entry.getValue().getCommandsQueue().size() > 0) {
                 Element commandsQueue = new Element("commandsQueue");
-                for (String s : entry.getValue().getCommandsQueue()) {
+                for (QueueItem i : entry.getValue().getCommandsQueue()) {
                     Element queue = new Element("queue");
-                    queue.setText(s);
+                    queue.setText(i.getCommand());
+                    queue.setAttribute("author", i.getAuthor());
                     commandsQueue.addContent(queue);
                 }
                 server.addContent(commandsQueue);
@@ -127,7 +127,7 @@ public class Logger {
             String channelID = server.getChild("channelID").getText();
             String serverID = server.getChild("serverID").getText();
             LocalServer ls = new LocalServer(channelID, serverID);
-
+            if(null == DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID())) continue;
             if(Boolean.parseBoolean(server.getChild("active").getText())) ls.activate();
 
             if(server.getChild("games") != null){
@@ -172,7 +172,7 @@ public class Logger {
             if(server.getChild("commandsQueue") != null){
                 Element commandsQueue = server.getChild("commandsQueue");
                 for (Element command : commandsQueue.getChildren()){
-                    ls.queueCommand(command.getText());
+                    ls.queueCommand(command.getAttributeValue("author"), command.getText());
                 }
             }
 
