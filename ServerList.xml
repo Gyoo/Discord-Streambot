@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <servers>
+  <server id="96686699341430784">
+    <active>true</active>
+    <serverID>96686699341430784</serverID>
+    <channelID>147168397799456772</channelID>
+    <games>
+      <game>Chrono Trigger</game>
+      <game>Chrono Cross</game>
+    </games>
+    <channels>
+      <channel>elgranjerry</channel>
+      <channel>redslash</channel>
+      <channel>drunkendraconian</channel>
+      <channel>evilash25</channel>
+      <channel>sentulututu</channel>
+      <channel>dogleaf</channel>
+      <channel>mardln</channel>
+      <channel>sneswarrior</channel>
+      <channel>ottavino</channel>
+      <channel>obdajr</channel>
+      <channel>elmagus</channel>
+      <channel>kehanort</channel>
+      <channel>gand988</channel>
+      <channel>downtheupstair</channel>
+      <channel>nihil922</channel>
+      <channel>cronokirby</channel>
+      <channel>avonis</channel>
+      <channel>essentiafour</channel>
+      <channel>cha0stwitch</channel>
+      <channel>jackafur</channel>
+      <channel>0xa101</channel>
+      <channel>kilaye</channel>
+      <channel>jialora</channel>
+      <channel>fatmn</channel>
+      <channel>grondious60</channel>
+      <channel>runnerwatcher</channel>
+      <channel>acefrog</channel>
+      <channel>redballoonman</channel>
+      <channel>eildydar</channel>
+      <channel>albrecht84</channel>
+    </channels>
+    <managers>
+      <manager>85786758255480832</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
   <server id="82567141361975296">
     <active>true</active>
     <serverID>82567141361975296</serverID>
     <channelID>135845618575867904</channelID>
     <channels>
-      <channel>channel forstride</channel>
-      <channel>channel gyoo_</channel>
-      <channel>channel lordmau5</channel>
+      <channel>forstride</channel>
+      <channel>gyoo_</channel>
+      <channel>lordmau5</channel>
+      <channel>a3r1us</channel>
+      <channel>dylaneka</channel>
+      <channel>glasnonck</channel>
+      <channel>xcrowstorm</channel>
+      <channel>yoshipro101</channel>
+      <channel>flemmethmaster</channel>
+      <channel>piorrro33</channel>
+      <channel>socialspeedrunner</channel>
+      <channel>riekeltje</channel>
+      <channel>djfpaul</channel>
+      <channel>celestics</channel>
+      <channel>marxvile</channel>
     </channels>
     <managers>
       <manager>70958500863287296</manager>
@@ -20,9 +84,6 @@
         <role name="everyone">2</role>
       </permission>
     </permissions>
-    <commandsQueue>
-      <queue author="A3r1uS">`!streambot add channel A3r1uS`</queue>
-    </commandsQueue>
   </server>
   <server id="130778671488172032">
     <active>true</active>
@@ -160,6 +221,27 @@
       </permission>
     </permissions>
   </server>
+  <server id="146442822659080192">
+    <active>true</active>
+    <serverID>146442822659080192</serverID>
+    <channelID>146442822659080192</channelID>
+    <channels>
+      <channel>contra_x</channel>
+      <channel>mlynx_gaming</channel>
+      <channel>ztharris</channel>
+    </channels>
+    <managers>
+      <manager>146442705256316929</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
   <server id="81276677837029376">
     <active>true</active>
     <serverID>81276677837029376</serverID>
@@ -210,6 +292,25 @@
       </permission>
       <permission name="remove">
         <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="140118896655990784">
+    <active>true</active>
+    <serverID>140118896655990784</serverID>
+    <channelID>145968283026194432</channelID>
+    <channels>
+      <channel>anticheatbot</channel>
+    </channels>
+    <managers>
+      <manager>101219518021406720</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="145966975007457281">0</role>
+      </permission>
+      <permission name="remove">
+        <role name="140122304037257216">0</role>
       </permission>
     </permissions>
   </server>
@@ -281,6 +382,30 @@
       </permission>
     </permissions>
   </server>
+  <server id="96290311310962688">
+    <active>true</active>
+    <serverID>96290311310962688</serverID>
+    <channelID>96290311310962688</channelID>
+    <channels>
+      <channel>tsuken</channel>
+      <channel>iateyourpie</channel>
+      <channel>charliewinsmore</channel>
+      <channel>emraldgames</channel>
+      <channel>rabidbasher</channel>
+      <channel>dreynbolt</channel>
+    </channels>
+    <managers>
+      <manager>72117869726412800</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="96387366612107264">0</role>
+      </permission>
+      <permission name="remove">
+        <role name="96387366612107264">0</role>
+      </permission>
+    </permissions>
+  </server>
   <server id="94656796987236352">
     <active>true</active>
     <serverID>94656796987236352</serverID>
@@ -309,31 +434,6 @@
     </channels>
     <managers>
       <manager>123237820977381376</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-  </server>
-  <server id="101822561133789184">
-    <active>true</active>
-    <serverID>101822561133789184</serverID>
-    <channelID>101822561309949952</channelID>
-    <channels>
-      <channel>gearsofwar</channel>
-      <channel>oshi7</channel>
-      <channel>girlpoison</channel>
-      <channel>xminks</channel>
-      <channel>bobross</channel>
-      <channel>toysxldier</channel>
-      <channel>summit1g game grand theft auto: v</channel>
-    </channels>
-    <managers>
-      <manager>101822426681196544</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -403,11 +503,11 @@
     </permissions>
   </server>
   <server id="126487854565163009">
-    <active>false</active>
+    <active>true</active>
     <serverID>126487854565163009</serverID>
     <channelID>126487854565163009</channelID>
     <managers>
-      <manager>138127082390683648</manager>
+      <manager>126486773252489216</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -687,6 +787,10 @@
     <channels>
       <channel>&lt;lirik&gt;</channel>
       <channel>&lt;s1mpleof&gt;</channel>
+      <channel>almostas</channel>
+      <channel>lirik</channel>
+      <channel>s1mpleof</channel>
+      <channel>psisyndicate</channel>
     </channels>
     <managers>
       <manager>71270107371802624</manager>
@@ -806,10 +910,27 @@
       <channel>cmacthegreat</channel>
       <channel>redmoss101</channel>
       <channel>catastrophic4</channel>
+      <channel>brobuzz</channel>
     </channels>
     <managers>
       <manager>82988905682440192</manager>
       <manager>83023691486597120</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="83118046553575424">
+    <active>false</active>
+    <serverID>83118046553575424</serverID>
+    <channelID>83118046553575424</channelID>
+    <managers>
+      <manager>83086470755123200</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -927,7 +1048,6 @@
     <channelID>146623240326873088</channelID>
     <channels>
       <channel>mathil1</channel>
-      <channel>etup</channel>
     </channels>
     <managers>
       <manager>115262332548022276</manager>
@@ -935,6 +1055,29 @@
     <permissions>
       <permission name="add">
         <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="147371246554710016">
+    <active>true</active>
+    <serverID>147371246554710016</serverID>
+    <channelID>147371246554710016</channelID>
+    <channels>
+      <channel>anticheatbot</channel>
+      <channel>smitegame</channel>
+      <channel>izakooo</channel>
+    </channels>
+    <managers>
+      <manager>101219518021406720</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="147389304577064971">0</role>
+        <role name="everyone">2</role>
+        <role name="147389109831204864">0</role>
       </permission>
       <permission name="remove">
         <role name="everyone">2</role>
@@ -953,6 +1096,45 @@
     </tags>
     <managers>
       <manager>82592278882816000</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="135128329631039488">
+    <active>false</active>
+    <serverID>135128329631039488</serverID>
+    <channelID>146026322710364160</channelID>
+    <managers>
+      <manager>135128334219739136</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+  </server>
+  <server id="95447749507416064">
+    <active>false</active>
+    <serverID>95447749507416064</serverID>
+    <channelID>147352372543225856</channelID>
+    <channels>
+      <channel>pkmntrainergian</channel>
+      <channel>fomako</channel>
+      <channel>sh4de17</channel>
+      <channel>kawaiikollective</channel>
+      <channel>damarshm0nster</channel>
+    </channels>
+    <managers>
+      <manager>83010557455634432</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -1061,11 +1243,12 @@
     <serverID>122275215421079552</serverID>
     <channelID>136383840980566016</channelID>
     <channels>
-      <channel>channel hermelinkluntjes</channel>
+      <channel>hermelinkluntjes</channel>
       <channel>mraptor</channel>
       <channel>gsl</channel>
       <channel>nowado</channel>
       <channel>t00l91</channel>
+      <channel>dodopole</channel>
     </channels>
     <managers>
       <manager>121927331815227392</manager>

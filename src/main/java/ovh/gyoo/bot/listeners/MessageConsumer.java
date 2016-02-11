@@ -56,7 +56,7 @@ public class MessageConsumer extends Thread {
                         case PRIVATE:
                             DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
                             break;
-                    } //Keep this commented while testing.
+                    } //Keep this switch commented while testing.
                 }catch(JSONException e){
                     Logger.writeToErr(e.getMessage());
                 }

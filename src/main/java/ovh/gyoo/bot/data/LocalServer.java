@@ -34,6 +34,8 @@ public class LocalServer{
         Permissions p = new Permissions();
         p.addPermission("everyone", Permissions.FORBID);
         addPermission("add", p);
+        p = new Permissions();
+        p.addPermission("everyone", Permissions.FORBID);
         addPermission("remove", p);
     }
 

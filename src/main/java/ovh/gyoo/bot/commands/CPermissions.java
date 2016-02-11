@@ -79,7 +79,7 @@ public class CPermissions implements Command{
                 DiscordInstance.getInstance().addToQueue(message);
                 return;
             }
-            Permissions p = new Permissions();
+            Permissions p = ServerList.getInstance().getServer(e.getGuild().getId()).getPermissionsMap().get(command);
             p.addPermission(role, type);
             ServerList.getInstance().getServer(e.getGuild().getId()).addPermission(command, p);
             message.setMessage(new MessageBuilder()

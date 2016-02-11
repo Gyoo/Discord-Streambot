@@ -119,7 +119,7 @@ public class DiscordListener extends ListenerAdapter {
         if(commandMap.containsKey(split[0]))
             commandMap.get(split[0]).execute(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), content);
         else
-            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                     .appendString("Unknown command")
                     .build()));
     }

@@ -34,7 +34,7 @@ public class CList implements Command{
                 list = ls.getManagers();
                 break;
             default:
-                DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                DiscordInstance.getInstance().addToQueue(new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                         .appendString("Unknown option : " + content)
                         .build()));
                 return;
