@@ -26,7 +26,8 @@ public class OnlineMap {
     }
 
     public synchronized void removeFromList(String serverId, String name){
-        if(online.get(serverId).contains(name)) online.get(serverId).remove(name);
+        StreamInfo temp = new StreamInfo(name);
+        if(online.get(serverId).contains(temp)) online.get(serverId).remove(temp);
     }
 
     public synchronized void addServer(String serverId){

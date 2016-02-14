@@ -36,7 +36,7 @@ public class MessageConsumer extends Thread {
                 if(delta/1000.0<10.0){
                     nbMessages++;
                     if(nbMessages > 9) {
-                        Thread.sleep(11000-delta); //Getting an extra 1 second margin just in case
+                        Thread.sleep(10000);
                         nbMessages = 0;
                     }
                 }
@@ -46,7 +46,7 @@ public class MessageConsumer extends Thread {
                 }
 
                 try{
-                    switch(work.getType()){
+                    /*switch(work.getType()){
                         case GUILD:
                             User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
                             if(null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
@@ -56,7 +56,7 @@ public class MessageConsumer extends Thread {
                         case PRIVATE:
                             DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
                             break;
-                    } //Keep this switch commented while testing.
+                    }*/ //Keep this switch commented while testing.
                 }catch(JSONException e){
                     Logger.writeToErr(e.getMessage());
                 }

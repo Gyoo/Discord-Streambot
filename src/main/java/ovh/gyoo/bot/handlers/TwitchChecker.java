@@ -64,8 +64,8 @@ public class TwitchChecker {
                                     }
                                     if (!hasTag) continue;
                                 }
-                                if (!OnlineMap.getInstance().getStreamList(server.getServerID()).contains(stream.getChannel().getName())) {
-                                    StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
+                                StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
+                                if (!OnlineMap.getInstance().getStreamList(server.getServerID()).contains(streamInfo)) {
                                     OnlineMap.getInstance().addToList(server.getServerID(),streamInfo);
                                     if(!startup){
                                         MessageBuilder builder = new MessageBuilder();

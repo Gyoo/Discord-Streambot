@@ -14,6 +14,10 @@ public class StreamInfo {
         this.title = title;
     }
 
+    public StreamInfo(String name) {
+        this.name = name;
+    }
+
     public String getLink() {
         return link;
     }
@@ -39,19 +43,12 @@ public class StreamInfo {
             retVal = ptr.getName().equals(this.name);
         }
 
-        else if (v instanceof String){
-            String ptr = (String) v;
-            retVal = this.name.equals(ptr);
-        }
-
         return retVal;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + (this.name != null ? this.name.hashCode() : 0);
-        return hash;
+        return name.hashCode();
     }
 
 }
