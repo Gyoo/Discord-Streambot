@@ -66,9 +66,12 @@ public class TwitchChecker {
                                 }
                                 if (!OnlineMap.getInstance().getNameList(server.getServerID()).contains(stream.getChannel().getName())) {
                                     OnlineMap.getInstance().addToList(server.getServerID(),stream.getChannel().getName());
-                                    if(!startup)DiscordInstance.getInstance().addToQueue(new MessageItem(server.getId(), MessageItem.Type.GUILD, new MessageBuilder()
-                                            .appendString("NOW LIVE : `http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")")
-                                            .build()));
+                                    if(!startup){
+                                        MessageBuilder builder = new MessageBuilder();
+                                        if(server.getToggles().get("everyone")) builder.appendEveryoneMention().appendString(" ");
+                                        builder.appendString("NOW LIVE : `http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
+                                        DiscordInstance.getInstance().addToQueue(new MessageItem(server.getId(), MessageItem.Type.GUILD, builder.build()));
+                                    }
                                 }
                             }
                         }

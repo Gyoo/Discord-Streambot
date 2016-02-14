@@ -92,6 +92,15 @@ public class Logger {
             }
             server.addContent(permissions);
 
+            Element toggles = new Element("toggles");
+            for(Map.Entry<String, Boolean> toggleEntry : entry.getValue().getToggles().entrySet()){
+                Element toggle = new Element("toggle");
+                toggle.setAttribute("name", toggleEntry.getKey());
+                toggle.setText(toggleEntry.getValue().toString());
+                toggles.addContent(toggle);
+            }
+            server.addContent(toggles);
+
             if(entry.getValue().getCommandsQueue().size() > 0) {
                 Element commandsQueue = new Element("commandsQueue");
                 for (QueueItem i : entry.getValue().getCommandsQueue()) {
@@ -166,6 +175,13 @@ public class Logger {
                         p.addPermission(role.getAttributeValue("name"), Integer.parseInt(role.getText()));
                     }
                     ls.addPermission(permission.getAttributeValue("name"), p);
+                }
+            }
+
+            if(server.getChild("toggles") != null){
+                Element toggles = server.getChild("toggless");
+                for(Element toggle : toggles.getChildren()){
+                    ls.addToggle(toggle.getAttributeValue("name"), Boolean.parseBoolean(toggle.getText()));
                 }
             }
 
