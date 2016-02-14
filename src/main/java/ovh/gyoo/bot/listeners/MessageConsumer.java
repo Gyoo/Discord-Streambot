@@ -36,7 +36,7 @@ public class MessageConsumer extends Thread {
                 if(delta/1000.0<10.0){
                     nbMessages++;
                     if(nbMessages > 9) {
-                        Thread.sleep(delta);
+                        Thread.sleep(11000-delta); //Getting an extra 1 second margin just in case
                         nbMessages = 0;
                     }
                 }

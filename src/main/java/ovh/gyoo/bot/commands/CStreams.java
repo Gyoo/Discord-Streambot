@@ -5,6 +5,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
 import ovh.gyoo.bot.data.OnlineMap;
+import ovh.gyoo.bot.data.StreamInfo;
 
 public class CStreams implements Command {
 
@@ -21,12 +22,12 @@ public class CStreams implements Command {
                     .build());
         }
         else{
-            if(OnlineMap.getInstance().getNameList(e.getGuild().getId()).size() == 0) message.setMessage(new MessageBuilder()
+            if(OnlineMap.getInstance().getStreamList(e.getGuild().getId()).size() == 0) message.setMessage(new MessageBuilder()
                     .appendString("No streams online ! :(")
                     .build());
             MessageBuilder builder = new MessageBuilder();
-            for(String name : OnlineMap.getInstance().getNameList(e.getGuild().getId())){
-                builder.appendString("http://twitch.tv/" + name + "\n");
+            for(StreamInfo stream : OnlineMap.getInstance().getStreamList(e.getGuild().getId())){
+                builder.appendString(stream.getName() + " playing " + stream.getGame() + " at `" + stream.getLink() + "` : " + stream.getTitle() + "\n");
             }
             message.setMessage(builder.build());
         }

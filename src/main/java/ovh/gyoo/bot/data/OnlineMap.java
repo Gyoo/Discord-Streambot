@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class OnlineMap {
     private static OnlineMap ourInstance = new OnlineMap();
-    private Map<String, List<String>> online;
+    private Map<String, List<StreamInfo>> online;
 
     public static synchronized OnlineMap getInstance() {
         return ourInstance;
@@ -17,12 +17,12 @@ public class OnlineMap {
         online = new HashMap<>();
     }
 
-    public synchronized List<String> getNameList(String serverId){
+    public synchronized List<StreamInfo> getStreamList(String serverId){
         return online.get(serverId);
     }
 
-    public synchronized void addToList(String serverId, String name){
-        online.get(serverId).add(name);
+    public synchronized void addToList(String serverId, StreamInfo stream){
+        online.get(serverId).add(stream);
     }
 
     public synchronized void removeFromList(String serverId, String name){
@@ -33,7 +33,7 @@ public class OnlineMap {
         online.put(serverId, new ArrayList<>());
     }
 
-    public synchronized Map<String, List<String>> getMap(){
+    public synchronized Map<String, List<StreamInfo>> getMap(){
         return online;
     }
 }

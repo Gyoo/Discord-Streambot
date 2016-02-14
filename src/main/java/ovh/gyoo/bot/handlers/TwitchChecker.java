@@ -64,8 +64,9 @@ public class TwitchChecker {
                                     }
                                     if (!hasTag) continue;
                                 }
-                                if (!OnlineMap.getInstance().getNameList(server.getServerID()).contains(stream.getChannel().getName())) {
-                                    OnlineMap.getInstance().addToList(server.getServerID(),stream.getChannel().getName());
+                                if (!OnlineMap.getInstance().getStreamList(server.getServerID()).contains(stream.getChannel().getName())) {
+                                    StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
+                                    OnlineMap.getInstance().addToList(server.getServerID(),streamInfo);
                                     if(!startup){
                                         MessageBuilder builder = new MessageBuilder();
                                         if(server.getToggles().get("everyone")) builder.appendEveryoneMention().appendString(" ");
@@ -95,13 +96,13 @@ public class TwitchChecker {
     public void checkStillOnline() {
         List<LocalServer> servers = ServerList.getInstance().getServerList();
         for (final LocalServer server : servers) {
-            if (OnlineMap.getInstance().getNameList(server.getServerID()).size() > 0) {
-                for (final String name : OnlineMap.getInstance().getNameList(server.getServerID()))
-                    twitch.streams().get(name, new StreamResponseHandler() {
+            if (OnlineMap.getInstance().getStreamList(server.getServerID()).size() > 0) {
+                for (final StreamInfo streamInfo : OnlineMap.getInstance().getStreamList(server.getServerID()))
+                    twitch.streams().get(streamInfo.getName(), new StreamResponseHandler() {
                         @Override
                         public void onSuccess(Stream stream) {
                             if(null == stream){
-                                OnlineMap.getInstance().removeFromList(server.getServerID(), name);
+                                OnlineMap.getInstance().removeFromList(server.getServerID(), streamInfo.getName());
                             }
                         }
 
