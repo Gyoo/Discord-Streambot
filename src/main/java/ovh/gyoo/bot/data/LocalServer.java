@@ -1,5 +1,6 @@
 package ovh.gyoo.bot.data;
 
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.entities.Role;
 
 import java.util.ArrayList;
@@ -143,6 +144,27 @@ public class LocalServer{
 
     public Map<String, Permissions> getPermissionsMap() {
         return permissionsMap;
+    }
+
+    public List<String> getPermissionsList(){
+        JDA api = DiscordInstance.getInstance().getDiscord();
+        List<String> list = new ArrayList<>();
+        for(Map.Entry<String, Permissions> entry : permissionsMap.entrySet()){
+            for(Map.Entry<String, Integer> permsEntry : entry.getValue().getPerms().entrySet()){
+                String role = "";
+                if(permsEntry.getKey().equals("everyone")) role = "everyone";
+                else{
+                    for(Role r : api.getGuildById(serverID).getRoles()) {
+                        if(permsEntry.getKey().equals(r.getId())) {
+                            role = r.getName();
+                            break;
+                        }
+                    }
+                }
+                list.add(entry.getKey() + ": " + role + " -> " + Permissions.getPermissionLevel(permsEntry.getValue()));
+            }
+        }
+        return list;
     }
 
     public void addPermission(String command, Permissions p){

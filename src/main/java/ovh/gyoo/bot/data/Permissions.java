@@ -22,4 +22,17 @@ public class Permissions {
     public Map<String, Integer> getPerms() {
         return perms;
     }
+
+    public static String getPermissionLevel(int i){
+        switch(i){
+            case USE :
+                return "Use";
+            case QUEUE :
+                return "Queue";
+            case FORBID :
+                return "Forbid";
+            default :
+                return "Unknown";
+        }
+    }
 }
