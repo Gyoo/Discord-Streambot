@@ -35,6 +35,7 @@ public class DiscordListener extends ListenerAdapter {
         commandMap.put(CAdd.name, new CAdd());
         commandMap.put(CRemove.name, new CRemove());
         commandMap.put(CPermissions.name, new CPermissions());
+        commandMap.put(CToggle.name, new CToggle());
         commandMap.put(CList.name, new CList());
         commandMap.put(CEnable.name, new CEnable());
         commandMap.put(CDisable.name, new CDisable());
