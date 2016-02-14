@@ -5,6 +5,7 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.*;
 import net.dv8tion.jda.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.events.guild.GuildLeaveEvent;
+import net.dv8tion.jda.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.events.message.priv.PrivateMessageReceivedEvent;
@@ -80,6 +81,20 @@ public class DiscordListener extends ListenerAdapter {
     @Override
     public void onGuildLeave(GuildLeaveEvent e){
         ServerList.getInstance().removeServer(e.getGuild().getId());
+    }
+
+    @Override
+    public void onGuildMemberJoin(GuildMemberJoinEvent e){
+        MessageItem message = new MessageItem(e.getUser().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+        MessageBuilder builder = new MessageBuilder();
+        builder.appendString("Hello " + e.getUser().getUsername() + "!\n");
+        builder.appendString("If you wish to add me to your server, type `!invite <invite link>` on the #invite channel of my server.\n");
+        builder.appendString("Then, you can follow the guidelines in #faq to set me up!\n");
+        builder.appendString("If you forgot the commands, type `!streambot commands` or `!streambot help` on **your** server.\n");
+        builder.appendString("Don't hesitate to ask questions to Gyoo, my creator!\n");
+        builder.appendString("Hope you'll enjoy my work!");
+        message.setMessage(builder.build());
+        DiscordInstance.getInstance().addToQueue(message);
     }
 
     private void invite(GuildMessageReceivedEvent e){

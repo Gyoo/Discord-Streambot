@@ -179,7 +179,7 @@ public class Logger {
             }
 
             if(server.getChild("toggles") != null){
-                Element toggles = server.getChild("toggless");
+                Element toggles = server.getChild("toggles");
                 for(Element toggle : toggles.getChildren()){
                     ls.addToggle(toggle.getAttributeValue("name"), Boolean.parseBoolean(toggle.getText()));
                 }
