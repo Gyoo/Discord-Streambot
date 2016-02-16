@@ -6,6 +6,7 @@ import net.dv8tion.jda.entities.*;
 import net.dv8tion.jda.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.events.message.GenericMessageEvent;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.events.message.priv.PrivateMessageReceivedEvent;
@@ -55,7 +56,7 @@ public class DiscordListener extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent e){
         if (e.getChannel().getId().equals("131483070464393216") && e.getMessage().getContent().startsWith("!invite")){
-            invite(e);
+            inviteFromGuild(e);
         }
         if (e.getMessage().getContent().startsWith("!streambot")){
             commands(e, e.getMessage().getContent().substring(11));
@@ -64,6 +65,9 @@ public class DiscordListener extends ListenerAdapter {
 
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent e){
+        if (e.getMessage().getContent().startsWith("!invite")){
+            inviteFromDM(e);
+        }
         if (e.getMessage().getContent().equals("!streambot servers")){
             commandMap.get("servers").execute(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), "");
         }
@@ -86,26 +90,24 @@ public class DiscordListener extends ListenerAdapter {
 
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent e){
-        MessageItem message = new MessageItem(e.getUser().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
-        MessageBuilder builder = new MessageBuilder();
-        builder.appendString("Hello " + e.getUser().getUsername() + "!\n");
-        builder.appendString("If you wish to add me to your server, type `!invite <invite link>` on the #invite channel of my server.\n");
-        builder.appendString("Then, you can follow the guidelines in #faq to set me up!\n");
-        builder.appendString("If you forgot the commands, type `!streambot commands` or `!streambot help` on **your** server.\n");
-        builder.appendString("Don't hesitate to ask questions to Gyoo, my creator!\n");
-        builder.appendString("Hope you'll enjoy my work!");
-        message.setMessage(builder.build());
-        DiscordInstance.getInstance().addToQueue(message);
+        if(e.getGuild().getId().equals("131483070464393216")){
+            MessageItem message = new MessageItem(e.getUser().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+            MessageBuilder builder = new MessageBuilder();
+            builder.appendString("Hello " + e.getUser().getUsername() + "!\n");
+            builder.appendString("If you wish to add me to your server, type `!invite <invite link>` on the #invite channel of my server.\n");
+            builder.appendString("Then, you can follow the guidelines in #faq to set me up!\n");
+            builder.appendString("If you forgot the commands, type `!streambot commands` or `!streambot help` on **your** server.\n");
+            builder.appendString("Don't hesitate to ask questions to Gyoo, my creator!\n");
+            builder.appendString("Hope you'll enjoy my work!");
+            message.setMessage(builder.build());
+            DiscordInstance.getInstance().addToQueue(message);
+        }
     }
 
-    private void invite(GuildMessageReceivedEvent e){
+    private void inviteFromGuild(GuildMessageReceivedEvent e){
         String[] strings = e.getMessage().getContent().split(" ");
         InviteUtil.Invite i = InviteUtil.resolve(strings[1]);
-        InviteUtil.join(i, api);
-        if(null == ServerList.getInstance().getServer(i.getGuildId())){
-            LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
-            ls.addManager(e.getAuthor().getId());
-            ServerList.getInstance().addServer(i.getGuildId(), ls);
+        if(invite(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), i)){
             DiscordInstance.getInstance().addToQueue(new MessageItem(e.getChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                     .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !")
                     .build()));
@@ -115,6 +117,34 @@ public class DiscordListener extends ListenerAdapter {
         else e.getChannel().sendMessage(new MessageBuilder()
                 .appendString("Error : Streambot already settled on channel #" + api.getTextChannelById(ServerList.getInstance().getServer(i.getGuildId()).getId()).getName() + " for this server")
                 .build());
+    }
+
+    private void inviteFromDM(PrivateMessageReceivedEvent e){
+        String[] strings = e.getMessage().getContent().split(" ");
+        InviteUtil.Invite i = InviteUtil.resolve(strings[1]);
+        if(invite(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), i)){
+            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+                    .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !\n")
+                    .appendString("For help and feedback, make sure to join my server and ask Gyoo to give you the User role !\n")
+                    .appendString(InviteUtil
+                            .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"),e.getJDA())
+                            .getUrl())
+                    .build()));
+        }
+        else e.getChannel().sendMessage(new MessageBuilder()
+                .appendString("Error : Streambot already settled on channel #" + api.getTextChannelById(ServerList.getInstance().getServer(i.getGuildId()).getId()).getName() + " for this server")
+                .build());
+    }
+
+    private boolean invite(MessageReceivedEvent e, InviteUtil.Invite i){
+        if(null == ServerList.getInstance().getServer(i.getGuildId())){
+            InviteUtil.join(i, api);
+            LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
+            ls.addManager(e.getAuthor().getId());
+            ServerList.getInstance().addServer(i.getGuildId(), ls);
+            return true;
+        }
+        else return false;
     }
 
     private void commands(GuildMessageReceivedEvent e, String command){

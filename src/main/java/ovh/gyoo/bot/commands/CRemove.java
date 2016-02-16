@@ -113,21 +113,25 @@ public class CRemove implements Command {
 
     private Message removeManagers(String serverId, String userId, List<User> users){
         MessageBuilder builder = new MessageBuilder();
-        for(User u : users){
-            if(ServerList.getInstance().getServer(serverId).getManagers().size() == 1){
-                builder.appendString("Cannot remove managers : There must be at least one manager per server\n");
-                break;
+        LocalServer ls = ServerList.getInstance().getServer(serverId);
+        if(ls.getManagers().contains(userId)) {
+            for (User u : users) {
+                if (ServerList.getInstance().getServer(serverId).getManagers().size() == 1) {
+                    builder.appendString("Cannot remove managers : There must be at least one manager per server\n");
+                    break;
+                }
+                if (userId.equals(u.getId())) {
+                    builder.appendString("You cannot remove yourself !\n");
+                    continue;
+                }
+                boolean res = ServerList.getInstance().getServer(serverId).removeManager(u.getId());
+                if (res)
+                    builder.appendString("User " + u.getUsername() + " removed from the managers list\n");
+                else
+                    builder.appendString("User " + u.getUsername() + " is not in the managers list\n");
             }
-            if(userId.equals(u.getId())){
-                builder.appendString("You cannot remove yourself !\n");
-                continue;
-            }
-            boolean res = ServerList.getInstance().getServer(serverId).removeManager(u.getId());
-            if(res)
-                builder.appendString("User " + u.getUsername() + " removed from the managers list\n");
-            else
-                builder.appendString("User " + u.getUsername() + " is not in the managers list\n");
         }
+        else builder.appendString("You are not allowed to use this command");
         return builder.build();
     }
 }

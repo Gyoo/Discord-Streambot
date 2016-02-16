@@ -39,7 +39,7 @@ public class CAdd implements Command{
                     message.setMessage(addTag(e.getGuild().getId(), contents));
                     break;
                 case "manager":
-                    message.setMessage(addManagers(e.getGuild().getId(), e.getMessage().getMentionedUsers()));
+                    message.setMessage(addManagers(e.getGuild().getId(), e.getMessage().getMentionedUsers(), e.getAuthor().getId()));
                     break;
                 default:
                     message.setMessage(new MessageBuilder()
@@ -112,15 +112,19 @@ public class CAdd implements Command{
         return mb.build();
     }
 
-    private Message addManagers(String serverId, List<User> users){
+    private Message addManagers(String serverId, List<User> users, String authorID){
         MessageBuilder mb = new MessageBuilder();
-        for(User u : users){
-            boolean res = ServerList.getInstance().getServer(serverId).addManager(u.getId());
-            if(res)
-                mb.appendString("User " + u.getUsername() + " added to the managers list\n");
-            else
-                mb.appendString("User " + u.getUsername() + " is already in the managers list\n");
+        LocalServer ls = ServerList.getInstance().getServer(serverId);
+        if(ls.getManagers().contains(authorID)){
+            for(User u : users){
+                boolean res = ServerList.getInstance().getServer(serverId).addManager(u.getId());
+                if(res)
+                    mb.appendString("User " + u.getUsername() + " added to the managers list\n");
+                else
+                    mb.appendString("User " + u.getUsername() + " is already in the managers list\n");
+            }
         }
+        else mb.appendString("You are not allowed to use this command");
         return mb.build();
     }
 }
