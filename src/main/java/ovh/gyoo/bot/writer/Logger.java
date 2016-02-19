@@ -13,6 +13,7 @@ import ovh.gyoo.bot.data.Permissions;
 import ovh.gyoo.bot.data.QueueItem;
 
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Logger {
@@ -203,7 +204,7 @@ public class Logger {
         {
             FileWriter fstream = new FileWriter("log.txt", true); //true tells to append data.
             out = new BufferedWriter(fstream);
-            out.write(s);
+            out.write(LocalDateTime.now().toString() + " : " + s);
             out.newLine();
         }
         catch (IOException e)

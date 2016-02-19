@@ -112,7 +112,7 @@ public class DiscordListener extends ListenerAdapter {
                     .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !")
                     .build()));
             Role userRole = e.getGuild().getRoles().stream().filter(role -> role.getName().equals("User")).findFirst().get();
-            e.getGuild().getManager().addRoleToUser(e.getAuthor(), userRole);
+            e.getGuild().getManager().addRoleToUser(e.getAuthor(), userRole).update();
         }
         else e.getChannel().sendMessage(new MessageBuilder()
                 .appendString("Error : Streambot already settled on channel #" + api.getTextChannelById(ServerList.getInstance().getServer(i.getGuildId()).getId()).getName() + " for this server")

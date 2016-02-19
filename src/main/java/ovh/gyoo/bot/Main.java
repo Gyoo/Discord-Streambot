@@ -37,12 +37,14 @@ public class Main {
 
             if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
             {
+                Logger.writeToLog("Reconnecting");
                 Thread.sleep(1000);
                 DiscordInstance.getInstance().resetInstance();
                 Thread.sleep(5000);
                 if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
                 {
-                    Thread.sleep(300000); //Sleep for 5 minutes, and retry
+                    Logger.writeToLog("Waiting 1 minute");
+                    Thread.sleep(60000); //Sleep for 1 minute, and retry
                     continue;
                 }
             }

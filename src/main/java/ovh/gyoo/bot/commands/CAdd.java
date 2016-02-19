@@ -25,6 +25,9 @@ public class CAdd implements Command{
                     .appendString("Your request will be treated by a manager soon! (type `!streambot list manager` to check the managers list)")
                     .build());
         }
+        else if(null == content || content.isEmpty()) message.setMessage(new MessageBuilder()
+                .appendString("Missing option")
+                .build());
         else {
             String option = content.substring(0, content.indexOf(" "));
             String[] contents = content.substring(content.indexOf(" ")).split("\\|");
@@ -43,7 +46,7 @@ public class CAdd implements Command{
                     break;
                 default:
                     message.setMessage(new MessageBuilder()
-                            .appendString("Unknown command")
+                            .appendString("Unknown option")
                             .build());
                     break;
             }
