@@ -641,6 +641,25 @@
       <toggle name="everyone">false</toggle>
     </toggles>
   </server>
+  <server id="131483070464393216">
+    <active>false</active>
+    <serverID>131483070464393216</serverID>
+    <channelID>135771132367208449</channelID>
+    <managers>
+      <manager>63263941735755776</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <toggles>
+      <toggle name="everyone">false</toggle>
+    </toggles>
+  </server>
   <server id="95447749507416064">
     <active>true</active>
     <serverID>95447749507416064</serverID>
@@ -1337,25 +1356,6 @@
     </channels>
     <managers>
       <manager>99756869714706432</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <toggles>
-      <toggle name="everyone">false</toggle>
-    </toggles>
-  </server>
-  <server id="117379472424042497">
-    <active>false</active>
-    <serverID>117379472424042497</serverID>
-    <channelID>144619191121477633</channelID>
-    <managers>
-      <manager>87928853812482048</manager>
     </managers>
     <permissions>
       <permission name="add">

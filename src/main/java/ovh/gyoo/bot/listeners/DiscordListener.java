@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class DiscordListener extends ListenerAdapter {
     JDA api;
@@ -138,10 +139,11 @@ public class DiscordListener extends ListenerAdapter {
 
     private boolean invite(MessageReceivedEvent e, InviteUtil.Invite i){
         if(null == ServerList.getInstance().getServer(i.getGuildId())){
-            InviteUtil.join(i, api);
-            LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
-            ls.addManager(e.getAuthor().getId());
-            ServerList.getInstance().addServer(i.getGuildId(), ls);
+            InviteUtil.join(i, api, guild -> {
+                LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
+                ls.addManager(e.getAuthor().getId());
+                ServerList.getInstance().addServer(i.getGuildId(), ls);
+            });
             return true;
         }
         else return false;
