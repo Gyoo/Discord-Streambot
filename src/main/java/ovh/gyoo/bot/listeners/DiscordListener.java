@@ -128,7 +128,7 @@ public class DiscordListener extends ListenerAdapter {
                     .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !\n")
                     .appendString("For help and feedback, make sure to join my server and ask Gyoo to give you the User role !\n")
                     .appendString(InviteUtil
-                            .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"),e.getJDA())
+                            .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"))
                             .getUrl())
                     .build()));
         }
@@ -138,12 +138,11 @@ public class DiscordListener extends ListenerAdapter {
     }
 
     private boolean invite(MessageReceivedEvent e, InviteUtil.Invite i){
-        if(null == ServerList.getInstance().getServer(i.getGuildId())){
-            InviteUtil.join(i, api, guild -> {
-                LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
-                ls.addManager(e.getAuthor().getId());
-                ServerList.getInstance().addServer(i.getGuildId(), ls);
-            });
+        if(!ServerList.getInstance().getMap().containsKey(i.getGuildId())){
+            InviteUtil.join(i, api, null);
+            LocalServer ls = new LocalServer(i.getChannelId(), i.getGuildId());
+            ls.addManager(e.getAuthor().getId());
+            ServerList.getInstance().addServer(i.getGuildId(), ls);
             return true;
         }
         else return false;

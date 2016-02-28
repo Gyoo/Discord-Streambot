@@ -15,7 +15,7 @@ public class CInvite implements Command{
     public void execute(MessageReceivedEvent e, String content) {
         MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                 .appendString(InviteUtil
-                        .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"),e.getJDA())
+                        .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"))
                         .getUrl())
                 .build());
         DiscordInstance.getInstance().addToQueue(message);
