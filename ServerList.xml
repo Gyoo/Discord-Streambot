@@ -51,6 +51,30 @@
       <toggle name="everyone">false</toggle>
     </toggles>
   </server>
+  <server id="107743276316008448">
+    <active>false</active>
+    <serverID>107743276316008448</serverID>
+    <channelID>140063692787154944</channelID>
+    <channels>
+      <channel>thetechboy</channel>
+      <channel>alexander_lionhaert</channel>
+      <channel>man0fbass</channel>
+    </channels>
+    <managers>
+      <manager>84489176573022208</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <toggles>
+      <toggle name="everyone">false</toggle>
+    </toggles>
+  </server>
   <server id="130582314987028480">
     <active>true</active>
     <serverID>130582314987028480</serverID>
@@ -603,27 +627,15 @@
     </toggles>
   </server>
   <server id="114601696302202884">
-    <active>false</active>
+    <active>true</active>
     <serverID>114601696302202884</serverID>
     <channelID>153567202874753025</channelID>
-    <channels>
-      <channel>maxxuss</channel>
-      <channel>patrickomfg</channel>
-      <channel>xem92</channel>
-      <channel>leporid</channel>
-      <channel>tarnawina</channel>
-      <channel>arminspeedruns</channel>
-      <channel>insomniacnintendo</channel>
-      <channel>lombax999</channel>
-      <channel>zomggames</channel>
-      <channel>dogslifespeedrunmemes</channel>
-    </channels>
     <managers>
       <manager>79327531911618560</manager>
     </managers>
     <permissions>
       <permission name="add">
-        <role name="everyone">0</role>
+        <role name="everyone">2</role>
       </permission>
       <permission name="remove">
         <role name="everyone">2</role>
@@ -710,6 +722,28 @@
     </channels>
     <managers>
       <manager>83926816263241728</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <toggles>
+      <toggle name="everyone">false</toggle>
+    </toggles>
+  </server>
+  <server id="126731924650590208">
+    <active>true</active>
+    <serverID>126731924650590208</serverID>
+    <channelID>149373454498529280</channelID>
+    <channels>
+      <channel>scrubing</channel>
+    </channels>
+    <managers>
+      <manager>83003659473911808</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -1090,6 +1124,8 @@
       <channel>feverjames</channel>
       <channel>nosgoth</channel>
       <channel>hexmeh</channel>
+      <channel>distortnl</channel>
+      <channel>mrdecebal</channel>
     </channels>
     <managers>
       <manager>123757907870351362</manager>
@@ -1354,6 +1390,28 @@
       <toggle name="everyone">false</toggle>
     </toggles>
   </server>
+  <server id="117075889283530761">
+    <active>true</active>
+    <serverID>117075889283530761</serverID>
+    <channelID>117075889283530761</channelID>
+    <channels>
+      <channel>niakan</channel>
+    </channels>
+    <managers>
+      <manager>96047173132648448</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <toggles>
+      <toggle name="everyone">false</toggle>
+    </toggles>
+  </server>
   <server id="137678375346110464">
     <active>true</active>
     <serverID>137678375346110464</serverID>
@@ -1398,6 +1456,8 @@
       <channel>celio24</channel>
       <channel>skittleliciousx</channel>
       <channel>dearalice</channel>
+      <channel>keith_90</channel>
+      <channel>eucalyptus224</channel>
     </channels>
     <managers>
       <manager>82929797939855360</manager>
@@ -2179,6 +2239,8 @@
     <channels>
       <channel>dengenesis</channel>
       <channel>niakan</channel>
+      <channel>http://twitch.tv/niakan</channel>
+      <channel>http://twitch.tv/dengenesis</channel>
     </channels>
     <managers>
       <manager>96065068755587072</manager>
@@ -2494,7 +2556,7 @@
     </toggles>
   </server>
   <server id="80530047529660416">
-    <active>false</active>
+    <active>true</active>
     <serverID>80530047529660416</serverID>
     <channelID>153568569962135552</channelID>
     <channels>
@@ -2504,7 +2566,6 @@
       <channel>bensaunders</channel>
       <channel>fretzi_sr</channel>
       <channel>alexmandi213</channel>
-      <channel>skicrazedteddy</channel>
       <channel>alexdest</channel>
       <channel>yeswally1</channel>
       <channel>wedc517</channel>
@@ -2520,6 +2581,18 @@
       <channel>lechanceux100</channel>
       <channel>karlie__</channel>
       <channel>frozenphoenix95</channel>
+      <channel>dactyly</channel>
+      <channel>tiltstrilby</channel>
+      <channel>skicrazedteddy</channel>
+      <channel>kollin7</channel>
+      <channel>martyrrsenpai</channel>
+      <channel>0retro</channel>
+      <channel>orsa_numbers</channel>
+      <channel>hornlitz</channel>
+      <channel>domdomzbm</channel>
+      <channel>cyberdemon531</channel>
+      <channel>ikkatosh23</channel>
+      <channel>cyclone637</channel>
     </channels>
     <managers>
       <manager>80528080552079360</manager>
@@ -2600,17 +2673,18 @@
     </toggles>
   </server>
   <server id="106148602711117824">
-    <active>true</active>
+    <active>false</active>
     <serverID>106148602711117824</serverID>
     <channelID>106148602711117824</channelID>
     <channels>
-      <channel>virtguy</channel>
-      <channel>smakker_</channel>
-      <channel>luckyariane</channel>
+      <channel>theclassybutler</channel>
+      <channel>rebeloneshow</channel>
       <channel>legacyrose</channel>
       <channel>silentlegacyrose</channel>
+      <channel>smakker_</channel>
       <channel>sonicfan2d91</channel>
-      <channel>rebeloneshow</channel>
+      <channel>luckyariane</channel>
+      <channel>knives__</channel>
     </channels>
     <managers>
       <manager>48289176776343552</manager>
@@ -2618,7 +2692,6 @@
     <permissions>
       <permission name="add">
         <role name="everyone">2</role>
-        <role name="106186785138204672">0</role>
       </permission>
       <permission name="remove">
         <role name="everyone">2</role>
@@ -2683,6 +2756,7 @@
       <channel>ackeeandme</channel>
       <channel>sc2proleague</channel>
       <channel>sorenzerg</channel>
+      <channel>sunokasuri</channel>
     </channels>
     <managers>
       <manager>121927331815227392</manager>

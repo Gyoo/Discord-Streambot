@@ -1,6 +1,7 @@
 package ovh.gyoo.bot;
 
 import net.dv8tion.jda.entities.impl.JDAImpl;
+import net.dv8tion.jda.utils.SimpleLog;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.ServerList;
@@ -10,12 +11,19 @@ import ovh.gyoo.bot.writer.Logger;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws LoginException, InterruptedException {
         boolean startup = true;
+        try {
+            SimpleLog.addFileLogs(null,new File("err" + System.currentTimeMillis() + ".txt"));
+        } catch (IOException e) {
+            Logger.writeToErr(e.getMessage());
+        }
         // Twitch
         TwitchChecker.getInstance();
         // Discord
@@ -37,16 +45,8 @@ public class Main {
 
             if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
             {
-                Logger.writeToLog("Reconnecting");
                 Thread.sleep(1000);
-                DiscordInstance.getInstance().resetInstance();
-                Thread.sleep(5000);
-                if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
-                {
-                    Logger.writeToLog("Waiting 1 minute");
-                    Thread.sleep(60000); //Sleep for 1 minute, and retry
-                    continue;
-                }
+                continue;
             }
 
             if(ticks < 180) {
