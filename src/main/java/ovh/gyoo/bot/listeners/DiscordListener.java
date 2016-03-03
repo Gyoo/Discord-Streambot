@@ -60,7 +60,16 @@ public class DiscordListener extends ListenerAdapter {
             inviteFromGuild(e);
         }
         if (e.getMessage().getContent().startsWith("!streambot")){
-            commands(e, e.getMessage().getContent().substring(11));
+            try{
+                commands(e, e.getMessage().getContent().substring(11));
+            } catch(StringIndexOutOfBoundsException sioobe){
+                System.err.print("[StreamBot] ");
+                sioobe.printStackTrace();
+                System.err.println(e.getMessage().getContent());
+                DiscordInstance.getInstance().addToQueue(new MessageItem(e.getChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                        .appendString("You must put a command behind `!streambot` !")
+                        .build()));
+            }
         }
     }
 
@@ -151,10 +160,11 @@ public class DiscordListener extends ListenerAdapter {
     private void commands(GuildMessageReceivedEvent e, String command){
         String[] split = command.split(" ");
         String content = command.substring(command.indexOf(" ") + 1);
-        if(split[0].equals("commands")){
+        //TODO Make `help` its own command with a different content
+        if(split[0].equals("commands") || split[0].equals("help")){
             MessageBuilder builder = new MessageBuilder();
             builder.appendString("`!streambot <command>`\n");
-            builder.appendString("`commands` : List of available commands\n");
+            builder.appendString("`commands` || `help` : List of available commands\n");
             commandMap.entrySet().stream().filter(c -> c.getValue().isAllowed(e.getGuild().getId(), e.getAuthor().getId())).forEach(c -> builder.appendString(c.getValue().getDescription() + "\n"));
             builder.appendString("\n*Options* :\n");
             for (String option : options){

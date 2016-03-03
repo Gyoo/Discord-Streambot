@@ -50,11 +50,25 @@ public class MessageConsumer extends Thread {
                         case GUILD:
                             User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
                             if(null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
-                            && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE))
-                            DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
+                            && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)){
+                                try{
+                                    DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
+                                }catch(NullPointerException e){
+                                    System.err.print("[StreamBot] ");
+                                    e.printStackTrace();
+                                    System.err.println("Guild Channel id = " + work.getId());
+                                }
+                            }
+
                             break;
                         case PRIVATE:
-                            DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                            try{
+                                DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                            }catch(NullPointerException e){
+                                System.err.print("[StreamBot] ");
+                                e.printStackTrace();
+                                System.err.println("Private Channel id = " + work.getId());
+                            }
                             break;
                     } //Keep this switch commented while testing.
                 }catch(JSONException e){

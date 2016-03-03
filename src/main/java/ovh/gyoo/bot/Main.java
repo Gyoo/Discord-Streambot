@@ -43,12 +43,17 @@ public class Main {
         int ticks = 0;
         while(true){
 
+            // Waiting for reconnection
             if (!((JDAImpl) DiscordInstance.getInstance().getDiscord()).getClient().isConnected())
             {
                 Thread.sleep(1000);
                 continue;
             }
 
+            // Restarting message consumer if it dies
+            if(!messageConsumer.isAlive()) messageConsumer.start();
+
+            // Checking the streams, and every half hour, checks if the streams are still online instead
             if(ticks < 180) {
                 TwitchChecker.getInstance().checkStreams(startup);
                 ticks++;
@@ -60,8 +65,10 @@ public class Main {
 
             startup = false;
 
+            // Backing up data
             Logger.saveData(ServerList.getInstance().getMap(), "ServerList.xml");
 
+            //Wait 10 seconds and restart the loop
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
