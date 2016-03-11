@@ -19,11 +19,19 @@ public class CServers implements Command{
             MessageItem message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
             MessageBuilder builder = new MessageBuilder();
             builder.appendString("Server count : " + ServerList.getInstance().getServerList().size() + "\n");
-            for(LocalServer ls : ServerList.getInstance().getServerList()){
-                if(ls.isActive()) builder.appendString("**" + DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + "** | ");
-                else builder.appendString(DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + " | ");
-            }
             message.setMessage(builder.build());
+            DiscordInstance.getInstance().addToQueue(message);
+            String online = "\n**Enabled**\n";
+            String offline = "\n**Disabled**\n";
+            for(LocalServer ls : ServerList.getInstance().getServerList()){
+                if(ls.isActive()) online += DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + "\n";
+                else offline += DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + "\n";
+            }
+            message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+            message.setMessage(new MessageBuilder().appendString(online).build());
+            DiscordInstance.getInstance().addToQueue(message);
+            message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+            message.setMessage(new MessageBuilder().appendString(offline).build());
             DiscordInstance.getInstance().addToQueue(message);
         }
     }
