@@ -50,6 +50,7 @@ public class DiscordInstance {
             String pass = root.getChild("password").getText();
             discord = new JDABuilder(mail, pass).buildBlocking();
             discord.addEventListener(new DiscordListener(discord));
+            discord.getAccountManager().setGame("Twitch Plays Discord");
         } catch (LoginException | InterruptedException | JDOMException | IOException e) {
             Logger.writeToErr(e.getMessage());
         }

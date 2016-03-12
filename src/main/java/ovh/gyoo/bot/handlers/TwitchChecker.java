@@ -9,6 +9,7 @@ import com.mb3364.twitch.api.models.Channel;
 import com.mb3364.twitch.api.models.Stream;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
+import net.dv8tion.jda.entities.User;
 import ovh.gyoo.bot.data.*;
 
 import java.util.*;
@@ -69,7 +70,16 @@ public class TwitchChecker {
                                     OnlineMap.getInstance().addToList(server.getServerID(),streamInfo);
                                     if(!startup){
                                         MessageBuilder builder = new MessageBuilder();
-                                        if(server.getToggles().get("everyone")) builder.appendEveryoneMention().appendString(" ");
+                                        for(Map.Entry<String, Boolean> entry : server.getNotifs().entrySet()){
+                                            if(entry.getValue()) {
+                                                if(entry.getKey().equals("everyone")) builder.appendEveryoneMention().appendString(" ");
+                                                else {
+                                                    User u = DiscordInstance.getInstance().getDiscord().getUserById(entry.getKey());
+                                                    builder.appendMention(u).appendString(" ");
+                                                }
+                                            }
+                                        }
+                                        if(server.getNotifs().get("everyone")) builder.appendEveryoneMention().appendString(" ");
                                         builder.appendString("NOW LIVE : ` http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
                                         DiscordInstance.getInstance().addToQueue(new MessageItem(server.getId(), MessageItem.Type.GUILD, builder.build()));
                                     }

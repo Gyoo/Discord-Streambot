@@ -51,7 +51,10 @@ public class Main {
             }
 
             // Restarting message consumer if it dies
-            if(!messageConsumer.isAlive()) messageConsumer.start();
+            if(!messageConsumer.isAlive()) {
+                messageConsumer = new MessageConsumer(DiscordInstance.getInstance().getQueue());
+                messageConsumer.start();
+            }
 
             // Checking the streams, and every half hour, checks if the streams are still online instead
             if(ticks < 180) {

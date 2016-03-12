@@ -93,14 +93,14 @@ public class Logger {
             }
             server.addContent(permissions);
 
-            Element toggles = new Element("toggles");
-            for(Map.Entry<String, Boolean> toggleEntry : entry.getValue().getToggles().entrySet()){
-                Element toggle = new Element("toggle");
-                toggle.setAttribute("name", toggleEntry.getKey());
-                toggle.setText(toggleEntry.getValue().toString());
-                toggles.addContent(toggle);
+            Element notifs = new Element("notifs");
+            for(Map.Entry<String, Boolean> notifEntry : entry.getValue().getNotifs().entrySet()){
+                Element notif = new Element("notif");
+                notif.setAttribute("name", notifEntry.getKey());
+                notif.setText(notifEntry.getValue().toString());
+                notifs.addContent(notif);
             }
-            server.addContent(toggles);
+            server.addContent(notifs);
 
             if(entry.getValue().getCommandsQueue().size() > 0) {
                 Element commandsQueue = new Element("commandsQueue");
@@ -179,10 +179,10 @@ public class Logger {
                 }
             }
 
-            if(server.getChild("toggles") != null){
-                Element toggles = server.getChild("toggles");
-                for(Element toggle : toggles.getChildren()){
-                    ls.addToggle(toggle.getAttributeValue("name"), Boolean.parseBoolean(toggle.getText()));
+            if(server.getChild("notifs") != null){
+                Element notifs = server.getChild("notifs");
+                for(Element notif : notifs.getChildren()){
+                    ls.addNotif(notif.getAttributeValue("name"), Boolean.parseBoolean(notif.getText()));
                 }
             }
 

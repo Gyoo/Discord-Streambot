@@ -6,7 +6,6 @@ import net.dv8tion.jda.entities.*;
 import net.dv8tion.jda.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.events.message.GenericMessageEvent;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.events.message.priv.PrivateMessageReceivedEvent;
@@ -15,7 +14,6 @@ import net.dv8tion.jda.utils.InviteUtil;
 import ovh.gyoo.bot.commands.*;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
-import ovh.gyoo.bot.handlers.TwitchChecker;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.ServerList;
 
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class DiscordListener extends ListenerAdapter {
     JDA api;
@@ -37,7 +34,7 @@ public class DiscordListener extends ListenerAdapter {
         commandMap.put(CAdd.name, new CAdd());
         commandMap.put(CRemove.name, new CRemove());
         commandMap.put(CPermissions.name, new CPermissions());
-        commandMap.put(CToggle.name, new CToggle());
+        commandMap.put(CNotify.name, new CNotify());
         commandMap.put(CList.name, new CList());
         commandMap.put(CEnable.name, new CEnable());
         commandMap.put(CDisable.name, new CDisable());

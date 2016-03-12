@@ -17,7 +17,7 @@ public class LocalServer{
     List<String> tagList;
     List<String> managers;
     Map<String, Permissions> permissionsMap = new HashMap<>();
-    Map<String, Boolean> toggles = new HashMap<>();
+    Map<String, Boolean> notifs = new HashMap<>();
     List<QueueItem> commandsQueue = new ArrayList<>();
     boolean active;
 
@@ -30,7 +30,7 @@ public class LocalServer{
         active = false;
         this.serverID = serverID;
         initPermissions();
-        initToggles();
+        initNotifs();
     }
 
     public void initPermissions(){
@@ -42,8 +42,8 @@ public class LocalServer{
         addPermission("remove", p);
     }
 
-    public void initToggles(){
-        toggles.put("everyone", false);
+    public void initNotifs(){
+        notifs.put("everyone", false);
     }
 
     public List<String> getGameList() {
@@ -189,9 +189,9 @@ public class LocalServer{
         commandsQueue.clear();
     }
 
-    public Map<String, Boolean> getToggles(){ return toggles;}
+    public Map<String, Boolean> getNotifs(){ return notifs;}
 
-    public void addToggle(String name, boolean value){
-        toggles.put(name, value);
+    public void addNotif(String name, boolean value){
+        notifs.put(name, value);
     }
 }

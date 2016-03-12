@@ -2,6 +2,7 @@ package ovh.gyoo.bot.listeners;
 
 import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.exceptions.RateLimitedException;
 import org.json.JSONException;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
@@ -57,6 +58,9 @@ public class MessageConsumer extends Thread {
                                     System.err.print("[StreamBot] ");
                                     e.printStackTrace();
                                     System.err.println("Guild Channel id = " + work.getId());
+                                }catch(RateLimitedException e){
+                                    Thread.sleep(e.getTimeout());
+                                    DiscordInstance.getInstance().addToQueue(work);
                                 }
                             }
 
@@ -68,6 +72,9 @@ public class MessageConsumer extends Thread {
                                 System.err.print("[StreamBot] ");
                                 e.printStackTrace();
                                 System.err.println("Private Channel id = " + work.getId());
+                            }catch(RateLimitedException e){
+                                Thread.sleep(e.getTimeout());
+                                DiscordInstance.getInstance().addToQueue(work);
                             }
                             break;
                     } //Keep this switch commented while testing.

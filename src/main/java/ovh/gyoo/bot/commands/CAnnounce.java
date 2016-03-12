@@ -16,7 +16,7 @@ public class CAnnounce implements Command{
     public void execute(MessageReceivedEvent e, String content) {
         if(isAllowed("", e.getAuthor().getId())){
             for(LocalServer ls : ServerList.getInstance().getServerList()){
-                MessageItem message = new MessageItem(ls.getId(), MessageItem.Type.GUILD, new MessageBuilder().appendEveryoneMention().appendString(" " + content).build());
+                MessageItem message = new MessageItem(ls.getId(), MessageItem.Type.GUILD, new MessageBuilder().appendString(" " + content).build());
                 DiscordInstance.getInstance().addToQueue(message);
             }
         }
