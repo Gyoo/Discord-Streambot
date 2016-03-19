@@ -88,10 +88,9 @@ public class TeamUtils {
             JSONObject document = null;
             try {
                 document = readJsonFromUrl(memberListBase);
-            } catch (IOException e) {
-                handler.onFailure(-1, "Invalid JSON Object", "Invalid JSON Object");
-                System.err.println("Found invalid JSON object when getting teams request:");
-                System.err.println(document.toString());
+            } catch (Exception e) {
+                handler.onFailure(-1, e.getMessage(), e.getMessage());
+                System.err.println(e.getMessage());
                 return;
             }
             if(!document.has("channels")) {
