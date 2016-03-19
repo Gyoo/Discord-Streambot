@@ -54,9 +54,12 @@ public class CAdd implements Command{
                 case "manager":
                     message.setMessage(addManagers(e.getGuild().getId(), e.getMessage().getMentionedUsers(), e.getAuthor().getId()));
                     break;
+                case "team":
+                    message.setMessage(addTeam(e.getGuild().getId(), contents));
+                    break;
                 default:
                     message.setMessage(new MessageBuilder()
-                            .appendString("Unknown option")
+                            .appendString("Unknown option: " + option)
                             .build());
                     break;
             }
@@ -84,6 +87,19 @@ public class CAdd implements Command{
         }
         res = Math.min(res,ls.getPermissionsMap().get(name).getPerms().getOrDefault("everyone", Permissions.FORBID));
         return res;
+    }
+
+    private Message addTeam(String serverId, String[] team) {
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : team) {
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).addTeam(s);
+            if(res)
+                mb.appendString("Team " + s + " added to the game list\n");
+            else
+                mb.appendString("Team " + s + " is already in the game list\n");
+        }
+        return mb.build();
     }
 
     private Message addGame(String serverId, String[] game){

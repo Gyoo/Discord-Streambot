@@ -59,6 +59,16 @@ public class Logger {
                 server.addContent(channels);
             }
 
+            if(entry.getValue().getTeamList().size() > 0){
+                Element teams = new Element("teams");
+                for(String s : entry.getValue().getTeamList()) {
+                    Element team = new Element("team");
+                    team.setText(s);
+                    teams.addContent(team);
+                }
+                server.addContent(teams);
+            }
+
             if(entry.getValue().getTagList().size() > 0){
                 Element tags = new Element("tags");
                 for(String s : entry.getValue().getTagList()){
@@ -151,6 +161,13 @@ public class Logger {
                 Element channels = server.getChild("channels");
                 for (Element channel : channels.getChildren()){
                     ls.addUser(channel.getText());
+                }
+            }
+
+            if(server.getChild("teams") != null){
+                Element teams = server.getChild("teams");
+                for(Element team : teams.getChildren()){
+                    ls.addTeam((team.getText()));
                 }
             }
 

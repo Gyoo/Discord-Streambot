@@ -1,5 +1,7 @@
 package ovh.gyoo.bot.data;
 
+import com.mb3364.twitch.api.models.Stream;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,9 +23,17 @@ public class OnlineMap {
         return online.get(serverId);
     }
 
-    public synchronized void addToList(String serverId, StreamInfo stream){
-        online.get(serverId).add(stream);
+    public synchronized boolean isDisplayed(String serverId, Stream stream) {
+        StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
+        return online.get(serverId).contains(streamInfo);
     }
+
+    public synchronized void addToList(String serverId, Stream stream){
+        StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
+        online.get(serverId).add(streamInfo);
+    }
+
+    public synchronized void addToList(String serverId, StreamInfo stream){ online.get(serverId).add(stream); }
 
     public synchronized void removeFromList(String serverId, String name){
         StreamInfo temp = new StreamInfo(name);
