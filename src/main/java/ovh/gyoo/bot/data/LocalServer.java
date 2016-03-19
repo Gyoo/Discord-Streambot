@@ -230,7 +230,7 @@ public class LocalServer{
         if (gameList.size() == 0 && userList.size() == 0 && teamList.size() == 0) return;
         if (gameList.size() == 0) addGame("");
         for (String game : gameList) {
-            if(userList.size() == 0) break;
+            if(userList.size() == 0 && game.equals("")) break;
             RequestParams rp = new RequestParams();
             rp.put("game", game);
             String channels = "";
