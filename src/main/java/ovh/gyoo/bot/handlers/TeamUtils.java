@@ -90,6 +90,15 @@ public class TeamUtils {
                 document = readJsonFromUrl(memberListBase);
             } catch (IOException e) {
                 handler.onFailure(-1, "Invalid JSON Object", "Invalid JSON Object");
+                System.err.println("Found invalid JSON object when getting teams request:");
+                System.err.println(document.toString());
+                return;
+            }
+            if(!document.has("channels")) {
+                handler.onFailure(-1, "Invalid JSON Object", "Invalid JSON Object");
+                System.err.println("Found invalid JSON object when getting teams request:");
+                System.err.println(document.toString());
+                return;
             }
             JSONArray channels = document.getJSONArray("channels");
             int numChannels = channels.length();
