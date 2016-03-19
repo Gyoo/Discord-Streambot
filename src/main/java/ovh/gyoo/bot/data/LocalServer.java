@@ -1,7 +1,17 @@
 package ovh.gyoo.bot.data;
 
+import com.mb3364.http.RequestParams;
+import com.mb3364.twitch.api.handlers.StreamsResponseHandler;
+import com.mb3364.twitch.api.models.Stream;
+import com.mb3364.twitch.api.models.Team;
 import net.dv8tion.jda.JDA;
+import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Role;
+import net.dv8tion.jda.entities.User;
+import ovh.gyoo.bot.handlers.TeamInfoRequestHandler;
+import ovh.gyoo.bot.handlers.TeamRequestHandler;
+import ovh.gyoo.bot.handlers.TeamUtils;
+import ovh.gyoo.bot.handlers.TwitchChecker;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +26,7 @@ public class LocalServer{
     List<String> userList;
     List<String> tagList;
     List<String> managers;
+    List<String> teamList;
     Map<String, Permissions> permissionsMap = new HashMap<>();
     Map<String, Boolean> notifs = new HashMap<>();
     List<QueueItem> commandsQueue = new ArrayList<>();
@@ -26,6 +37,7 @@ public class LocalServer{
         gameList = new ArrayList<>();
         userList = new ArrayList<>();
         tagList = new ArrayList<>();
+        teamList = new ArrayList<>();
         managers = new ArrayList<>();
         active = false;
         this.serverID = serverID;
@@ -57,6 +69,8 @@ public class LocalServer{
     public List<String> getTagList() {
         return tagList;
     }
+
+    public List<String> getTeamList() { return teamList; }
 
     public List<String> getManagers() {
         return managers;
@@ -138,6 +152,22 @@ public class LocalServer{
         }
     }
 
+    public boolean addTeam(String team) {
+        if(teamList.contains(team.toLowerCase())) return false;
+        else {
+            teamList.add(team.toLowerCase());
+            return true;
+        }
+    }
+
+    public boolean removeTeam(String team) {
+        if(teamList.contains(team.toLowerCase())) {
+            teamList.remove(team.toLowerCase());
+            return true;
+        }
+        return false;
+    }
+
     public String getServerID() {
         return serverID;
     }
@@ -194,4 +224,136 @@ public class LocalServer{
     public void addNotif(String name, boolean value){
         notifs.put(name, value);
     }
+
+    public void checkStreams(boolean witholdOutput) {
+        if (!isActive()) return;
+        if (gameList.size() == 0 && userList.size() == 0 && teamList.size() == 0) return;
+        if (gameList.size() == 0) addGame("");
+        for (String game : gameList) {
+            if(userList.size() == 0) break;
+            RequestParams rp = new RequestParams();
+            rp.put("game", game);
+            String channels = "";
+            // TODO: Check if userList.size > 100, then send multiple reqeusts
+            if (userList.size() > 0) {
+                for (String name : userList) {
+                    channels += "," + name;
+                }
+                channels = channels.substring(1);
+                rp.put("channel", channels);
+            }
+            rp.put("limit", 100);
+            TwitchChecker.getTwitch().streams().get(rp, new StreamsResponseHandler() {
+                @Override
+                public void onSuccess(int i, List<Stream> list) {
+                    for (Stream stream : list) {
+                        if(!witholdOutput && !OnlineMap.getInstance().isDisplayed(serverID, stream))  {
+                            OnlineMap.getInstance().addToList(serverID, stream);
+                            updateDiscordList(stream);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(int i, String s, String s1) {
+
+                }
+
+                @Override
+                public void onFailure(Throwable throwable) {
+
+                }
+            });
+        }
+        if(teamList.size() > 0) {
+            for(String name : teamList) {
+                TeamUtils.getTeam(name, new TeamRequestHandler() {
+                    @Override
+                    public void onSuccess(Team team) {
+
+                        TeamUtils.GetChannels(team, new TeamInfoRequestHandler() {
+                            @Override
+                            public void onSuccess(List<Stream> streams) {
+                                for(Stream stream : streams) {
+                                    if(!OnlineMap.getInstance().isDisplayed(serverID, stream)) {
+                                        OnlineMap.getInstance().addToList(serverID, stream);
+                                        if(!witholdOutput) updateDiscordList(stream);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(int i, String s, String s1) {
+
+                            }
+
+                            @Override
+                            public void onFailure(Throwable throwable) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s, String s1) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable) {
+
+                    }
+                });
+
+            }
+        }
+
+        if (gameList.contains("")) removeGame("");
+    }
+
+    private void updateDiscordList(Stream stream) {
+        if(streamMatchesAttributes(stream)) {
+            MessageBuilder builder = new MessageBuilder();
+            for(Map.Entry<String, Boolean> entry : getNotifs().entrySet()){
+                if(entry.getValue()) {
+                    if(entry.getKey().equals("everyone")) builder.appendEveryoneMention().appendString(" ");
+                    else {
+                        User u = DiscordInstance.getInstance().getDiscord().getUserById(entry.getKey());
+                        builder.appendMention(u).appendString(" ");
+                    }
+                }
+            }
+            if(getNotifs().get("everyone")) builder.appendEveryoneMention().appendString(" ");
+            builder.appendString("NOW LIVE : ` http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
+            DiscordInstance.getInstance().addToQueue(new MessageItem(getId(), MessageItem.Type.GUILD, builder.build()));
+        }
+    }
+
+    /**
+     * Checks if stream matches the valid attributes to display a message on the discord server.
+     *
+     * @param stream The stream to verify
+     * @return true if the stream contains one of the tags in this server's tagList
+     */
+    private boolean streamMatchesAttributes(Stream stream) {
+        if (!stream.isOnline()) return false;
+
+        if(gameList.size() != 0) {
+            if(!gameList.contains(stream.getChannel().getGame())) return false;
+        }
+
+        if (tagList.size() > 0) {
+            boolean hasTag = false;
+            for (String tag : tagList) {
+                if (null != stream.getChannel().getStatus() && stream.getChannel().getStatus().toLowerCase().contains(tag.toLowerCase())) {
+                    hasTag = true;
+                    break;
+                }
+            }
+            if (!hasTag) return false;
+        }
+
+        return true;
+    }
+
 }

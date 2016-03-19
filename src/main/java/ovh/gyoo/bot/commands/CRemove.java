@@ -51,6 +51,9 @@ public class CRemove implements Command {
                 case "tag":
                     message.setMessage(removeTag(e.getGuild().getId(), contents));
                     break;
+                case "team":
+                    message.setMessage(removeTeam(e.getGuild().getId(), contents));
+                    break;
                 case "manager":
                     message.setMessage(removeManagers(e.getGuild().getId(),e.getAuthor().getId(), e.getMessage().getMentionedUsers()));
                     break;
@@ -121,6 +124,19 @@ public class CRemove implements Command {
                 mb.appendString("Tag " + s + " removed from the tags list\n");
             else
                 mb.appendString("Tag " + s + " is not in the tags list\n");
+        }
+        return mb.build();
+    }
+
+    private Message removeTeam(String serverId, String[] teams) {
+        MessageBuilder mb = new MessageBuilder();
+        for(String s : teams){
+            s = s.trim();
+            boolean res = ServerList.getInstance().getServer(serverId).removeTeam(s);
+            if(res)
+                mb.appendString("Team " + s + " removed from the teams list\n");
+            else
+                mb.appendString("Team " + s + " is not in the teams list\n");
         }
         return mb.build();
     }

@@ -46,6 +46,7 @@ public class DiscordListener extends ListenerAdapter {
         commandMap.put(CAnnounce.name, new CAnnounce());
 
         options.add("`game` : Game name based on Twitch's list (must be the exact name to work !)");
+        options.add("`team` : Twitch team name (all one word)");
         options.add("`channel` : Twitch channel name");
         options.add("`tag` : Word or group of words that must be present in the stream's title");
         options.add("`manager` : Discord user (must use the @ alias when using this option !)");

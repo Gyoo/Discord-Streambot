@@ -32,6 +32,9 @@ public class CList implements Command{
             case "manager":
                 list = ls.getManagers();
                 break;
+            case "team":
+                list = ls.getTeamList();
+                break;
             case "permissions":
                 list = ls.getPermissionsList();
                 break;
