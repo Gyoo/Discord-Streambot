@@ -46,7 +46,7 @@ public class DiscordListener extends ListenerAdapter {
         commandMap.put(CAnnounce.name, new CAnnounce());
 
         options.add("`game` : Game name based on Twitch's list (must be the exact name to work !)");
-        options.add("`team` : Twitch team name (all one word)");
+        options.add("`team` : Twitch team name (ID as mentioned in the team link)");
         options.add("`channel` : Twitch channel name");
         options.add("`tag` : Word or group of words that must be present in the stream's title");
         options.add("`manager` : Discord user (must use the @ alias when using this option !)");
@@ -61,9 +61,6 @@ public class DiscordListener extends ListenerAdapter {
             try{
                 commands(e, e.getMessage().getContent().substring(11));
             } catch(StringIndexOutOfBoundsException sioobe){
-                System.err.print("[StreamBot] ");
-                sioobe.printStackTrace();
-                System.err.println(e.getMessage().getContent());
                 DiscordInstance.getInstance().addToQueue(new MessageItem(e.getChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                         .appendString("You must put a command behind `!streambot` !")
                         .build()));
@@ -130,6 +127,12 @@ public class DiscordListener extends ListenerAdapter {
     private void inviteFromDM(PrivateMessageReceivedEvent e){
         String[] strings = e.getMessage().getContent().split(" ");
         InviteUtil.Invite i = InviteUtil.resolve(strings[1]);
+        if(null == i){
+            e.getChannel().sendMessage(new MessageBuilder()
+                    .appendString("Error : Could not resolve invite link. Make sure it is an actual invite link, and try with a newly generated one.")
+                    .build());
+            return;
+        }
         if(invite(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), i)){
             DiscordInstance.getInstance().addToQueue(new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
                     .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !\n")

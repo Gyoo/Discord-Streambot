@@ -8,6 +8,7 @@ import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
 import ovh.gyoo.bot.writer.Logger;
 
+import java.time.LocalTime;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class MessageConsumer extends Thread {
@@ -55,12 +56,14 @@ public class MessageConsumer extends Thread {
                                 try{
                                     DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
                                 }catch(NullPointerException e){
-                                    System.err.print("[StreamBot] ");
+                                    System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] ");
                                     e.printStackTrace();
                                     System.err.println("Guild Channel id = " + work.getId());
                                 }catch(RateLimitedException e){
                                     Thread.sleep(e.getTimeout());
                                     DiscordInstance.getInstance().addToQueue(work);
+                                }catch (JSONException e){
+                                    System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] [JSON Exception] : \n" +  e.getLocalizedMessage());
                                 }
                             }
 

@@ -33,9 +33,7 @@ public class CAdd implements Command{
             try{
                 option = content.substring(0, content.indexOf(" "));
             } catch(StringIndexOutOfBoundsException sioobe){
-                System.err.print("[StreamBot] ");
-                sioobe.printStackTrace();
-                System.err.println(content);
+
             }
             if(option.isEmpty()) message.setMessage(new MessageBuilder()
                     .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")
