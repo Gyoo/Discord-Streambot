@@ -46,45 +46,35 @@ public class MessageConsumer extends Thread {
                     start = System.currentTimeMillis();
                     nbMessages = 0;
                 }
-
-                try{
-                    switch(work.getType()){
-                        case GUILD:
-                            User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
-                            if(null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
-                            && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)){
-                                try{
-                                    DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
-                                }catch(NullPointerException e){
-                                    System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] ");
-                                    e.printStackTrace();
-                                    System.err.println("Guild Channel id = " + work.getId());
-                                }catch(RateLimitedException e){
-                                    Thread.sleep(e.getTimeout());
-                                    DiscordInstance.getInstance().addToQueue(work);
-                                }catch (JSONException e){
-                                    System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] [JSON Exception] : \n" +  e.getLocalizedMessage());
-                                }
-                            }
-
-                            break;
-                        case PRIVATE:
+                switch(work.getType()){
+                    case GUILD:
+                        User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
+                        if(null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
+                        && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)){
                             try{
-                                DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                                DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
                             }catch(NullPointerException e){
-                                System.err.print("[StreamBot] ");
-                                e.printStackTrace();
-                                System.err.println("Private Channel id = " + work.getId());
+                                Logger.writeToErr(e, "Guild Channel id = " + work.getId());
                             }catch(RateLimitedException e){
                                 Thread.sleep(e.getTimeout());
                                 DiscordInstance.getInstance().addToQueue(work);
+                            }catch (JSONException e){
+                                Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
                             }
-                            break;
-                    } //Keep this switch commented while testing.
-                }catch(JSONException e){
-                    Logger.writeToErr(e.getMessage());
-                }
+                        }
 
+                        break;
+                    case PRIVATE:
+                        try{
+                            DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                        }catch(NullPointerException e){
+                            Logger.writeToErr(e, "Private Channel id = " + work.getId());
+                        }catch(RateLimitedException e){
+                            Thread.sleep(e.getTimeout());
+                            DiscordInstance.getInstance().addToQueue(work);
+                        }
+                        break;
+                } //Keep this switch commented while testing.
             }
             catch ( InterruptedException ie ) {
                 continue;

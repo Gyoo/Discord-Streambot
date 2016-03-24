@@ -6,6 +6,7 @@ import net.dv8tion.jda.entities.Role;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import ovh.gyoo.bot.data.*;
+import ovh.gyoo.bot.writer.Logger;
 
 import java.util.List;
 
@@ -73,7 +74,13 @@ public class CAdd implements Command{
     @Override
     public boolean isAllowed(String serverID, String authorID) {
         LocalServer ls = ServerList.getInstance().getServer(serverID);
-        return ls.getManagers().contains(authorID) || getPermissionLevel(serverID, authorID) < Permissions.FORBID;
+        try{
+            return ls.getManagers().contains(authorID) || getPermissionLevel(serverID, authorID) < Permissions.FORBID;
+        } catch(NullPointerException e){
+            String message = "Guild ID : " + serverID + "\n" + "Guild Name : " + DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getName();
+            Logger.writeToErr(e, message);
+            return false;
+        }
     }
 
     private int getPermissionLevel(String serverID, String authorID){

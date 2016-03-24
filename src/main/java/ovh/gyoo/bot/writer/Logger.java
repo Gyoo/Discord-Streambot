@@ -14,6 +14,7 @@ import ovh.gyoo.bot.data.QueueItem;
 
 import java.io.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class Logger {
@@ -240,28 +241,9 @@ public class Logger {
         }
     }
 
-    public static void writeToErr(String s){
-        BufferedWriter out = null;
-        try
-        {
-            FileWriter fstream = new FileWriter("err.txt", true); //true tells to append data.
-            out = new BufferedWriter(fstream);
-            out.write(s);
-            out.newLine();
-        }
-        catch (IOException e)
-        {
-            System.err.println("Error: " + e.getMessage());
-        }
-        finally
-        {
-            if(out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    public static void writeToErr(Exception e, String message){
+        System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] ");
+        e.printStackTrace();
+        if(!message.isEmpty()) System.err.print("["+ LocalTime.now().toString() +"] [StreamBot] " + message);
     }
 }

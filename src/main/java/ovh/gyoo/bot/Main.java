@@ -22,7 +22,7 @@ public class Main {
         try {
             SimpleLog.addFileLogs(null,new File("err" + System.currentTimeMillis() + ".txt"));
         } catch (IOException e) {
-            Logger.writeToErr(e.getMessage());
+            Logger.writeToErr(e, "");
         }
         // Twitch
         TwitchChecker.getInstance();
@@ -75,7 +75,7 @@ public class Main {
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
-                Logger.writeToErr(e.getMessage());
+                Logger.writeToErr(e,"");
                 break;
             }
         }

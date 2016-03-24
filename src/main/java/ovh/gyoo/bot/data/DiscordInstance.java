@@ -52,7 +52,7 @@ public class DiscordInstance {
             discord.addEventListener(new DiscordListener(discord));
             discord.getAccountManager().setGame("Twitch Plays Discord");
         } catch (LoginException | InterruptedException | JDOMException | IOException e) {
-            Logger.writeToErr(e.getMessage());
+            Logger.writeToErr(e, "");
         }
     }
 

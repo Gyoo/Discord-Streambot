@@ -122,6 +122,12 @@ public class DiscordListener extends ListenerAdapter {
     private void inviteFromGuild(GuildMessageReceivedEvent e){
         String[] strings = e.getMessage().getContent().split(" ");
         InviteUtil.Invite i = InviteUtil.resolve(strings[1]);
+        if(null == i){
+            e.getChannel().sendMessage(new MessageBuilder()
+                    .appendString("Error : Could not resolve invite link. Make sure it is an actual invite link, and try with a newly generated one.")
+                    .build());
+            return;
+        }
         if(invite(new MessageReceivedEvent(api, e.getResponseNumber(), e.getMessage()), i)){
             DiscordInstance.getInstance().addToQueue(new MessageItem(e.getChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                     .appendString("Added Streambot to server " + i.getGuildName() + " in channel #" + i.getChannelName() + " !")

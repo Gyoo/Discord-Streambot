@@ -5,6 +5,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
 import ovh.gyoo.bot.data.ServerList;
+import ovh.gyoo.bot.writer.Logger;
 
 public class CNotify implements Command {
 
@@ -52,6 +53,12 @@ public class CNotify implements Command {
 
     @Override
     public boolean isAllowed(String serverID, String authorID) {
-        return ServerList.getInstance().getServer(serverID).getManagers().contains(authorID);
+        try{
+            return ServerList.getInstance().getServer(serverID).getManagers().contains(authorID);
+        } catch(NullPointerException e){
+            String message = "Guild ID : " + serverID + "\n" + "Guild Name : " + DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getName();
+            Logger.writeToErr(e, message);
+            return false;
+        }
     }
 }
