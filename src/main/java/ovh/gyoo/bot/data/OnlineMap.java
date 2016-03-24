@@ -32,14 +32,16 @@ public class OnlineMap {
 
     public void addToList(String serverId, Stream stream){
         StreamInfo streamInfo = new StreamInfo(stream.getChannel().getName(), stream.getGame(), stream.getChannel().getStatus());
-        online.get(serverId).add(streamInfo);
+        synchronized (online.get(serverId)){
+            online.get(serverId).add(streamInfo);
+        }
     }
-
-    public void addToList(String serverId, StreamInfo stream){ online.get(serverId).add(stream); }
 
     public void removeFromList(String serverId, String name){
         StreamInfo temp = new StreamInfo(name);
-        if(online.get(serverId).contains(temp)) online.get(serverId).remove(temp);
+        synchronized (online.get(serverId)) {
+            if (online.get(serverId).contains(temp)) online.get(serverId).remove(temp);
+        }
     }
 
     public void addServer(String serverId){

@@ -83,9 +83,19 @@ public class DiscordListener extends ListenerAdapter {
 
     @Override
     public void onGuildJoin(GuildJoinEvent e){
-        DiscordInstance.getInstance().addToQueue(new MessageItem(ServerList.getInstance().getServer(e.getGuild().getId()).getId(), MessageItem.Type.GUILD, new MessageBuilder()
+        LocalServer ls = ServerList.getInstance().getServer(e.getGuild().getId());
+        /*
+        Condition to avoid the bot from re-posting this message when Discord servers are unavailable
+        When the bot is invited to a server, the LocalServer is the following :
+        - Inactive server
+        - No Tag, Game, Channel or Team
+        In this case, the message is shown because it's most likely that the server has just been created in the database. In case it's not, it'll remind people that the bot is there :)
+         */
+        if(!ls.isActive() && ls.getGameList().isEmpty() && ls.getTagList().isEmpty() && ls.getTeamList().isEmpty() && ls.getUserList().isEmpty()){
+            DiscordInstance.getInstance().addToQueue(new MessageItem(ServerList.getInstance().getServer(e.getGuild().getId()).getId(), MessageItem.Type.GUILD, new MessageBuilder()
                     .appendString("Hello ! I'm StreamBot ! Type `!streambot commands` to see the available commands !")
                     .build()));
+        }
     }
 
     @Override
