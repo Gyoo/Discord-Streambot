@@ -13,10 +13,7 @@ import ovh.gyoo.bot.handlers.TeamRequestHandler;
 import ovh.gyoo.bot.handlers.TeamUtils;
 import ovh.gyoo.bot.handlers.TwitchChecker;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LocalServer{
 
@@ -314,12 +311,14 @@ public class LocalServer{
     private void updateDiscordList(Stream stream) {
         if(streamMatchesAttributes(stream)) {
             MessageBuilder builder = new MessageBuilder();
-            for(Map.Entry<String, Boolean> entry : getNotifs().entrySet()){
+            for(Iterator<Map.Entry<String, Boolean>> it = getNotifs().entrySet().iterator(); it.hasNext();){
+                Map.Entry<String, Boolean> entry = it.next();
                 if(entry.getValue()) {
                     if(entry.getKey().equals("everyone")) builder.appendEveryoneMention().appendString(" ");
                     else {
                         User u = DiscordInstance.getInstance().getDiscord().getUserById(entry.getKey());
-                        builder.appendMention(u).appendString(" ");
+                        if(null == u) it.remove();
+                        else builder.appendMention(u).appendString(" ");
                     }
                 }
             }

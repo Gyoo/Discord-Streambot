@@ -2,6 +2,7 @@ package ovh.gyoo.bot.listeners;
 
 import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.exceptions.BlockedException;
 import net.dv8tion.jda.exceptions.RateLimitedException;
 import org.json.JSONException;
 import ovh.gyoo.bot.data.DiscordInstance;
@@ -67,7 +68,7 @@ public class MessageConsumer extends Thread {
                     case PRIVATE:
                         try{
                             DiscordInstance.getInstance().getDiscord().getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
-                        }catch(NullPointerException e){
+                        }catch(NullPointerException | BlockedException e){
                             Logger.writeToErr(e, "Private Channel id = " + work.getId());
                         }catch(RateLimitedException e){
                             Thread.sleep(e.getTimeout());
