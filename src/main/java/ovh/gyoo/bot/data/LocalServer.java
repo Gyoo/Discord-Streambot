@@ -322,7 +322,6 @@ public class LocalServer{
                     }
                 }
             }
-            if(getNotifs().get("everyone")) builder.appendEveryoneMention().appendString(" ");
             builder.appendString("NOW LIVE : ` http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
             DiscordInstance.getInstance().addToQueue(new MessageItem(getId(), MessageItem.Type.GUILD, builder.build()));
         }
@@ -343,11 +342,18 @@ public class LocalServer{
 
         if (tagList.size() > 0) {
             boolean hasTag = false;
+            List<String> split;
+            if (null != stream.getChannel().getStatus())
+                split = Arrays.asList(stream.getChannel().getStatus().toLowerCase().split(" "));
+            else split = new ArrayList<>();
             for (String tag : tagList) {
-                if (null != stream.getChannel().getStatus() && stream.getChannel().getStatus().toLowerCase().contains(tag.toLowerCase())) {
-                    hasTag = true;
-                    break;
+                for(String word : split){
+                    if(word.startsWith(tag)){
+                        hasTag = true;
+                        break;
+                    }
                 }
+                if(hasTag) break;
             }
             if (!hasTag) return false;
         }
