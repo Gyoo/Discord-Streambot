@@ -25,7 +25,7 @@ public class CStreams implements Command {
         }
         else {
             for(StreamInfo stream : OnlineMap.getInstance().getStreamList(e.getGuild().getId())){
-                builder.appendString(stream.getName() + " playing " + stream.getGame() + " at ` " + stream.getLink() + " ` : " + stream.getTitle() + "\n");
+                builder.appendString(stream.getName() + " playing " + stream.getGame() + " at <" + stream.getLink() + "> : " + stream.getTitle() + "\n");
             }
         }
         message.setMessage(builder.build());
