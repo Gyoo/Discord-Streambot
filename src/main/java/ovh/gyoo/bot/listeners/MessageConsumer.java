@@ -1,6 +1,7 @@
 package ovh.gyoo.bot.listeners;
 
 import net.dv8tion.jda.Permission;
+import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.exceptions.BlockedException;
 import net.dv8tion.jda.exceptions.RateLimitedException;
@@ -50,13 +51,15 @@ public class MessageConsumer extends Thread {
                 switch(work.getType()){
                     case GUILD:
                         User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
-                        if(null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
-                        && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)){
+                        TextChannel textChannel = DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId());
+                        if(null != work.getMessage()
+                                && null != textChannel
+                                && null != DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId())
+                                && DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)){
                             try{
-                                DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId()).sendMessage(work.getMessage());
+                                textChannel.sendMessage(work.getMessage());
                             }catch(NullPointerException e){
-                                Logger.writeToErr(e, "Guild Channel id = " + work.getId());
-                                Logger.writeToErr(e, "Message = " + work.getMessage().getRawContent());
+                                Logger.writeToErr(e, "");
                             }catch(RateLimitedException e){
                                 Thread.sleep(e.getTimeout());
                                 DiscordInstance.getInstance().addToQueue(work);
