@@ -59,7 +59,7 @@ public class MessageConsumer extends Thread {
                             try{
                                 textChannel.sendMessage(work.getMessage());
                             }catch(NullPointerException e){
-                                Logger.writeToErr(e, "");
+                                Logger.writeToErr(e, "Guild Channel id = " + work.getId());
                             }catch(RateLimitedException e){
                                 Thread.sleep(e.getTimeout());
                                 DiscordInstance.getInstance().addToQueue(work);
