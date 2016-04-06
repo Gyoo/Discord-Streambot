@@ -26,8 +26,6 @@ public class Main {
         }
         // Twitch
         TwitchChecker.getInstance();
-        // Discord
-        DiscordInstance.getInstance();
         // Backup data after restart
         File f = new File("ServerList.xml");
         if(f.exists()){
@@ -36,6 +34,8 @@ public class Main {
                 ServerList.getInstance().addServer(server.getServerID(), server);
             }
         }
+        // Discord
+        DiscordInstance.getInstance();
         // Message Consumer (anti rate limiter)
         Thread messageConsumer = new MessageConsumer(DiscordInstance.getInstance().getQueue());
         messageConsumer.start();

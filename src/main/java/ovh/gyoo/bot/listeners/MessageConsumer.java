@@ -48,7 +48,7 @@ public class MessageConsumer extends Thread {
                     start = System.currentTimeMillis();
                     nbMessages = 0;
                 }
-                switch(work.getType()){
+                /*switch(work.getType()){
                     case GUILD:
                         User self = DiscordInstance.getInstance().getDiscord().getUserById(DiscordInstance.getInstance().getDiscord().getSelfInfo().getId());
                         TextChannel textChannel = DiscordInstance.getInstance().getDiscord().getTextChannelById(work.getId());
@@ -79,7 +79,7 @@ public class MessageConsumer extends Thread {
                             DiscordInstance.getInstance().addToQueue(work);
                         }
                         break;
-                } //Keep this switch commented while testing.
+                } //Keep this switch commented while testing.*/
             }
             catch ( InterruptedException ie ) {
                 continue;

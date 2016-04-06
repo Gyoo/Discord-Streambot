@@ -215,7 +215,7 @@ public class Logger {
                 }
             }
 
-            if(server.getChild("commandsQueue") != null){
+            if(server.getChild("compact") != null){
                 ls.setCompact(Boolean.parseBoolean(server.getChild("compact").getText()));
             }
 

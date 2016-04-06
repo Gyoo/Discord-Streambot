@@ -23,6 +23,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="88422130479276032">
     <active>true</active>
@@ -50,6 +51,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="82567141361975296">
     <active>true</active>
@@ -122,6 +124,7 @@
       <notif name="everyone">false</notif>
       <notif name="63263941735755776">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="107743276316008448">
     <active>false</active>
@@ -146,6 +149,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="130582314987028480">
     <active>true</active>
@@ -184,6 +188,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="113297881741455360">
     <active>true</active>
@@ -219,39 +224,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
-  </server>
-  <server id="135832360099774464">
-    <active>true</active>
-    <serverID>135832360099774464</serverID>
-    <channelID>140259763446480897</channelID>
-    <channels>
-      <channel>hypnoshark</channel>
-      <channel>lozblind</channel>
-      <channel>gix01</channel>
-      <channel>darklorddracula</channel>
-      <channel>ac_overdose</channel>
-      <channel>auchgard</channel>
-      <channel>pimdegoedste</channel>
-      <channel>acekingsuitedak</channel>
-      <channel>kyloviclp</channel>
-      <channel>patrick8a</channel>
-      <channel>patrickpower2013</channel>
-    </channels>
-    <managers>
-      <manager>106874064647307264</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <notifs>
-      <notif name="106874064647307264">false</notif>
-      <notif name="everyone">false</notif>
-    </notifs>
+    <compact>false</compact>
   </server>
   <server id="126550650409451520">
     <active>true</active>
@@ -277,6 +250,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="94656796987236352">
     <active>true</active>
@@ -299,6 +273,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="130718996109590538">
     <active>true</active>
@@ -321,6 +296,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="103707402473312256">
     <active>true</active>
@@ -351,6 +327,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="101031752146915328">
     <active>true</active>
@@ -382,6 +359,7 @@
       <notif name="129345934290059264">true</notif>
       <notif name="101055351058632704">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="97390152652955648">
     <active>true</active>
@@ -421,6 +399,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="114601696302202884">
     <active>true</active>
@@ -463,6 +442,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="100467095636041728">
     <active>true</active>
@@ -489,6 +469,7 @@
       <notif name="82986009574248448">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="122119818731192320">
     <active>false</active>
@@ -508,6 +489,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="126731924650590208">
     <active>false</active>
@@ -530,6 +512,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83090266910621696">
     <active>true</active>
@@ -624,6 +607,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="148694147216310272">
     <active>true</active>
@@ -646,6 +630,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="82831741584150528">
     <active>true</active>
@@ -674,6 +659,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="115893770871898120">
     <active>true</active>
@@ -698,6 +684,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="155150250430955521">
     <active>false</active>
@@ -720,6 +707,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="95447749507416064">
     <active>true</active>
@@ -748,6 +736,7 @@
       <notif name="everyone">false</notif>
       <notif name="83010557455634432">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83002237479030784">
     <active>true</active>
@@ -789,6 +778,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="132327409214029824">
     <active>true</active>
@@ -812,6 +802,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="159706094325858304">
     <active>true</active>
@@ -841,6 +832,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="110044805068775424">
     <active>true</active>
@@ -866,6 +858,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="144631656576319488">
     <active>false</active>
@@ -915,6 +908,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="114251188215480327">
     <active>true</active>
@@ -942,6 +936,7 @@
       <notif name="85445281033768960">true</notif>
       <notif name="110853961363251200">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="140911313885855744">
     <active>true</active>
@@ -971,6 +966,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="148699462313836544">
     <active>true</active>
@@ -993,6 +989,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="130778671488172032">
     <active>true</active>
@@ -1022,6 +1019,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="117075889283530761">
     <active>true</active>
@@ -1045,6 +1043,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="94998779979108352">
     <active>true</active>
@@ -1076,6 +1075,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="116763308962349057">
     <active>true</active>
@@ -1132,6 +1132,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="84175423419744256">
     <active>true</active>
@@ -1165,6 +1166,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="149192160288309248">
     <active>true</active>
@@ -1187,6 +1189,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="138820679423361024">
     <active>true</active>
@@ -1211,6 +1214,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="90655726082482176">
     <active>false</active>
@@ -1233,6 +1237,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="150679265598373888">
     <active>true</active>
@@ -1259,6 +1264,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="82981867585802240">
     <active>false</active>
@@ -1285,6 +1291,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="93813027593269248">
     <active>true</active>
@@ -1321,6 +1328,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="126487854565163009">
     <active>true</active>
@@ -1346,6 +1354,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="151961441241530368">
     <active>true</active>
@@ -1371,6 +1380,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="142371988697120768">
     <active>true</active>
@@ -1403,6 +1413,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="139608047797534720">
     <active>true</active>
@@ -1427,6 +1438,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="139535251235012609">
     <active>true</active>
@@ -1594,6 +1606,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="68396537956270080">
     <active>true</active>
@@ -1616,6 +1629,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="101291987465945088">
     <active>true</active>
@@ -1648,6 +1662,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="106771156765323264">
     <active>true</active>
@@ -1674,6 +1689,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="133766915951689728">
     <active>false</active>
@@ -1696,6 +1712,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="115595039551389697">
     <active>false</active>
@@ -1718,6 +1735,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="141869857594408960">
     <active>true</active>
@@ -1740,6 +1758,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="96009747320299520">
     <active>false</active>
@@ -1764,6 +1783,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="140743940545445888">
     <active>true</active>
@@ -1786,6 +1806,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="84489531616657408">
     <active>true</active>
@@ -1810,6 +1831,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="147550071456530433">
     <active>true</active>
@@ -1834,6 +1856,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="117960221942480899">
     <active>true</active>
@@ -1911,6 +1934,7 @@
     <commandsQueue>
       <queue author="Jeepitou">`!streambot add channel themexicanrunner`</queue>
     </commandsQueue>
+    <compact>false</compact>
   </server>
   <server id="115262980102291460">
     <active>false</active>
@@ -1933,6 +1957,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="144182456642306052">
     <active>true</active>
@@ -1958,6 +1983,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="116250700685508615">
     <active>true</active>
@@ -1993,6 +2019,7 @@
       <notif name="everyone">false</notif>
       <notif name="83785035622121472">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="155386197437317120">
     <active>false</active>
@@ -2021,6 +2048,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="102062028868308992">
     <active>true</active>
@@ -2048,6 +2076,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="161013426796101632">
     <active>false</active>
@@ -2067,6 +2096,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="160529944773001216">
     <active>true</active>
@@ -2090,6 +2120,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="126887758584217600">
     <active>true</active>
@@ -2133,6 +2164,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="122275215421079552">
     <active>true</active>
@@ -2166,6 +2198,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="99192642839007232">
     <active>true</active>
@@ -2189,6 +2222,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="91719309620948992">
     <active>true</active>
@@ -2282,6 +2316,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="100257112076087296">
     <active>true</active>
@@ -2306,6 +2341,7 @@
       <notif name="everyone">false</notif>
       <notif name="132607734565699584">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="89893939829551104">
     <active>true</active>
@@ -2333,6 +2369,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="129554151691517953">
     <active>true</active>
@@ -2355,6 +2392,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="149342339582656512">
     <active>true</active>
@@ -2407,6 +2445,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="146442822659080192">
     <active>true</active>
@@ -2431,6 +2470,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="81276677837029376">
     <active>true</active>
@@ -2487,6 +2527,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="108291470422724608">
     <active>true</active>
@@ -2510,6 +2551,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="96290311310962688">
     <active>true</active>
@@ -2542,6 +2584,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="133282579393675264">
     <active>true</active>
@@ -2585,6 +2628,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="97822518546546688">
     <active>true</active>
@@ -2621,6 +2665,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="120227862761570306">
     <active>true</active>
@@ -2644,6 +2689,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="117364726249291782">
     <active>true</active>
@@ -2701,6 +2747,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="105058150347976704">
     <active>true</active>
@@ -2758,6 +2805,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="138378732376162304">
     <active>true</active>
@@ -2851,6 +2899,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="140545204179435520">
     <active>true</active>
@@ -2881,6 +2930,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="141024808535064576">
     <active>true</active>
@@ -2910,6 +2960,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83332588340510720">
     <active>true</active>
@@ -2985,6 +3036,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="68044713831178240">
     <active>true</active>
@@ -3012,6 +3064,7 @@
       <notif name="96795041216860160">true</notif>
       <notif name="64451444283019264">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="120404671968968704">
     <active>true</active>
@@ -3038,6 +3091,7 @@
       <notif name="107215343759437824">true</notif>
       <notif name="121421647348629507">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="96456464272461824">
     <active>true</active>
@@ -3061,6 +3115,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83118046553575424">
     <active>true</active>
@@ -3085,6 +3140,7 @@
       <notif name="everyone">false</notif>
       <notif name="83086470755123200">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="152242914938978304">
     <active>true</active>
@@ -3113,6 +3169,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="130742441417375744">
     <active>true</active>
@@ -3136,6 +3193,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="82237643185729536">
     <active>true</active>
@@ -3159,6 +3217,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="147371246554710016">
     <active>true</active>
@@ -3185,6 +3244,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="131483070464393216">
     <active>true</active>
@@ -3208,6 +3268,7 @@
       <notif name="everyone">false</notif>
       <notif name="63263941735755776">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83069099457908736">
     <active>true</active>
@@ -3259,6 +3320,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="112920832581324800">
     <active>true</active>
@@ -3294,6 +3356,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83658412952412160">
     <active>true</active>
@@ -3334,6 +3397,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="145445550655799297">
     <active>true</active>
@@ -3359,6 +3423,7 @@
       <notif name="everyone">false</notif>
       <notif name="123757907870351362">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="98153570007810048">
     <active>true</active>
@@ -3415,7 +3480,6 @@
       <notif name="104290389686513664">true</notif>
       <notif name="150381585496014848">true</notif>
       <notif name="128571653193072640">true</notif>
-      <notif name="132114608646389760">true</notif>
       <notif name="106750383161901056">true</notif>
       <notif name="158840894060101642">true</notif>
       <notif name="141753727542362112">true</notif>
@@ -3426,10 +3490,10 @@
       <notif name="104250268459237376">true</notif>
       <notif name="99138280041234432">true</notif>
       <notif name="126012419792306177">true</notif>
-      <notif name="127848372131463168">true</notif>
       <notif name="83003659473911808">true</notif>
       <notif name="137689867688607744">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83636399521165312">
     <active>true</active>
@@ -3485,6 +3549,7 @@
       <notif name="everyone">false</notif>
       <notif name="76239668995166208">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="95601911075446784">
     <active>true</active>
@@ -3507,6 +3572,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="139609837775486976">
     <active>true</active>
@@ -3550,6 +3616,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="96686699341430784">
     <active>true</active>
@@ -3627,6 +3694,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="135790238613241858">
     <active>false</active>
@@ -3654,6 +3722,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="95438562916302848">
     <active>true</active>
@@ -3677,6 +3746,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="160853561763299337">
     <active>true</active>
@@ -3699,6 +3769,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="153270357632090113">
     <active>true</active>
@@ -3739,6 +3810,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="137678375346110464">
     <active>true</active>
@@ -3763,39 +3835,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
-  </server>
-  <server id="161845343405867008">
-    <active>false</active>
-    <serverID>161845343405867008</serverID>
-    <channelID>161845343405867008</channelID>
-    <channels>
-      <channel>sakuya_izayoi11037</channel>
-      <channel>korava</channel>
-      <channel>codi64</channel>
-      <channel>mrxenik</channel>
-      <channel>vyingfiz</channel>
-      <channel>maymaybe</channel>
-      <channel>zonerius</channel>
-      <channel>xveris</channel>
-      <channel>inceane</channel>
-      <channel>pixelrushe</channel>
-      <channel>dirktestified</channel>
-      <channel>lonkao</channel>
-    </channels>
-    <managers>
-      <manager>152804599550574592</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <notifs>
-      <notif name="everyone">false</notif>
-    </notifs>
+    <compact>false</compact>
   </server>
   <server id="83564664058806272">
     <active>true</active>
@@ -3836,6 +3876,7 @@
       <notif name="82929797939855360">false</notif>
       <notif name="82941457014456320">false</notif>
     </notifs>
+    <compact>true</compact>
   </server>
   <server id="140118896655990784">
     <active>true</active>
@@ -3861,6 +3902,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="159117240837341184">
     <active>true</active>
@@ -3883,6 +3925,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83029388601327616">
     <active>true</active>
@@ -3929,6 +3972,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="97483615138484224">
     <active>true</active>
@@ -3960,6 +4004,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="151996927003721728">
     <active>false</active>
@@ -3980,6 +4025,7 @@
       <notif name="151999684179787776">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83546446585925632">
     <active>true</active>
@@ -4029,6 +4075,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="80511439894220800">
     <active>true</active>
@@ -4078,6 +4125,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="133950978847145985">
     <active>true</active>
@@ -4104,6 +4152,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="153593420219285504">
     <active>true</active>
@@ -4134,6 +4183,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="123874004640464896">
     <active>true</active>
@@ -4159,6 +4209,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>true</compact>
   </server>
   <server id="126065407504285696">
     <active>true</active>
@@ -4182,6 +4233,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="96849470607626240">
     <active>true</active>
@@ -4204,6 +4256,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="119361190626328578">
     <active>true</active>
@@ -4229,6 +4282,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="83022913329958912">
     <active>true</active>
@@ -4274,6 +4328,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="78491928970141696">
     <active>true</active>
@@ -4298,6 +4353,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="122445822855086080">
     <active>true</active>
@@ -4338,6 +4394,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="90628804669624320">
     <active>true</active>
@@ -4360,6 +4417,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="80530047529660416">
     <active>true</active>
@@ -4424,6 +4482,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="143985956305895424">
     <active>true</active>
@@ -4453,6 +4512,7 @@
     <notifs>
       <notif name="everyone">true</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="106148602711117824">
     <active>true</active>
@@ -4482,6 +4542,7 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
   <server id="110078227262763008">
     <active>true</active>
@@ -4531,5 +4592,6 @@
     <notifs>
       <notif name="everyone">false</notif>
     </notifs>
+    <compact>false</compact>
   </server>
 </servers>

@@ -40,6 +40,7 @@ public class DiscordListener extends ListenerAdapter {
         commandMap.put(CDisable.name, new CDisable());
         commandMap.put(CInvite.name, new CInvite());
         commandMap.put(CMove.name, new CMove());
+        commandMap.put(CCompact.name, new CCompact());
         commandMap.put(CQueue.name, new CQueue());
         commandMap.put(CDonate.name, new CDonate());
         commandMap.put(CServers.name, new CServers());

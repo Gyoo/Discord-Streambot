@@ -320,7 +320,7 @@ public class LocalServer{
 
     private void updateDiscordList(Stream stream) {
         String linkBeginning = compact ? "<" : "`";
-        String linkEnd = compact ? ">" : "`";
+        String linkEnd = compact ? ">" : " `";
         if(streamMatchesAttributes(stream)) {
             MessageBuilder builder = new MessageBuilder();
             for(Iterator<Map.Entry<String, Boolean>> it = getNotifs().entrySet().iterator(); it.hasNext();){
