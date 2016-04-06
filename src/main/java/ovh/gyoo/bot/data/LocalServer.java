@@ -28,6 +28,7 @@ public class LocalServer{
     Map<String, Boolean> notifs = new HashMap<>();
     List<QueueItem> commandsQueue = new ArrayList<>();
     boolean active;
+    boolean compact;
 
     public LocalServer(String id, String serverID){
         this.id = id;
@@ -38,6 +39,7 @@ public class LocalServer{
         managers = new ArrayList<>();
         active = false;
         this.serverID = serverID;
+        compact = false;
         initPermissions();
         initNotifs();
     }
@@ -175,6 +177,14 @@ public class LocalServer{
 
     public boolean isActive(){return active;}
 
+    public boolean isCompact() {
+        return compact;
+    }
+
+    public void setCompact(boolean compact) {
+        this.compact = compact;
+    }
+
     public Map<String, Permissions> getPermissionsMap() {
         return permissionsMap;
     }
@@ -309,6 +319,8 @@ public class LocalServer{
     }
 
     private void updateDiscordList(Stream stream) {
+        String linkBeginning = compact ? "<" : "`";
+        String linkEnd = compact ? ">" : "`";
         if(streamMatchesAttributes(stream)) {
             MessageBuilder builder = new MessageBuilder();
             for(Iterator<Map.Entry<String, Boolean>> it = getNotifs().entrySet().iterator(); it.hasNext();){
@@ -322,7 +334,7 @@ public class LocalServer{
                     }
                 }
             }
-            builder.appendString("NOW LIVE : ` http://twitch.tv/" + stream.getChannel().getName() + " ` playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
+            builder.appendString("NOW LIVE : " + linkBeginning + "http://twitch.tv/" + stream.getChannel().getName() + linkEnd + " playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
             DiscordInstance.getInstance().addToQueue(new MessageItem(getId(), MessageItem.Type.GUILD, builder.build()));
         }
     }

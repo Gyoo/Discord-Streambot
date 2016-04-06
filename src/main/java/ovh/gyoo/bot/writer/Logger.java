@@ -123,6 +123,10 @@ public class Logger {
                 }
                 server.addContent(commandsQueue);
             }
+
+            Element compact = new Element("compact");
+            compact.setText(Boolean.toString(entry.getValue().isCompact()));
+            server.addContent(compact);
         }
 
         XMLOutputter output = new XMLOutputter(Format.getPrettyFormat());
@@ -209,6 +213,10 @@ public class Logger {
                 for (Element command : commandsQueue.getChildren()){
                     ls.queueCommand(command.getAttributeValue("author"), command.getText());
                 }
+            }
+
+            if(server.getChild("commandsQueue") != null){
+                ls.setCompact(Boolean.parseBoolean(server.getChild("compact").getText()));
             }
 
             serverMap.add(ls);
