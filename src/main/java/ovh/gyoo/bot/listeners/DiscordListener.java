@@ -16,6 +16,7 @@ import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.MessageItem;
 import ovh.gyoo.bot.data.LocalServer;
 import ovh.gyoo.bot.data.ServerList;
+import ovh.gyoo.bot.writer.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,10 +93,14 @@ public class DiscordListener extends ListenerAdapter {
         - No Tag, Game, Channel or Team
         In this case, the message is shown because it's most likely that the server has just been created in the database. In case it's not, it'll remind people that the bot is there :)
          */
-        if(!ls.isActive() && ls.getGameList().isEmpty() && ls.getTagList().isEmpty() && ls.getTeamList().isEmpty() && ls.getUserList().isEmpty()){
-            DiscordInstance.getInstance().addToQueue(new MessageItem(ServerList.getInstance().getServer(e.getGuild().getId()).getId(), MessageItem.Type.GUILD, new MessageBuilder()
-                    .appendString("Hello ! I'm StreamBot ! Type `!streambot commands` to see the available commands !")
-                    .build()));
+        try{
+            if(!ls.isActive() && ls.getGameList().isEmpty() && ls.getTagList().isEmpty() && ls.getTeamList().isEmpty() && ls.getUserList().isEmpty()){
+                DiscordInstance.getInstance().addToQueue(new MessageItem(ServerList.getInstance().getServer(e.getGuild().getId()).getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                        .appendString("Hello ! I'm StreamBot ! Type `!streambot commands` to see the available commands !")
+                        .build()));
+            }
+        }catch(NullPointerException npe){
+            Logger.writeToErr(npe, "Guild name : " + e.getGuild().getName());
         }
     }
 
