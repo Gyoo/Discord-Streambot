@@ -150,12 +150,17 @@ public class CAdd implements Command{
         MessageBuilder mb = new MessageBuilder();
         LocalServer ls = ServerList.getInstance().getServer(serverId);
         if(ls.getManagers().contains(authorID)){
-            for(User u : users){
-                boolean res = ServerList.getInstance().getServer(serverId).addManager(u.getId());
-                if(res)
-                    mb.appendString("User " + u.getUsername() + " added to the managers list\n");
-                else
-                    mb.appendString("User " + u.getUsername() + " is already in the managers list\n");
+            if(users.isEmpty()) {
+                mb.appendString("No users detected. Make sure you use the @ mention when adding managers");
+            }
+            else {
+                for(User u : users){
+                    boolean res = ServerList.getInstance().getServer(serverId).addManager(u.getId());
+                    if(res)
+                        mb.appendString("User " + u.getUsername() + " added to the managers list\n");
+                    else
+                        mb.appendString("User " + u.getUsername() + " is already in the managers list\n");
+                }
             }
         }
         else mb.appendString("You are not allowed to use this command");

@@ -27,7 +27,7 @@ public class CEnable implements Command{
             }
             else{
                 String channelName = DiscordInstance.getInstance().getDiscord().getTextChannelById(ServerList.getInstance().getServer(e.getGuild().getId()).getId()).getName();
-                message = new MessageItem(e.getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+                message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
                 message.setMessage(new MessageBuilder().appendString("Missing permissions on channel " + channelName + " : Bot needs to be able to read and write in this channel. \n"
                         + "Bot is still disabled. Type `!streambot enable` again when the permissions are good to go !").build());
             }
