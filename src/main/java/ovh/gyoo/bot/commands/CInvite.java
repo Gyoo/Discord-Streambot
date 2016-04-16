@@ -14,9 +14,7 @@ public class CInvite implements Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
-                .appendString(InviteUtil
-                        .createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216"))
-                        .getUrl())
+                .appendString("https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528")
                 .build());
         DiscordInstance.getInstance().addToQueue(message);
     }

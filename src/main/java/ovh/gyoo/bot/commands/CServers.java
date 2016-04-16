@@ -22,6 +22,12 @@ public class CServers implements Command{
             message.setMessage(builder.build());
             DiscordInstance.getInstance().addToQueue(message);
             String offline = "\n**Disabled**\n";
+            for(LocalServer ls : ServerList.getInstance().getServerList()){
+                if(!ls.isActive()){
+                    String serverName = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName();
+                    offline += serverName + "\n";
+                }
+            }
             message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
             message.setMessage(new MessageBuilder().appendString(offline).build());
             DiscordInstance.getInstance().addToQueue(message);

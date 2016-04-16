@@ -43,15 +43,9 @@ public class DiscordInstance {
 
     private void setInstance(){
         try {
-            SAXBuilder sxb = new SAXBuilder();
-            Document document = sxb.build(new File("src/main/resources/credentials.xml")); // Make sure you have the file ! Not commited !
-            Element root = document.getRootElement();
-            String mail = root.getChild("mail").getText();
-            String pass = root.getChild("password").getText();
-            discord = new JDABuilder(mail, pass).buildBlocking();
+            discord = new JDABuilder().setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.CfObZw.km7UY01em2JAo8ZqCMPV8HfAwqo").buildBlocking();
             discord.addEventListener(new DiscordListener(discord));
-            discord.getAccountManager().setGame("Twitch Plays Discord");
-        } catch (LoginException | InterruptedException | JDOMException | IOException e) {
+        } catch (LoginException | InterruptedException e) {
             Logger.writeToErr(e, "");
         }
     }
