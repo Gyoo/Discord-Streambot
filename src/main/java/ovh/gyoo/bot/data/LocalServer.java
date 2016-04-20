@@ -272,48 +272,48 @@ public class LocalServer{
                 }
             });
         }
-        if(teamList.size() > 0) {
-            for(String name : teamList) {
-                TeamUtils.getTeam(name, new TeamRequestHandler() {
-                    @Override
-                    public void onSuccess(Team team) {
-
-                        TeamUtils.GetChannels(team, new TeamInfoRequestHandler() {
-                            @Override
-                            public void onSuccess(List<Stream> streams) {
-                                for(Stream stream : streams) {
-                                    if(!OnlineMap.getInstance().isDisplayed(serverID, stream)) {
-                                        OnlineMap.getInstance().addToList(serverID, stream);
-                                        if(!witholdOutput) updateDiscordList(stream);
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(int i, String s, String s1) {
-
-                            }
-
-                            @Override
-                            public void onFailure(Throwable throwable) {
-
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onFailure(int i, String s, String s1) {
-
-                    }
-
-                    @Override
-                    public void onFailure(Throwable throwable) {
-
-                    }
-                });
-
-            }
-        }
+//        if(teamList.size() > 0) {
+//            for(String name : teamList) {
+//                TeamUtils.getTeam(name, new TeamRequestHandler() {
+//                    @Override
+//                    public void onSuccess(Team team) {
+//
+//                        TeamUtils.GetChannels(team, new TeamInfoRequestHandler() {
+//                            @Override
+//                            public void onSuccess(List<Stream> streams) {
+//                                for(Stream stream : streams) {
+//                                    if(!OnlineMap.getInstance().isDisplayed(serverID, stream)) {
+//                                        OnlineMap.getInstance().addToList(serverID, stream);
+//                                        if(!witholdOutput) updateDiscordList(stream);
+//                                    }
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onFailure(int i, String s, String s1) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Throwable throwable) {
+//
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onFailure(int i, String s, String s1) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//
+//                    }
+//                });
+//
+//            }
+//        }
 
         if (gameList.contains("")) removeGame("");
     }
@@ -360,7 +360,7 @@ public class LocalServer{
             else split = new ArrayList<>();
             for (String tag : tagList) {
                 for(String word : split){
-                    if(word.startsWith(tag)){
+                    if(word.startsWith(tag.toLowerCase())){
                         hasTag = true;
                         break;
                     }

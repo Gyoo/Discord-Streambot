@@ -91,8 +91,9 @@ public class DiscordListener extends ListenerAdapter {
             ls.addManager(e.getGuild().getOwnerId());
             ServerList.getInstance().addServer(e.getGuild().getId(), ls);
             DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getOwnerId(), MessageItem.Type.PRIVATE, new MessageBuilder()
-                .appendString("Thanks for inviting me ! You are friendly invited to join my Guild on which you can have news, updates, and discuss bugs and features : " +
-                        InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl())
+                .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
+                        InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
+                "You can also get news about the updates, alert about bugs or just ask questions !")
                 .build()));
         }
         /*
