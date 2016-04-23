@@ -1,6 +1,7 @@
 package ovh.gyoo.bot.commands;
 
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import ovh.gyoo.bot.data.DiscordInstance;
 import ovh.gyoo.bot.data.LocalServer;
@@ -24,7 +25,10 @@ public class CServers implements Command{
             String offline = "\n**Disabled**\n";
             for(LocalServer ls : ServerList.getInstance().getServerList()){
                 if(!ls.isActive()){
-                    String serverName = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName();
+                    String serverName = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + " : ";
+                    for(String manager : ls.getManagers()){
+                        serverName += DiscordInstance.getInstance().getDiscord().getUserById(manager) + " ";
+                    }
                     offline += serverName + "\n";
                 }
             }

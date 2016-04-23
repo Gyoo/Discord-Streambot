@@ -4,6 +4,8 @@ import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.entities.*;
+import net.dv8tion.jda.events.InviteReceivedEvent;
+import net.dv8tion.jda.events.ReadyEvent;
 import net.dv8tion.jda.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.events.guild.member.GuildMemberJoinEvent;
@@ -91,10 +93,10 @@ public class DiscordListener extends ListenerAdapter {
             ls.addManager(e.getGuild().getOwnerId());
             ServerList.getInstance().addServer(e.getGuild().getId(), ls);
             DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getOwnerId(), MessageItem.Type.PRIVATE, new MessageBuilder()
-                .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
-                        InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
-                "You can also get news about the updates, alert about bugs or just ask questions !")
-                .build()));
+                    .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
+                            InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
+                            "You can also get news about the updates, alert about bugs or just ask questions !")
+                    .build()));
         }
         /*
         Condition to avoid the bot from re-posting this message when Discord servers are unavailable
@@ -113,6 +115,21 @@ public class DiscordListener extends ListenerAdapter {
             }
         }catch(NullPointerException npe){
             Logger.writeToErr(npe, "Guild name : " + e.getGuild().getName());
+        }
+    }
+
+    @Override
+    public void onInviteReceived(InviteReceivedEvent e){
+        LocalServer ls = ServerList.getInstance().getServer(e.getInvite().getGuildId());
+        if(ls == null){
+            ls = new LocalServer(e.getInvite().getChannelId(), e.getInvite().getGuildId());
+            ls.addManager(e.getAuthor().getId());
+            ServerList.getInstance().addServer(e.getInvite().getGuildId(), ls);
+            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getAuthor().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+                    .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
+                            InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
+                            "You can also get news about the updates, alert about bugs or just ask questions !")
+                    .build()));
         }
     }
 
