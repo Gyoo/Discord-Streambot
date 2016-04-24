@@ -55,22 +55,22 @@ public class Main {
                 ls = new LocalServer(guild.getPublicChannel().getId(), guild.getId());
                 ls.addManager(guild.getOwnerId());
                 ServerList.getInstance().addServer(guild.getId(), ls);
-                DiscordInstance.getInstance().addToQueue(new MessageItem(guild.getOwnerId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+                DiscordInstance.getInstance().addToQueue(new MessageItem(guild.getOwner().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
                         .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
                                 InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
                                 "You can also get news about the updates, alert about bugs or just ask questions !")
                         .build()));
             }
             //Reminder for inactive servers that the bot exists
-            else if(!ls.isActive()){
-                for(String manager : ls.getManagers()) {
-                    String servers = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + ((inactiveManagers.get(manager) != null) ? " | " + inactiveManagers.get(manager) : "");
-                    inactiveManagers.put(manager, servers);
-                }
-            }
+//            else if(!ls.isActive()){
+//                for(String manager : ls.getManagers()) {
+//                    String servers = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + ((inactiveManagers.get(manager) != null) ? " | " + inactiveManagers.get(manager) : "");
+//                    inactiveManagers.put(manager, servers);
+//                }
+//            }
         }
         for (Map.Entry<String, String> managerEntry : inactiveManagers.entrySet()){
-            DiscordInstance.getInstance().addToQueue(new MessageItem(managerEntry.getKey(), MessageItem.Type.PRIVATE, new MessageBuilder()
+            DiscordInstance.getInstance().addToQueue(new MessageItem(DiscordInstance.getInstance().getDiscord().getUserById(managerEntry.getKey()).getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
                     .appendString("Hey ! Don't forget you're a Streambot manager on : \n" + managerEntry.getValue() + "\n" +
                         "Use `!streambot commands` to see what configuration you can do, and don't forget `!streambot enable` to activate the announces !")
                     .build()));

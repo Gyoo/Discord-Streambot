@@ -27,13 +27,11 @@ import java.util.List;
 import java.util.Map;
 
 public class DiscordListener extends ListenerAdapter {
-    JDA api;
-    List<String> options = new ArrayList<>();
-    Map<String, Command> commandMap = new HashMap<>();
+    private JDA api;
+    private List<String> options = new ArrayList<>();
+    private Map<String, Command> commandMap = new HashMap<>();
 
-    public DiscordListener(JDA api){
-        this.api = api;
-
+    public DiscordListener(){
         commandMap.put(CStreams.name, new CStreams());
         commandMap.put(CAdd.name, new CAdd());
         commandMap.put(CRemove.name, new CRemove());
@@ -55,6 +53,10 @@ public class DiscordListener extends ListenerAdapter {
         options.add("`channel` : Twitch channel name");
         options.add("`tag` : Word or group of words that must be present in the stream's title");
         options.add("`manager` : Discord user (must use the @ alias when using this option !)");
+    }
+
+    public void setApi(JDA api) {
+        this.api = api;
     }
 
     @Override
@@ -92,7 +94,7 @@ public class DiscordListener extends ListenerAdapter {
             ls = new LocalServer(e.getGuild().getPublicChannel().getId(), e.getGuild().getId());
             ls.addManager(e.getGuild().getOwnerId());
             ServerList.getInstance().addServer(e.getGuild().getId(), ls);
-            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getOwnerId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getGuild().getOwner().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
                     .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
                             InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
                             "You can also get news about the updates, alert about bugs or just ask questions !")
@@ -125,7 +127,7 @@ public class DiscordListener extends ListenerAdapter {
             ls = new LocalServer(e.getInvite().getChannelId(), e.getInvite().getGuildId());
             ls.addManager(e.getAuthor().getId());
             ServerList.getInstance().addServer(e.getInvite().getGuildId(), ls);
-            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getAuthor().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+            DiscordInstance.getInstance().addToQueue(new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
                     .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
                             InviteUtil.createInvite(DiscordInstance.getInstance().getDiscord().getTextChannelById("131483070464393216")).getUrl() + "\n" +
                             "You can also get news about the updates, alert about bugs or just ask questions !")

@@ -25,10 +25,7 @@ public class CServers implements Command{
             String offline = "\n**Disabled**\n";
             for(LocalServer ls : ServerList.getInstance().getServerList()){
                 if(!ls.isActive()){
-                    String serverName = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName() + " : ";
-                    for(String manager : ls.getManagers()){
-                        serverName += DiscordInstance.getInstance().getDiscord().getUserById(manager) + " ";
-                    }
+                    String serverName = DiscordInstance.getInstance().getDiscord().getGuildById(ls.getServerID()).getName();
                     offline += serverName + "\n";
                 }
             }

@@ -43,10 +43,12 @@ public class DiscordInstance {
 
     private void setInstance(){
         try {
+            DiscordListener listener = new DiscordListener();
             discord = new JDABuilder()
                     .setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.CfObZw.km7UY01em2JAo8ZqCMPV8HfAwqo")
-                    .addListener(new DiscordListener(discord))
+                    .addListener(listener)
                     .buildBlocking();
+            listener.setApi(discord);
         } catch (LoginException | InterruptedException e) {
             Logger.writeToErr(e, "");
         }
