@@ -37,6 +37,18 @@ public class CNotify implements Command {
                         message.setMessage(new MessageBuilder().appendString("Removed \"everyone\" from announces mentions !").build());
                 }
                 break;
+            case "here":
+                if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId()))
+                    message.setMessage(new MessageBuilder().appendString("You are not allowed to use this command").build());
+                else{
+                    b = !ServerList.getInstance().getServer(e.getGuild().getId()).getNotifs().get("here"); //Gets the inverted value and put it back in the map
+                    ServerList.getInstance().getServer(e.getGuild().getId()).addNotif("here", b);
+                    if (b)
+                        message.setMessage(new MessageBuilder().appendString("Announces will mention \"here\" !").build());
+                    else
+                        message.setMessage(new MessageBuilder().appendString("Removed \"here\" from announces mentions !").build());
+                }
+                break;
             default:
                 message.setMessage(new MessageBuilder()
                         .appendString("Unknown parameter")

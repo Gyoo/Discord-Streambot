@@ -17,18 +17,18 @@ import java.util.*;
 
 public class LocalServer{
 
-    String serverID;
-    String id;
-    List<String> gameList;
-    List<String> userList;
-    List<String> tagList;
-    List<String> managers;
-    List<String> teamList;
-    Map<String, Permissions> permissionsMap = new HashMap<>();
-    Map<String, Boolean> notifs = new HashMap<>();
-    List<QueueItem> commandsQueue = new ArrayList<>();
-    boolean active;
-    boolean compact;
+    private String serverID;
+    private String id;
+    private List<String> gameList;
+    private List<String> userList;
+    private List<String> tagList;
+    private List<String> managers;
+    private List<String> teamList;
+    private Map<String, Permissions> permissionsMap = new HashMap<>();
+    private Map<String, Boolean> notifs = new HashMap<>();
+    private List<QueueItem> commandsQueue = new ArrayList<>();
+    private boolean active;
+    private boolean compact;
 
     public LocalServer(String id, String serverID){
         this.id = id;
@@ -44,7 +44,7 @@ public class LocalServer{
         initNotifs();
     }
 
-    public void initPermissions(){
+    private void initPermissions(){
         Permissions p = new Permissions();
         p.addPermission("everyone", Permissions.FORBID);
         addPermission("add", p);
@@ -53,8 +53,9 @@ public class LocalServer{
         addPermission("remove", p);
     }
 
-    public void initNotifs(){
+    private void initNotifs(){
         notifs.put("everyone", false);
+        notifs.put("here", false);
     }
 
     public List<String> getGameList() {
@@ -255,7 +256,6 @@ public class LocalServer{
                 public void onSuccess(int i, List<Stream> list) {
                     for (Stream stream : list) {
                         if(!witholdOutput && !OnlineMap.getInstance().isDisplayed(serverID, stream))  {
-                            OnlineMap.getInstance().addToList(serverID, stream);
                             updateDiscordList(stream);
                         }
                     }
@@ -327,6 +327,7 @@ public class LocalServer{
                 Map.Entry<String, Boolean> entry = it.next();
                 if(entry.getValue()) {
                     if(entry.getKey().equals("everyone")) builder.appendEveryoneMention().appendString(" ");
+                    else if(entry.getKey().equals("here")) builder.appendString("@here ");
                     else {
                         User u = DiscordInstance.getInstance().getDiscord().getUserById(entry.getKey());
                         if(null == u) it.remove();
@@ -334,6 +335,7 @@ public class LocalServer{
                     }
                 }
             }
+            OnlineMap.getInstance().addToList(serverID, stream);
             builder.appendString("NOW LIVE : " + linkBeginning + "http://twitch.tv/" + stream.getChannel().getName() + linkEnd + " playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
             DiscordInstance.getInstance().addToQueue(new MessageItem(getId(), MessageItem.Type.GUILD, builder.build()));
         }
