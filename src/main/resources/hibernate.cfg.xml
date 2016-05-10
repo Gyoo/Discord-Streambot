@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/streambot?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <!-- <property name="show_sql">true</property> -->
+    <mapping class="entity.ChannelEntity"/>
+    <mapping class="entity.GameEntity"/>
+    <mapping class="entity.GuildEntity"/>
+    <mapping class="entity.ManagerEntity"/>
+    <mapping class="entity.NotificationEntity"/>
+    <mapping class="entity.PlatformEntity"/>
+    <mapping class="entity.QueueitemEntity"/>
+    <mapping class="entity.StreamEntity"/>
+    <mapping class="entity.TagEntity"/>
+    <mapping class="entity.TeamEntity"/>
+    <mapping class="entity.CommandEntity"/>
+    <mapping class="entity.PermissionEntity"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

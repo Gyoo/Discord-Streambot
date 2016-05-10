@@ -21,6 +21,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -44,6 +45,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -78,6 +80,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -107,6 +110,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -179,6 +183,15 @@
       <channel>ash_marks</channel>
       <channel>timlinktom</channel>
       <channel>hermithelmet</channel>
+      <channel>zdobywcygier</channel>
+      <channel>ebloodycandy</channel>
+      <channel>bluecrystal004</channel>
+      <channel>lordlorkin</channel>
+      <channel>khanster786</channel>
+      <channel>happy12thbirthdayzfg</channel>
+      <channel>soaringwombat</channel>
+      <channel>forohforerror</channel>
+      <channel>valvadrix</channel>
     </channels>
     <tags>
       <tag>speedrun</tag>
@@ -216,12 +229,10 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="63263941735755776">false</notif>
     </notifs>
-    <commandsQueue>
-      <queue author="ToRRent">`!streambot add channel ZdobywcyGier`</queue>
-    </commandsQueue>
     <compact>false</compact>
   </server>
   <server id="107743276316008448">
@@ -245,6 +256,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -265,6 +277,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -288,6 +301,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -314,6 +328,7 @@
       <channel>void222x_tv</channel>
       <channel>bluem3tal</channel>
       <channel>cartoonbuffoon</channel>
+      <channel>fritfrat</channel>
     </channels>
     <managers>
       <manager>82988905682440192</manager>
@@ -327,6 +342,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -347,6 +363,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -372,6 +389,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="174624852190167040">
+    <active>false</active>
+    <serverID>174624852190167040</serverID>
+    <channelID>174624852190167040</channelID>
+    <managers>
+      <manager>159736963849519104</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -379,7 +418,7 @@
   <server id="137854573896269825">
     <active>true</active>
     <serverID>137854573896269825</serverID>
-    <channelID>168628700638740481</channelID>
+    <channelID>138203114305093632</channelID>
     <games>
       <game>Minecraft</game>
       <game>Rocket League</game>
@@ -406,6 +445,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="116062541213335553">true</notif>
       <notif name="127328636410920961">true</notif>
       <notif name="everyone">true</notif>
@@ -434,6 +474,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -457,6 +498,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -477,6 +519,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -501,6 +544,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -508,13 +552,16 @@
   <server id="120140361308831744">
     <active>true</active>
     <serverID>120140361308831744</serverID>
-    <channelID>120140361308831744</channelID>
+    <channelID>166256423876034562</channelID>
     <channels>
       <channel>https://www.twitch.tv/onegrind/</channel>
       <channel>https://www.twitch.tv/swiftis462/</channel>
+      <channel>onegrind</channel>
+      <channel>swiftis462</channel>
     </channels>
     <managers>
       <manager>98144143112417280</manager>
+      <manager>119492354485911554</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -525,7 +572,8 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -567,6 +615,9 @@
       <channel>simozx</channel>
       <channel>fs10inator</channel>
       <channel>mrmutantduck</channel>
+      <channel>xxmergyxx</channel>
+      <channel>murderoussocks</channel>
+      <channel>domdomzbm</channel>
     </channels>
     <managers>
       <manager>79327531911618560</manager>
@@ -580,6 +631,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -606,6 +658,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="100466706589159424">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
@@ -627,6 +680,8 @@
       <channel>andreslgi</channel>
       <channel>8bitgamenerd</channel>
       <channel>purplegill10</channel>
+      <channel>aliengamingspeedrun</channel>
+      <channel>srakso99</channel>
     </channels>
     <tags>
       <tag>nfs need for speed</tag>
@@ -646,6 +701,41 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="91987658477154304">
+    <active>true</active>
+    <serverID>91987658477154304</serverID>
+    <channelID>175025315905536000</channelID>
+    <channels>
+      <channel>jazzychoi1991</channel>
+      <channel>bingchang</channel>
+      <channel>indykenobi</channel>
+      <channel>kirkq</channel>
+      <channel>driftingskies</channel>
+      <channel>hobox10</channel>
+      <channel>mechachili</channel>
+      <channel>squidtepig</channel>
+      <channel>kanis999</channel>
+      <channel>bowiethehero</channel>
+    </channels>
+    <managers>
+      <manager>91986760195645440</manager>
+      <manager>97389163325698048</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -669,6 +759,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -692,6 +783,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="107489754370600960">true</notif>
     </notifs>
@@ -790,6 +882,35 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="83023274665054208">
+    <active>true</active>
+    <serverID>83023274665054208</serverID>
+    <channelID>83023274665054208</channelID>
+    <channels>
+      <channel>booradley</channel>
+      <channel>allinspiration</channel>
+      <channel>mabdulra</channel>
+      <channel>booradl3y</channel>
+    </channels>
+    <managers>
+      <manager>83017783192846336</manager>
+      <manager>83024585359884288</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -810,6 +931,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -835,7 +957,36 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="174583040738066432">
+    <active>true</active>
+    <serverID>174583040738066432</serverID>
+    <channelID>174583399426555904</channelID>
+    <channels>
+      <channel>twitch.tv/cheesey</channel>
+      <channel>cheesey</channel>
+    </channels>
+    <managers>
+      <manager>83003659473911808</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+        <role name="175132850578915328">0</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+        <role name="175132850578915328">0</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">true</notif>
+      <notif name="everyone">false</notif>
+      <notif name="83003659473911808">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -862,6 +1013,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -886,6 +1038,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -914,6 +1067,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="83010557455634432">false</notif>
     </notifs>
@@ -943,6 +1097,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -986,6 +1141,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1014,6 +1170,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1038,19 +1195,20 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
-  <server id="132726163205390336">
+  <server id="79305589104054272">
     <active>true</active>
-    <serverID>132726163205390336</serverID>
-    <channelID>132726163205390336</channelID>
+    <serverID>79305589104054272</serverID>
+    <channelID>177080578796027905</channelID>
     <channels>
-      <channel>sevens1ns</channel>
+      <channel>sinisterstreams</channel>
     </channels>
     <managers>
-      <manager>106683328404422656</manager>
+      <manager>79304778542227456</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -1061,6 +1219,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1102,6 +1261,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -1132,6 +1292,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -1156,7 +1317,57 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="176515351692050442">
+    <active>true</active>
+    <serverID>176515351692050442</serverID>
+    <channelID>176516281996935170</channelID>
+    <channels>
+      <channel>kungfufruitcup</channel>
+      <channel>deadfox29</channel>
+    </channels>
+    <managers>
+      <manager>93521693619789824</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">true</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="129112280540381184">
+    <active>true</active>
+    <serverID>129112280540381184</serverID>
+    <channelID>171347524395728897</channelID>
+    <channels>
+      <channel>sphyg04</channel>
+    </channels>
+    <managers>
+      <manager>118188856968347657</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -1206,6 +1417,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1231,6 +1443,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1262,7 +1475,34 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="156151096434229248">
+    <active>false</active>
+    <serverID>156151096434229248</serverID>
+    <channelID>177199535062253568</channelID>
+    <channels>
+      <channel>rubysea</channel>
+      <channel>morberplz</channel>
+      <channel>shedeviil_09</channel>
+    </channels>
+    <managers>
+      <manager>94990441467875328</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -1287,6 +1527,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -1307,6 +1548,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1337,6 +1579,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1370,6 +1613,35 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="144559626405412864">
+    <active>true</active>
+    <serverID>144559626405412864</serverID>
+    <channelID>169545355824857097</channelID>
+    <channels>
+      <channel>hardytekyoyo</channel>
+      <channel>pokemonace101</channel>
+      <channel>spizzlez</channel>
+      <channel>silverthetwilight</channel>
+    </channels>
+    <managers>
+      <manager>144558698570711041</manager>
+      <manager>128946446945746946</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1395,6 +1667,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1418,6 +1691,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -1453,6 +1727,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1478,6 +1753,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1501,6 +1777,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1524,6 +1801,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1551,6 +1829,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1588,6 +1867,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1614,6 +1894,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1640,6 +1921,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1665,6 +1947,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1698,6 +1981,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1735,6 +2019,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="176591225564954625">
+    <active>false</active>
+    <serverID>176591225564954625</serverID>
+    <channelID>176591225564954625</channelID>
+    <managers>
+      <manager>158141472116310016</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1764,6 +2070,32 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="83151263922917376">
+    <active>true</active>
+    <serverID>83151263922917376</serverID>
+    <channelID>83151263922917376</channelID>
+    <channels>
+      <channel>jackathon</channel>
+    </channels>
+    <managers>
+      <manager>83001638964428800</manager>
+      <manager>98610465042595840</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -1787,6 +2119,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -1807,6 +2140,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1830,6 +2164,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1853,6 +2188,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -1876,6 +2212,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -1955,6 +2292,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <commandsQueue>
@@ -1984,6 +2322,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2019,6 +2358,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="83785035622121472">false</notif>
     </notifs>
@@ -2051,6 +2391,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -2079,6 +2420,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2095,6 +2437,7 @@
       <channel>darkbeardini</channel>
       <channel>danzel_glovington</channel>
       <channel>warriorjaddo</channel>
+      <channel>crackerbean</channel>
     </channels>
     <managers>
       <manager>102061852833386496</manager>
@@ -2108,6 +2451,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2128,6 +2472,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2172,6 +2517,31 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="122589656855478272">
+    <active>true</active>
+    <serverID>122589656855478272</serverID>
+    <channelID>122589656855478272</channelID>
+    <channels>
+      <channel>chickdrummer88</channel>
+    </channels>
+    <managers>
+      <manager>94530857380880384</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2205,14 +2575,42 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="93311356077346816">
+    <active>true</active>
+    <serverID>93311356077346816</serverID>
+    <channelID>93316284359389184</channelID>
+    <teams>
+      <team>gamechops</team>
+    </teams>
+    <managers>
+      <manager>93308431313666048</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
   <server id="87128831667748864">
-    <active>false</active>
+    <active>true</active>
     <serverID>87128831667748864</serverID>
     <channelID>87128831667748864</channelID>
+    <channels>
+      <channel>anm60forjesus</channel>
+    </channels>
     <managers>
       <manager>83040308178190336</manager>
     </managers>
@@ -2225,12 +2623,13 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
   <server id="172446278116966400">
-    <active>false</active>
+    <active>true</active>
     <serverID>172446278116966400</serverID>
     <channelID>172446278116966400</channelID>
     <channels>
@@ -2254,6 +2653,35 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="139678511068610560">
+    <active>true</active>
+    <serverID>139678511068610560</serverID>
+    <channelID>139678511068610560</channelID>
+    <channels>
+      <channel>floe</channel>
+      <channel>thebrett</channel>
+      <channel>ncrosser</channel>
+      <channel>based_steak</channel>
+      <channel>cosmiclullaby</channel>
+    </channels>
+    <managers>
+      <manager>77595174099746816</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2274,6 +2702,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2312,6 +2741,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2340,6 +2770,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2364,7 +2795,92 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="94393080500719616">
+    <active>true</active>
+    <serverID>94393080500719616</serverID>
+    <channelID>176053392135684097</channelID>
+    <channels>
+      <channel>operationsupplydrop</channel>
+      <channel>nvaderzimm</channel>
+      <channel>brokencowleg</channel>
+      <channel>meth0d1hp</channel>
+      <channel>n3wb_pro</channel>
+      <channel>sniper_vigorous</channel>
+      <channel>thehearttech</channel>
+      <channel>printusmc</channel>
+      <channel>combatvetgaming</channel>
+      <channel>footedpanda</channel>
+      <channel>deltajford</channel>
+      <channel>dbldeathdealer</channel>
+      <channel>usaf_hart</channel>
+      <channel>dreadroth</channel>
+      <channel>thantophobi</channel>
+      <channel>theninjacray</channel>
+      <channel>gam3k3y</channel>
+      <channel>evney</channel>
+      <channel>rad_dad</channel>
+      <channel>shinjitv</channel>
+      <channel>arod40</channel>
+      <channel>munchnplay</channel>
+      <channel>k4vet</channel>
+      <channel>rogueassassin5</channel>
+      <channel>idiot_machine</channel>
+      <channel>xjoystic</channel>
+      <channel>ninjavulfe</channel>
+      <channel>smash_tv</channel>
+      <channel>realblankspace</channel>
+      <channel>alacon01</channel>
+      <channel>ianosity</channel>
+      <channel>thenadeface</channel>
+      <channel>smash_tv_</channel>
+      <channel>felony4g</channel>
+      <channel>mrgoatbeard</channel>
+      <channel>gingerbymarriage</channel>
+      <channel>vtc_luckyy</channel>
+      <channel>tristamwolf</channel>
+      <channel>unmadegaming</channel>
+      <channel>zepwunderbar</channel>
+      <channel>mysticsoul23</channel>
+      <channel>x_meowth</channel>
+      <channel>robocoxtv</channel>
+      <channel>xofocusthecarryxo</channel>
+      <channel>corgarian</channel>
+      <channel>justinred87</channel>
+      <channel>steampunk_kovar</channel>
+      <channel>floppytsk</channel>
+      <channel>xmtggamerx</channel>
+      <channel>rypheareon</channel>
+      <channel>illusion927</channel>
+      <channel>mooha182</channel>
+      <channel>stretchnation</channel>
+      <channel>annoyance916</channel>
+      <channel>cuddlyleo</channel>
+      <channel>xxoptiondisabledxx</channel>
+      <channel>thedadsgaming</channel>
+      <channel>doublefeedgaming</channel>
+    </channels>
+    <managers>
+      <manager>94392849633640448</manager>
+      <manager>97828749868810240</manager>
+      <manager>114426834082463748</manager>
+      <manager>98889548859179008</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -2387,6 +2903,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2449,6 +2966,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="165445791853314048">
+    <active>false</active>
+    <serverID>165445791853314048</serverID>
+    <channelID>165445791853314048</channelID>
+    <managers>
+      <manager>165444687748923393</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2483,6 +3022,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -2531,6 +3071,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2568,6 +3109,7 @@
       <channel>pixel911</channel>
       <channel>thabanana</channel>
       <channel>g0gotbc</channel>
+      <channel>jeedunit</channel>
     </channels>
     <managers>
       <manager>91701242341896192</manager>
@@ -2583,6 +3125,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2684,6 +3227,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -2704,6 +3248,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2712,6 +3257,9 @@
     <active>false</active>
     <serverID>160543125616459776</serverID>
     <channelID>160543125616459776</channelID>
+    <channels>
+      <channel>thenoaha</channel>
+    </channels>
     <managers>
       <manager>142469253415567360</manager>
     </managers>
@@ -2724,6 +3272,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2747,6 +3296,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="96296422265098240">true</notif>
       <notif name="everyone">true</notif>
       <notif name="106930931050246144">true</notif>
@@ -2776,6 +3326,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="90647109425954816">true</notif>
       <notif name="everyone">true</notif>
       <notif name="107215343759437824">true</notif>
@@ -2803,6 +3354,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="162704196896948224">
+    <active>false</active>
+    <serverID>162704196896948224</serverID>
+    <channelID>162704196896948224</channelID>
+    <managers>
+      <manager>108015814933753856</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2827,6 +3400,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2879,6 +3453,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -2919,6 +3494,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -2942,16 +3518,26 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
+      <notif name="92651437657460736">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
   <server id="153179811957702656">
-    <active>false</active>
+    <active>true</active>
     <serverID>153179811957702656</serverID>
-    <channelID>153179811957702656</channelID>
+    <channelID>162856412479881216</channelID>
+    <channels>
+      <channel>rivahakushia</channel>
+      <channel>partywithtibbers</channel>
+      <channel>grifballcentral</channel>
+      <channel>luckyhachiko</channel>
+    </channels>
     <managers>
       <manager>142211418345832448</manager>
+      <manager>158021931822612480</manager>
+      <manager>162980122356350977</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -2962,48 +3548,33 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
-  <server id="145445550655799297">
-    <active>true</active>
-    <serverID>145445550655799297</serverID>
-    <channelID>151369543133036544</channelID>
-    <channels>
-      <channel>gilgamesz08</channel>
-      <channel>ukdrewuk</channel>
-      <channel>kenndrik</channel>
-      <channel>hetsen</channel>
-      <channel>dawolv</channel>
-      <channel>mrdecebal</channel>
-      <channel>anders142536</channel>
-      <channel>dantepls</channel>
-      <channel>odessit1990</channel>
-      <channel>eldavimost</channel>
-      <channel>zieg_biting_dog</channel>
-      <channel>distortnl</channel>
-      <channel>hexmeh</channel>
-      <channel>matchmakelove</channel>
-      <channel>kerecsen</channel>
-      <channel>kitsunesidhe</channel>
-    </channels>
+  <server id="136537756317908992">
+    <active>false</active>
+    <serverID>136537756317908992</serverID>
+    <channelID>136537756317908992</channelID>
+    <games>
+      <game>Assault Android Cactus</game>
+    </games>
     <managers>
-      <manager>123757907870351362</manager>
+      <manager>89757085100691456</manager>
+      <manager>116227837194797059</manager>
     </managers>
     <permissions>
       <permission name="add">
         <role name="everyone">2</role>
-        <role name="145450373128126465">0</role>
       </permission>
       <permission name="remove">
         <role name="everyone">2</role>
-        <role name="145450373128126465">0</role>
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
-      <notif name="123757907870351362">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -3026,9 +3597,31 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
+  </server>
+  <server id="100331175817543680">
+    <active>false</active>
+    <serverID>100331175817543680</serverID>
+    <channelID>100331175817543680</channelID>
+    <managers>
+      <manager>98889548859179008</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
   </server>
   <server id="172887466234085376">
     <active>false</active>
@@ -3046,6 +3639,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3069,6 +3663,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3092,9 +3687,13 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+      <notif name="98144143112417280">true</notif>
       <notif name="114050789659377668">true</notif>
       <notif name="119159557489426434">true</notif>
+      <notif name="119136250916634625">true</notif>
+      <notif name="118408232057176066">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -3114,6 +3713,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3158,6 +3758,8 @@
       <channel>buffaloprime</channel>
       <channel>footbigmike</channel>
       <channel>revenantkioku</channel>
+      <channel>feralpigman</channel>
+      <channel>jenja23</channel>
     </channels>
     <managers>
       <manager>107047538305048576</manager>
@@ -3175,6 +3777,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3198,7 +3801,74 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="90640674130505728">
+    <active>true</active>
+    <serverID>90640674130505728</serverID>
+    <channelID>174841812068990976</channelID>
+    <games>
+      <game>Digimon World</game>
+      <game>Digimon World 3</game>
+      <game>Digimon World 2</game>
+      <game>Digimon World 4</game>
+      <game>Digimon Story: Cyber Sleuth</game>
+      <game>Digimon World Re: Digitize</game>
+      <game>Digimon World: Next Order</game>
+      <game>Digimon World Re:Digitize Decode</game>
+      <game>Digimon Soul Chaser</game>
+      <game>Digimon World DS</game>
+      <game>Digimon World Data Squad</game>
+      <game>Digimon Digital Card Battle</game>
+      <game>Digimon Story: Lost Evolution</game>
+      <game>Digimon Masters</game>
+      <game>Digimon World: Dusk/Dawn</game>
+      <game>Digimon Rumble Arena</game>
+      <game>Digimon Rumble Arena 2</game>
+      <game>Digimon All-Star Rumble</game>
+      <game>Digimon Racing</game>
+      <game>Digimon Linkz</game>
+      <game>Digimon Heroes</game>
+    </games>
+    <managers>
+      <manager>78487695445209088</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="78487695445209088">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="97149047281827840">
+    <active>true</active>
+    <serverID>97149047281827840</serverID>
+    <channelID>97149047281827840</channelID>
+    <managers>
+      <manager>97148700756815872</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -3224,9 +3894,95 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
+  </server>
+  <server id="175281631752355841">
+    <active>true</active>
+    <serverID>175281631752355841</serverID>
+    <channelID>175289929620783104</channelID>
+    <channels>
+      <channel>pundurs</channel>
+      <channel>polt</channel>
+      <channel>kiwian</channel>
+      <channel>manofoneway</channel>
+      <channel>yaneena</channel>
+      <channel>burnysc2</channel>
+      <channel>pinokotsbeer</channel>
+      <channel>dethfanatic</channel>
+      <channel>crexis</channel>
+      <channel>thekhyira</channel>
+      <channel>scythe_sc2</channel>
+      <channel>manofonewaysc</channel>
+      <channel>schnitzelterran</channel>
+      <channel>exeviking</channel>
+    </channels>
+    <managers>
+      <manager>137158534239485952</manager>
+      <manager>124137111975755776</manager>
+      <manager>121948437796093952</manager>
+      <manager>142770440325038081</manager>
+      <manager>169215764140654592</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="175384422357532672">
+    <active>true</active>
+    <serverID>175384422357532672</serverID>
+    <channelID>175384422357532672</channelID>
+    <channels>
+      <channel>akainigoki</channel>
+      <channel>a_german_spy</channel>
+      <channel>dmcredgrave</channel>
+      <channel>peeve</channel>
+      <channel>cassieiyxa</channel>
+      <channel>domdebomb</channel>
+      <channel>azpceros</channel>
+      <channel>garioncete</channel>
+      <channel>lance4life</channel>
+      <channel>pep_rock</channel>
+      <channel>valkyrieprofail</channel>
+      <channel>cheque251</channel>
+      <channel>moanyan</channel>
+      <channel>iron_pineapple</channel>
+      <channel>rbfrosty</channel>
+      <channel>onlyafro</channel>
+      <channel>https://www.twitch.tv/blueberryknights</channel>
+    </channels>
+    <managers>
+      <manager>103926895086698496</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="175561796130832384">true</notif>
+      <notif name="103926895086698496">true</notif>
+      <notif name="175589396530200577">true</notif>
+      <notif name="everyone">false</notif>
+      <notif name="175597424499359744">false</notif>
+    </notifs>
+    <compact>true</compact>
   </server>
   <server id="139609837775486976">
     <active>true</active>
@@ -3262,6 +4018,7 @@
       <channel>clarityggtv</channel>
       <channel>bytesmash</channel>
       <channel>ashlerz</channel>
+      <channel>lovergurl77983</channel>
     </channels>
     <managers>
       <manager>96767646728482816</manager>
@@ -3275,6 +4032,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3342,9 +4100,11 @@
       <channel>mathmass</channel>
       <channel>fathlo23</channel>
       <channel>namux</channel>
+      <channel>kakkkun</channel>
     </channels>
     <managers>
       <manager>85786758255480832</manager>
+      <manager>138404950551035904</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -3355,6 +4115,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -3406,9 +4167,31 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
+  </server>
+  <server id="84407088171741184">
+    <active>false</active>
+    <serverID>84407088171741184</serverID>
+    <channelID>84407088171741184</channelID>
+    <managers>
+      <manager>83013905730768896</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
   </server>
   <server id="95438562916302848">
     <active>true</active>
@@ -3430,6 +4213,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3453,6 +4237,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3478,6 +4263,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3509,6 +4295,13 @@
       <channel>instasim</channel>
       <channel>zoey_117</channel>
       <channel>piggleberry</channel>
+      <channel>sherrysan</channel>
+      <channel>sir_jazzberry</channel>
+      <channel>pain975</channel>
+      <channel>sixrockfire</channel>
+      <channel>mickeypc</channel>
+      <channel>raikaru13</channel>
+      <channel>terlimanor</channel>
     </channels>
     <managers>
       <manager>112588983015317504</manager>
@@ -3523,6 +4316,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3543,6 +4337,45 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="154861527906779136">
+    <active>true</active>
+    <serverID>154861527906779136</serverID>
+    <channelID>154861527906779136</channelID>
+    <channels>
+      <channel>allinspiration</channel>
+      <channel>booradl3y</channel>
+      <channel>grippe87</channel>
+      <channel>techfour</channel>
+      <channel>exiledsc</channel>
+      <channel>tweetybird</channel>
+      <channel>tangsc</channel>
+      <channel>totalmanipulation</channel>
+      <channel>ballonrouge</channel>
+      <channel>fizben</channel>
+    </channels>
+    <managers>
+      <manager>96388510767910912</manager>
+      <manager>83017783192846336</manager>
+      <manager>156890430271782913</manager>
+      <manager>146000224568082432</manager>
+      <manager>93165483259330560</manager>
+      <manager>142513561288048640</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3577,6 +4410,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3602,6 +4436,7 @@
       <channel>eucalyptus224</channel>
       <channel>keith_90</channel>
       <channel>zelkystv</channel>
+      <channel>akylio</channel>
     </channels>
     <managers>
       <manager>82929797939855360</manager>
@@ -3616,6 +4451,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="109428430679846912">false</notif>
       <notif name="82929797939855360">false</notif>
@@ -3643,6 +4479,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3667,6 +4504,39 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="138902108748382208">
+    <active>true</active>
+    <serverID>138902108748382208</serverID>
+    <channelID>138902108748382208</channelID>
+    <games>
+      <game>The Legend of Zelda: A Link to the Past</game>
+      <game>Spyro 2: Ripto's Rage</game>
+      <game>Final Fantasy IX</game>
+      <game>Resident Evil</game>
+      <game>Klonoa: Door to Phantomile</game>
+    </games>
+    <channels>
+      <channel>retroid92</channel>
+      <channel>lifaenz</channel>
+    </channels>
+    <managers>
+      <manager>126434077208346624</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -3674,7 +4544,7 @@
   <server id="87979447986196480">
     <active>true</active>
     <serverID>87979447986196480</serverID>
-    <channelID>101087123695763456</channelID>
+    <channelID>167157393577213952</channelID>
     <channels>
       <channel>kungfufruitcup</channel>
     </channels>
@@ -3690,26 +4560,38 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
-  <server id="138902108748382208">
+  <server id="152005678767144960">
     <active>true</active>
-    <serverID>138902108748382208</serverID>
-    <channelID>138902108748382208</channelID>
-    <games>
-      <game>The Legend of Zelda: A Link to the Past</game>
-      <game>Spyro 2: Ripto's Rage</game>
-      <game>Final Fantasy IX</game>
-      <game>Resident Evil</game>
-    </games>
+    <serverID>152005678767144960</serverID>
+    <channelID>173728843520147456</channelID>
     <channels>
-      <channel>lifaenz</channel>
-      <channel>retroid92</channel>
+      <channel>manvsgame</channel>
+      <channel>majeye</channel>
+      <channel>danotage</channel>
+      <channel>bigsinka</channel>
+      <channel>thebluemuzzy</channel>
+      <channel>ragepandapajamas</channel>
+      <channel>athenelive</channel>
+      <channel>crunchmaester</channel>
+      <channel>pyroinsane</channel>
+      <channel>thejellywarrior</channel>
+      <channel>lethalfrag</channel>
+      <channel>auburnfox</channel>
+      <channel>katiekakes32</channel>
+      <channel>adamfellow</channel>
+      <channel>bexyish</channel>
+      <channel>crunchmeaster</channel>
+      <channel>lilredhydra</channel>
+      <channel>auraellen</channel>
+      <channel>mcloken</channel>
     </channels>
     <managers>
-      <manager>126434077208346624</manager>
+      <manager>152005190940098560</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -3720,32 +4602,7 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
-    </notifs>
-    <compact>false</compact>
-  </server>
-  <server id="154012621979385856">
-    <active>true</active>
-    <serverID>154012621979385856</serverID>
-    <channelID>154012621979385856</channelID>
-    <games>
-      <game>Minecraft</game>
-    </games>
-    <channels>
-      <channel>twitch.tv/raphavitor</channel>
-    </channels>
-    <managers>
-      <manager>115775697611390979</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3785,6 +4642,8 @@
       <channel>sonvan</channel>
       <channel>dos350_legit</channel>
       <channel>rheal_</channel>
+      <channel>avanor_</channel>
+      <channel>lumophile</channel>
     </channels>
     <managers>
       <manager>115873467873755136</manager>
@@ -3798,6 +4657,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3848,6 +4708,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3888,6 +4749,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3913,6 +4775,8 @@
       <channel>awesomesaucenetwork</channel>
       <channel>paulshardware</channel>
       <channel>deusqain</channel>
+      <channel>fnzzy</channel>
+      <channel>azorae</channel>
     </channels>
     <managers>
       <manager>140002643878739968</manager>
@@ -3926,6 +4790,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3940,6 +4805,7 @@
       <channel>pachel22</channel>
       <channel>marshallartistuk</channel>
       <channel>goffiesenigma</channel>
+      <channel>rocketgruntaj</channel>
     </channels>
     <managers>
       <manager>118801861833785345</manager>
@@ -3953,6 +4819,38 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="101938548680175616">
+    <active>true</active>
+    <serverID>101938548680175616</serverID>
+    <channelID>177343078913409024</channelID>
+    <channels>
+      <channel>xfallennn</channel>
+      <channel>sniperking19</channel>
+      <channel>deathline77</channel>
+      <channel>alanzon28</channel>
+      <channel>kungfufruitcup</channel>
+      <channel>atomicotaku</channel>
+      <channel>bird650</channel>
+      <channel>kaahlan</channel>
+    </channels>
+    <managers>
+      <manager>101901875833507840</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -3976,14 +4874,33 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
   <server id="132855997558554624">
-    <active>false</active>
+    <active>true</active>
     <serverID>132855997558554624</serverID>
-    <channelID>132855997558554624</channelID>
+    <channelID>175658415870181377</channelID>
+    <channels>
+      <channel>announcements deadnedz007</channel>
+      <channel>bellafire</channel>
+      <channel>deadnedz007</channel>
+      <channel>trexelcat</channel>
+      <channel>princesskuki</channel>
+      <channel>kaostheorytv</channel>
+      <channel>londongaming4fun</channel>
+      <channel>cmdrhughmann</channel>
+      <channel>gabegonzo</channel>
+      <channel>deucenickalo</channel>
+      <channel>dj truthsayer</channel>
+      <channel>dj_truthsayer</channel>
+      <channel>djtruthsayer</channel>
+      <channel>cmdrflynth</channel>
+      <channel>effectedbark</channel>
+      <channel>effectedbark844</channel>
+    </channels>
     <managers>
       <manager>79805702457012224</manager>
     </managers>
@@ -3996,6 +4913,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4020,6 +4938,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4040,19 +4959,17 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
-  <server id="90628804669624320">
-    <active>true</active>
-    <serverID>90628804669624320</serverID>
-    <channelID>159419362367766529</channelID>
-    <channels>
-      <channel>thesludgygamer</channel>
-    </channels>
+  <server id="99570822489841664">
+    <active>false</active>
+    <serverID>99570822489841664</serverID>
+    <channelID>99570822489841664</channelID>
     <managers>
-      <manager>90628400590389248</manager>
+      <manager>99570468528345088</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -4063,6 +4980,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4089,6 +5007,55 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="150527433639067648">
+    <active>true</active>
+    <serverID>150527433639067648</serverID>
+    <channelID>153312449221754881</channelID>
+    <channels>
+      <channel>claescummings</channel>
+      <channel>gamrenchantment</channel>
+      <channel>smokindank5280</channel>
+    </channels>
+    <managers>
+      <manager>150527243884560384</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">0</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">0</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+      <notif name="150527243884560384">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="97148898467905536">
+    <active>true</active>
+    <serverID>97148898467905536</serverID>
+    <channelID>97148898467905536</channelID>
+    <managers>
+      <manager>97148700756815872</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4115,6 +5082,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4138,6 +5106,8 @@
       <channel>fynnlock_</channel>
       <channel>kubalogic</channel>
       <channel>flamingmonocle</channel>
+      <channel>mookieix</channel>
+      <channel>master_pilkington</channel>
     </channels>
     <managers>
       <manager>132998171935637505</manager>
@@ -4152,6 +5122,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4184,6 +5155,7 @@
       <channel>kayos198</channel>
       <channel>if4fino</channel>
       <channel>larrybann</channel>
+      <channel>porthos_1980</channel>
     </channels>
     <teams>
       <team>tiiq</team>
@@ -4202,6 +5174,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4222,7 +5195,64 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="171595132641083393">
+    <active>true</active>
+    <serverID>171595132641083393</serverID>
+    <channelID>175679749161615360</channelID>
+    <channels>
+      <channel>knightdmg</channel>
+      <channel>kingbacontroll</channel>
+      <channel>angeldescent</channel>
+      <channel>kriskafe</channel>
+      <channel>tburris341</channel>
+      <channel>pinkcow19</channel>
+      <channel>aquajay</channel>
+      <channel>prettyph3nom</channel>
+    </channels>
+    <managers>
+      <manager>117334048019316737</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="134426990752038912">
+    <active>true</active>
+    <serverID>134426990752038912</serverID>
+    <channelID>134426990752038912</channelID>
+    <channels>
+      <channel>withsteve</channel>
+    </channels>
+    <managers>
+      <manager>134426829380517888</manager>
+      <manager>98610465042595840</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -4258,6 +5288,58 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="175707889388879872">
+    <active>true</active>
+    <serverID>175707889388879872</serverID>
+    <channelID>175707889388879872</channelID>
+    <channels>
+      <channel>stumptgamers</channel>
+    </channels>
+    <managers>
+      <manager>175707414681616384</manager>
+      <manager>109058151302606848</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="177166223400894466">false</notif>
+      <notif name="176125957990514688">true</notif>
+      <notif name="98600393885388800">true</notif>
+      <notif name="177175037894197248">true</notif>
+      <notif name="everyone">true</notif>
+      <notif name="176822978112126977">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="98929157894836224">
+    <active>false</active>
+    <serverID>98929157894836224</serverID>
+    <channelID>98929157894836224</channelID>
+    <managers>
+      <manager>85786758255480832</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4300,6 +5382,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -4335,6 +5418,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4358,6 +5442,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4381,6 +5466,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4412,6 +5498,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4439,6 +5526,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="114622101964587014">true</notif>
       <notif name="everyone">false</notif>
       <notif name="143932121868664832">true</notif>
@@ -4446,6 +5534,89 @@
       <notif name="127131465975726081">true</notif>
       <notif name="129345934290059264">true</notif>
       <notif name="101055351058632704">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="124213074444943360">
+    <active>true</active>
+    <serverID>124213074444943360</serverID>
+    <channelID>174780120517705728</channelID>
+    <channels>
+      <channel>galacticgamingtv</channel>
+      <channel>pundurs</channel>
+      <channel>dracorath</channel>
+      <channel>axeljernis</channel>
+      <channel>blufffkin</channel>
+      <channel>burnysc2</channel>
+      <channel>valyinish</channel>
+      <channel>methodape</channel>
+      <channel>andersonesc2</channel>
+      <channel>ggmrtea</channel>
+      <channel>manofonewaysc</channel>
+    </channels>
+    <managers>
+      <manager>122018891953078272</manager>
+      <manager>124137111975755776</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="91344545056292864">
+    <active>true</active>
+    <serverID>91344545056292864</serverID>
+    <channelID>91344545056292864</channelID>
+    <channels>
+      <channel>the_myriad_truths</channel>
+      <channel>gamesdonequick</channel>
+    </channels>
+    <managers>
+      <manager>65164647354867712</manager>
+      <manager>90980539112112128</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="65164647354867712">true</notif>
+      <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="138778571442225152">
+    <active>false</active>
+    <serverID>138778571442225152</serverID>
+    <channelID>138778571442225152</channelID>
+    <managers>
+      <manager>125132808938061824</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -4485,7 +5656,35 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="153332005684248578">
+    <active>true</active>
+    <serverID>153332005684248578</serverID>
+    <channelID>167732891047034880</channelID>
+    <channels>
+      <channel>dagik5</channel>
+      <channel>byarsulik</channel>
+      <channel>nighnighsgaming</channel>
+    </channels>
+    <managers>
+      <manager>153331686850035712</manager>
+      <manager>143505457338646529</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -4505,6 +5704,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4525,6 +5725,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4548,6 +5749,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -4577,6 +5779,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="177263001718489088">
+    <active>false</active>
+    <serverID>177263001718489088</serverID>
+    <channelID>177263001718489088</channelID>
+    <managers>
+      <manager>83330085913890816</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4601,7 +5825,71 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="177492863456772096">
+    <active>true</active>
+    <serverID>177492863456772096</serverID>
+    <channelID>177505204424409088</channelID>
+    <channels>
+      <channel>cronokirby</channel>
+      <channel>redslash</channel>
+      <channel>dubldrop</channel>
+      <channel>snesterday</channel>
+      <channel>leonis07</channel>
+    </channels>
+    <tags>
+      <tag>speedrun</tag>
+      <tag>run</tag>
+      <tag>rta</tag>
+      <tag>attempt</tag>
+      <tag>%</tag>
+      <tag>RNG</tag>
+      <tag>pls</tag>
+      <tag>race</tag>
+    </tags>
+    <managers>
+      <manager>89084521336541184</manager>
+      <manager>85786758255480832</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>true</compact>
+  </server>
+  <server id="149754076471492608">
+    <active>true</active>
+    <serverID>149754076471492608</serverID>
+    <channelID>152584160991510528</channelID>
+    <channels>
+      <channel>geezerthegozerian</channel>
+    </channels>
+    <managers>
+      <manager>118834502540722176</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -4627,6 +5915,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4651,11 +5940,60 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="87819912914964480">true</notif>
       <notif name="everyone">false</notif>
       <notif name="113379707633889280">true</notif>
       <notif name="85445281033768960">true</notif>
       <notif name="110853961363251200">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="97829074180775936">
+    <active>true</active>
+    <serverID>97829074180775936</serverID>
+    <channelID>126412980135919616</channelID>
+    <channels>
+      <channel>thantophobi</channel>
+    </channels>
+    <managers>
+      <manager>97828749868810240</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="176677239650385920">
+    <active>false</active>
+    <serverID>176677239650385920</serverID>
+    <channelID>176677239650385920</channelID>
+    <channels>
+      <channel>testeganjane</channel>
+    </channels>
+    <managers>
+      <manager>137609058768257024</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -4679,6 +6017,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4699,6 +6038,173 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="175337166044397568">
+    <active>false</active>
+    <serverID>175337166044397568</serverID>
+    <channelID>175337166044397568</channelID>
+    <managers>
+      <manager>151192098962407424</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="86224620801257472">
+    <active>true</active>
+    <serverID>86224620801257472</serverID>
+    <channelID>177505668423483392</channelID>
+    <channels>
+      <channel>0xa101</channel>
+      <channel>caista19</channel>
+      <channel>elgranjerry</channel>
+      <channel>evilash25</channel>
+      <channel>grondious60</channel>
+      <channel>jackafur</channel>
+      <channel>jialora</channel>
+      <channel>mardln</channel>
+      <channel>murry33</channel>
+      <channel>nymx_</channel>
+      <channel>ottavino</channel>
+      <channel>sneswarrior</channel>
+      <channel>xenraedium</channel>
+      <channel>avonis</channel>
+      <channel>drunkendraconian</channel>
+      <channel>cfb</channel>
+      <channel>claude</channel>
+      <channel>cha0stwitch</channel>
+      <channel>cleartonic</channel>
+      <channel>downtheupstair</channel>
+      <channel>elmagus</channel>
+      <channel>essentiafour</channel>
+      <channel>feralpigman</channel>
+      <channel>foosda</channel>
+      <channel>gand988</channel>
+      <channel>garrison_tt</channel>
+      <channel>gari</channel>
+      <channel>ivan</channel>
+      <channel>jiseed</channel>
+      <channel>kehanort</channel>
+      <channel>kilaye</channel>
+      <channel>kottpower</channel>
+      <channel>lioran</channel>
+      <channel>millnium</channel>
+      <channel>nihil922</channel>
+      <channel>obdajr</channel>
+      <channel>puwexil</channel>
+      <channel>philament</channel>
+      <channel>sickents</channel>
+      <channel>srwatcher</channel>
+      <channel>straevaras</channel>
+      <channel>thabanana</channel>
+      <channel>zoasty</channel>
+      <channel>bichphuongballz</channel>
+      <channel>cronokirby</channel>
+      <channel>acefrog</channel>
+      <channel>albrecht24</channel>
+      <channel>0xwas</channel>
+      <channel>backgroundguy02</channel>
+      <channel>cordellium</channel>
+      <channel>dogleaf</channel>
+      <channel>fathlo23</channel>
+      <channel>fatmn</channel>
+      <channel>riversmccown</channel>
+      <channel>sentulututu</channel>
+      <channel>silentmartyr</channel>
+      <channel>sparox12</channel>
+      <channel>tzoonami</channel>
+      <channel>viiman</channel>
+      <channel>dessyreqt</channel>
+      <channel>eazinn</channel>
+      <channel>just_defend</channel>
+      <channel>mattrick2298</channel>
+      <channel>joecommando2010</channel>
+      <channel>gimpy783</channel>
+      <channel>cyrus28</channel>
+      <channel>schmeman</channel>
+      <channel>anomarad</channel>
+      <channel>nosleeprs</channel>
+      <channel>murry</channel>
+      <channel>speedgaming</channel>
+      <channel>effinslowbeef</channel>
+      <channel>oatsngoats</channel>
+      <channel>eterniseddragon</channel>
+      <channel>overfiendvip</channel>
+      <channel>theintercom</channel>
+      <channel>epicly_epic</channel>
+      <channel>apathae</channel>
+      <channel>sniqwc3</channel>
+      <channel>tewtal</channel>
+      <channel>danetch</channel>
+      <channel>jonb89</channel>
+      <channel>krauser318</channel>
+      <channel>dbx</channel>
+      <channel>vultuz</channel>
+      <channel>msds3170</channel>
+      <channel>blueglass54</channel>
+      <channel>puschelmar</channel>
+      <channel>bigzeeff</channel>
+      <channel>rpc_</channel>
+      <channel>reflectedsc</channel>
+      <channel>sweetnumb</channel>
+      <channel>miaftw</channel>
+      <channel>kassiuz</channel>
+      <channel>twocat</channel>
+      <channel>backforjustice</channel>
+      <channel>guru_of_reason</channel>
+    </channels>
+    <managers>
+      <manager>85786758255480832</manager>
+      <manager>86229090473889792</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>true</compact>
+  </server>
+  <server id="99411516113039360">
+    <active>false</active>
+    <serverID>99411516113039360</serverID>
+    <channelID>99411516113039360</channelID>
+    <channels>
+      <channel>victorsevengames</channel>
+    </channels>
+    <managers>
+      <manager>99411388669104128</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4756,6 +6262,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4791,6 +6298,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -4814,6 +6322,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -4837,6 +6346,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4862,6 +6372,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4889,6 +6400,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4917,6 +6429,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4937,6 +6450,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -4962,6 +6476,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5130,6 +6645,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5153,6 +6669,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -5180,6 +6697,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5193,6 +6711,10 @@
       <channel>tojju</channel>
       <channel>cereth</channel>
       <channel>webster141</channel>
+      <channel>coughchamp</channel>
+      <channel>blrt</channel>
+      <channel>reinhoc</channel>
+      <channel>beemarie89</channel>
     </channels>
     <managers>
       <manager>104940990380453888</manager>
@@ -5206,6 +6728,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5239,6 +6762,58 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="109058606875320320">
+    <active>true</active>
+    <serverID>109058606875320320</serverID>
+    <channelID>165591286093447169</channelID>
+    <channels>
+      <channel>stumptgamers</channel>
+    </channels>
+    <managers>
+      <manager>109058151302606848</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="109058113469968384">false</notif>
+      <notif name="everyone">false</notif>
+      <notif name="109058151302606848">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="104341193961254912">
+    <active>true</active>
+    <serverID>104341193961254912</serverID>
+    <channelID>176169323356749824</channelID>
+    <channels>
+      <channel>kingbio</channel>
+    </channels>
+    <managers>
+      <manager>104340964050485248</manager>
+      <manager>85912925910372352</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5262,6 +6837,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5285,6 +6861,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5308,6 +6885,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5332,8 +6910,36 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="77595976956653568">true</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="99404832099553280">
+    <active>true</active>
+    <serverID>99404832099553280</serverID>
+    <channelID>99404832099553280</channelID>
+    <channels>
+      <channel>despian92</channel>
+      <channel>chriskayn</channel>
+      <channel>lolirot</channel>
+      <channel>dhak</channel>
+    </channels>
+    <managers>
+      <manager>98542531033190400</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -5358,6 +6964,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5383,6 +6990,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5408,6 +7016,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5431,6 +7040,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5460,6 +7070,7 @@
       <channel>nalafelle</channel>
       <channel>firer0b</channel>
       <channel>bellaangelwilks</channel>
+      <channel>tntierney</channel>
     </channels>
     <managers>
       <manager>109499965012725760</manager>
@@ -5473,6 +7084,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="140493499052195840">
+    <active>false</active>
+    <serverID>140493499052195840</serverID>
+    <channelID>140493499052195840</channelID>
+    <managers>
+      <manager>106807629157797888</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5493,6 +7126,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -5519,6 +7153,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -5546,7 +7181,29 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="174015730449121280">
+    <active>false</active>
+    <serverID>174015730449121280</serverID>
+    <channelID>174015730449121280</channelID>
+    <managers>
+      <manager>80458815991971840</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -5570,6 +7227,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5606,6 +7264,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5626,6 +7285,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5649,6 +7309,38 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="129618239905857536">
+    <active>true</active>
+    <serverID>129618239905857536</serverID>
+    <channelID>174914732824723456</channelID>
+    <channels>
+      <channel>javoxxib</channel>
+      <channel>p4ntz</channel>
+      <channel>jerkro</channel>
+      <channel>xsvarea51</channel>
+      <channel>cheese05</channel>
+      <channel>cloakedyoshi</channel>
+      <channel>jodenstone</channel>
+    </channels>
+    <managers>
+      <manager>103784651323088896</manager>
+      <manager>77566722592219136</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5672,6 +7364,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -5696,6 +7389,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5787,6 +7481,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5810,24 +7505,31 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="152714232838881281">true</notif>
+      <notif name="here">false</notif>
+      <notif name="152714232838881281">false</notif>
       <notif name="115152328222310403">true</notif>
       <notif name="110845591549906944">false</notif>
       <notif name="everyone">false</notif>
+      <notif name="166337355240833024">false</notif>
       <notif name="132607734565699584">true</notif>
       <notif name="107088035094495232">true</notif>
       <notif name="159704903164493824">true</notif>
+      <notif name="113025741397950464">true</notif>
       <notif name="150699832997052416">true</notif>
-      <notif name="128576088065572865">true</notif>
+      <notif name="128576088065572865">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
-  <server id="169516801309278208">
-    <active>false</active>
-    <serverID>169516801309278208</serverID>
-    <channelID>169516801309278208</channelID>
+  <server id="156190969237209090">
+    <active>true</active>
+    <serverID>156190969237209090</serverID>
+    <channelID>156190969237209090</channelID>
+    <channels>
+      <channel>&lt;trn_syanide&gt;</channel>
+      <channel>trn_syanide</channel>
+    </channels>
     <managers>
-      <manager>117581737743220737</manager>
+      <manager>156190760994078720</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -5838,6 +7540,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5891,6 +7594,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5915,6 +7619,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -5940,6 +7645,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5967,6 +7673,75 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="129040411640594432">
+    <active>true</active>
+    <serverID>129040411640594432</serverID>
+    <channelID>174658742300704770</channelID>
+    <games>
+      <game>EarthBound</game>
+      <game>Final Fantasy IV</game>
+      <game>Super Mario Sunshine</game>
+    </games>
+    <channels>
+      <channel>rotompoison</channel>
+      <channel>tgh_plays</channel>
+      <channel>tgh_practices</channel>
+      <channel>bounceyboy</channel>
+      <channel>highspirits</channel>
+      <channel>andyperfect</channel>
+      <channel>aurilliux</channel>
+      <channel>lltemple</channel>
+      <channel>backgroundguy02</channel>
+      <channel>danielrgt</channel>
+      <channel>not_bounceboy</channel>
+      <channel>thefinalsplit</channel>
+      <channel>ksithedoctor</channel>
+      <channel>dutchj</channel>
+      <channel>ryziken</channel>
+      <channel>protomagicalgirl</channel>
+      <channel>ichibadass</channel>
+      <channel>ultimoice</channel>
+      <channel>agr_iv</channel>
+      <channel>wilkosc2</channel>
+      <channel>foggrey</channel>
+      <channel>grobbulus</channel>
+      <channel>theqial</channel>
+      <channel>falexxx1</channel>
+      <channel>nocashnocash</channel>
+      <channel>creativeely</channel>
+      <channel>millnium</channel>
+      <channel>grieverlionheart</channel>
+      <channel>crrool</channel>
+      <channel>roryextralife</channel>
+      <channel>dragonsbeard</channel>
+      <channel>kofaze</channel>
+      <channel>skateman222</channel>
+      <channel>drock91384</channel>
+      <channel>holdenian</channel>
+      <channel>dangodofthunder</channel>
+      <channel>soloman231</channel>
+      <channel>romtimey</channel>
+      <channel>keyboredcowboy</channel>
+      <channel>eekcast</channel>
+    </channels>
+    <managers>
+      <manager>106490004624150528</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -5991,6 +7766,28 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="124705443388981250">
+    <active>false</active>
+    <serverID>124705443388981250</serverID>
+    <channelID>124705443388981250</channelID>
+    <managers>
+      <manager>88841790555197440</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6019,6 +7816,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -6047,6 +7845,7 @@
       <channel>jeezumcrowe</channel>
       <channel>chickdrummer88</channel>
       <channel>clarityggtv</channel>
+      <channel>lovergurl77983</channel>
     </channels>
     <managers>
       <manager>96767646728482816</manager>
@@ -6060,6 +7859,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6084,6 +7884,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6149,6 +7950,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6175,6 +7977,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6206,12 +8009,14 @@
       <channel>bonecrusher1022</channel>
       <channel>hothraka</channel>
       <channel>soulslvrs</channel>
-      <channel>amberkinss</channel>
+      <channel>purplemudkip7</channel>
+      <channel>g1junja</channel>
     </channels>
     <managers>
       <manager>83396497059614720</manager>
       <manager>83026295327293440</manager>
       <manager>83021527192174592</manager>
+      <manager>83012708399583232</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -6222,6 +8027,32 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="135094728264908801">
+    <active>true</active>
+    <serverID>135094728264908801</serverID>
+    <channelID>135094728264908801</channelID>
+    <channels>
+      <channel>krisssy1</channel>
+    </channels>
+    <managers>
+      <manager>96320249003008000</manager>
+      <manager>95557391499661312</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6253,31 +8084,8 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
-    </notifs>
-    <compact>false</compact>
-  </server>
-  <server id="94240889433489408">
-    <active>true</active>
-    <serverID>94240889433489408</serverID>
-    <channelID>94240889433489408</channelID>
-    <channels>
-      <channel>deadfox29</channel>
-    </channels>
-    <managers>
-      <manager>93521693619789824</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <notifs>
-      <notif name="everyone">false</notif>
-      <notif name="93521693619789824">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -6309,6 +8117,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6380,10 +8189,13 @@
       <channel>tkmala</channel>
       <channel>ppetrechen</channel>
       <channel>fps_k</channel>
+      <channel>ashoutyman</channel>
+      <channel>divinesmooof</channel>
     </channels>
     <managers>
       <manager>82988905682440192</manager>
       <manager>87074520778706944</manager>
+      <manager>83456132361752576</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -6394,6 +8206,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6419,6 +8232,7 @@
       <channel>bunge001</channel>
       <channel>reninjakitteh</channel>
       <channel>drenik74</channel>
+      <channel>xmusicofdeathx</channel>
     </channels>
     <managers>
       <manager>137530784406831104</manager>
@@ -6432,6 +8246,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6456,6 +8271,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="83086470755123200">true</notif>
     </notifs>
@@ -6486,6 +8302,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6510,6 +8327,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6534,6 +8352,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6571,26 +8390,7 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
-    </notifs>
-    <compact>false</compact>
-  </server>
-  <server id="173326212918280192">
-    <active>false</active>
-    <serverID>173326212918280192</serverID>
-    <channelID>173326212918280192</channelID>
-    <managers>
-      <manager>88084901991051264</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">2</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">2</role>
-      </permission>
-    </permissions>
-    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6618,6 +8418,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6641,6 +8442,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="63263941735755776">false</notif>
     </notifs>
@@ -6665,6 +8467,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -6683,6 +8486,7 @@
       <channel>https://www.twitch.tv/virtualversusleague</channel>
       <channel>adkglobetrotter</channel>
       <channel>acaffeinatedrn</channel>
+      <channel>n_squared</channel>
     </channels>
     <managers>
       <manager>82309478300520448</manager>
@@ -6696,6 +8500,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6740,6 +8545,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6778,6 +8584,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -6798,6 +8605,38 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="142725392673931275">
+    <active>true</active>
+    <serverID>142725392673931275</serverID>
+    <channelID>142725392673931275</channelID>
+    <channels>
+      <channel>technogeeklive</channel>
+      <channel>30kpolygons</channel>
+      <channel>leialuka</channel>
+      <channel>totemdrol</channel>
+      <channel>asuna_jj</channel>
+      <channel>amirah57</channel>
+      <channel>kwfang</channel>
+      <channel>toetemdroll</channel>
+    </channels>
+    <managers>
+      <manager>77240490809896960</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -6951,6 +8790,7 @@
       <channel>&lt;twitchusername&gt;</channel>
       <channel>theeblight</channel>
       <channel>autismthegaymer</channel>
+      <channel>kholdprazole</channel>
     </channels>
     <managers>
       <manager>131543074286338049</manager>
@@ -6964,6 +8804,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -6987,6 +8828,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7015,6 +8857,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7066,6 +8909,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="135803829500379136">true</notif>
       <notif name="104290389686513664">true</notif>
       <notif name="150381585496014848">true</notif>
@@ -7085,7 +8929,6 @@
       <notif name="158840894060101642">true</notif>
       <notif name="152849717368193024">true</notif>
       <notif name="141753727542362112">true</notif>
-      <notif name="103057791312203776">true</notif>
       <notif name="154632574101225472">true</notif>
       <notif name="119843213610582016">true</notif>
       <notif name="95171735548067840">true</notif>
@@ -7169,11 +9012,13 @@
       <channel>pjplustwo</channel>
       <channel>hoishin</channel>
       <channel>paulather</channel>
+      <channel>hinvi</channel>
     </channels>
     <managers>
       <manager>104340631110815744</manager>
       <manager>121424961737981954</manager>
       <manager>138404950551035904</manager>
+      <manager>83363094402699264</manager>
     </managers>
     <permissions>
       <permission name="add">
@@ -7184,6 +9029,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -7246,6 +9092,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="76239668995166208">false</notif>
       <notif name="84535280987537408">true</notif>
@@ -7275,6 +9122,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -7298,6 +9146,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7325,7 +9174,47 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="156614380195151872">
+    <active>true</active>
+    <serverID>156614380195151872</serverID>
+    <channelID>156623826027937792</channelID>
+    <channels>
+      <channel>siddious67</channel>
+      <channel>tichery</channel>
+      <channel>yourpandora</channel>
+      <channel>kazlin143</channel>
+      <channel>brunhofer</channel>
+      <channel>kimst90</channel>
+      <channel>thewafflingbrit</channel>
+      <channel>sambird23</channel>
+      <channel>therealmrvgaminghd</channel>
+      <channel>stump_dk</channel>
+      <channel>amshockeyfan</channel>
+      <channel>slickerdoodle</channel>
+    </channels>
+    <managers>
+      <manager>108984478080200704</manager>
+      <manager>137701791574917120</manager>
+      <manager>120029843625738240</manager>
+      <manager>173115285245526017</manager>
+      <manager>173122257638522880</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -7353,6 +9242,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7376,6 +9266,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7399,6 +9290,33 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="141366452258078720">
+    <active>true</active>
+    <serverID>141366452258078720</serverID>
+    <channelID>141366452258078720</channelID>
+    <channels>
+      <channel>xknutstrandx</channel>
+      <channel>mistral_niblick</channel>
+      <channel>ohnoitsalexx</channel>
+    </channels>
+    <managers>
+      <manager>77170824804569088</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7424,6 +9342,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7447,32 +9366,7 @@
       </permission>
     </permissions>
     <notifs>
-      <notif name="everyone">false</notif>
-    </notifs>
-    <compact>false</compact>
-  </server>
-  <server id="140118896655990784">
-    <active>true</active>
-    <serverID>140118896655990784</serverID>
-    <channelID>149558397837115392</channelID>
-    <channels>
-      <channel>moonsquads</channel>
-      <channel>anticheatbot</channel>
-      <channel>msk_one</channel>
-      <channel>djreb3l</channel>
-    </channels>
-    <managers>
-      <manager>101219518021406720</manager>
-    </managers>
-    <permissions>
-      <permission name="add">
-        <role name="everyone">0</role>
-      </permission>
-      <permission name="remove">
-        <role name="everyone">0</role>
-      </permission>
-    </permissions>
-    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7481,10 +9375,54 @@
     <active>true</active>
     <serverID>131520213358215177</serverID>
     <channelID>173129247232098305</channelID>
-    <games>
-      <game>earthbound</game>
-      <game>EarthBound</game>
-    </games>
+    <channels>
+      <channel>falexxx1</channel>
+      <channel>backgroundguy02</channel>
+      <channel>andyperfect</channel>
+      <channel>aurilliux</channel>
+      <channel>danielrgt</channel>
+      <channel>dragonsbeard</channel>
+      <channel>kofaze</channel>
+      <channel>skateman222</channel>
+      <channel>annoyance916</channel>
+      <channel>arachness</channel>
+      <channel>bkillzone</channel>
+      <channel>darklynx2130</channel>
+      <channel>helloboing</channel>
+      <channel>jahannhowitzer</channel>
+      <channel>leodox</channel>
+      <channel>moonrose09</channel>
+      <channel>pbrgamer</channel>
+      <channel>szinogre</channel>
+      <channel>takeruimpulse</channel>
+      <channel>toucansham</channel>
+      <channel>wandervox</channel>
+      <channel>yami0601</channel>
+      <channel>abaion47</channel>
+      <channel>awesfox</channel>
+      <channel>crrool</channel>
+      <channel>dangodofthunder</channel>
+      <channel>keybored</channel>
+      <channel>ksithedoctor</channel>
+      <channel>drock91384</channel>
+      <channel>fellly</channel>
+      <channel>glitchymon</channel>
+      <channel>holdenian</channel>
+      <channel>romtimney</channel>
+      <channel>slamein</channel>
+      <channel>raikourider</channel>
+      <channel>soloman231</channel>
+      <channel>stacykrugger</channel>
+      <channel>lltemple</channel>
+      <channel>ultimoice</channel>
+      <channel>watashimachine</channel>
+      <channel>yuna92raichu</channel>
+      <channel>hikikomuri</channel>
+      <channel>redballoonman</channel>
+      <channel>johannhowitzer</channel>
+      <channel>rotompoison</channel>
+      <channel>waluigidelazul</channel>
+    </channels>
     <managers>
       <manager>131520041672769536</manager>
     </managers>
@@ -7497,6 +9435,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7544,6 +9483,79 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="151856693674770434">
+    <active>false</active>
+    <serverID>151856693674770434</serverID>
+    <channelID>151856693674770434</channelID>
+    <managers>
+      <manager>151192098962407424</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="127436786346491904">
+    <active>true</active>
+    <serverID>127436786346491904</serverID>
+    <channelID>177134211591831553</channelID>
+    <channels>
+      <channel>nonplayablecanadians</channel>
+      <channel>this_griff</channel>
+      <channel>lookatemtwitch</channel>
+      <channel>hurtzombie</channel>
+      <channel>megakuttie</channel>
+      <channel>1uparcade</channel>
+      <channel>thaithyme</channel>
+      <channel>mookieix</channel>
+      <channel>shibn</channel>
+      <channel>thebossbattleshow</channel>
+      <channel>scarecrowonfire</channel>
+      <channel>silenced_knight</channel>
+      <channel>djentlemanxiii</channel>
+      <channel>kintinue</channel>
+      <channel>l0stvalkyrie</channel>
+      <channel>jame1990</channel>
+      <channel>menoverbeard</channel>
+      <channel>vgdadplays</channel>
+      <channel>foundgamingstreams</channel>
+      <channel>aliceinspaceland</channel>
+      <channel>galactickodiak</channel>
+      <channel>pandatemplar</channel>
+      <channel>inevitable_x1x</channel>
+      <channel>rawsllewage</channel>
+      <channel>mbhammer</channel>
+    </channels>
+    <managers>
+      <manager>119905035462246402</manager>
+      <manager>166927080859238401</manager>
+      <manager>113409797151293440</manager>
+      <manager>100761772079722496</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7562,6 +9574,9 @@
       <channel>m_tt</channel>
       <channel>fivves</channel>
       <channel>heinki</channel>
+      <channel>thepackle</channel>
+      <channel>konasumi</channel>
+      <channel>woddee</channel>
     </channels>
     <managers>
       <manager>83926816263241728</manager>
@@ -7575,6 +9590,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7604,6 +9620,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7624,6 +9641,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="151999684179787776">true</notif>
       <notif name="everyone">false</notif>
     </notifs>
@@ -7645,6 +9663,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7671,6 +9690,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -7689,7 +9709,6 @@
       <channel>skissors_wolf</channel>
       <channel>sathroz</channel>
       <channel>hellminateur</channel>
-      <channel>garbargle</channel>
       <channel>shadow25b</channel>
       <channel>lostarkofpandora</channel>
       <channel>zackfl10</channel>
@@ -7703,6 +9722,7 @@
       <channel>gabemiester08</channel>
       <channel>deadnedz007</channel>
       <channel>brownbootyranger</channel>
+      <channel>rayskudda</channel>
     </channels>
     <teams>
       <team>tiiq</team>
@@ -7720,6 +9740,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7754,6 +9775,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="97928850658312192">false</notif>
     </notifs>
@@ -7782,6 +9804,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7812,6 +9835,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7840,7 +9864,54 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="114150480669573126">
+    <active>true</active>
+    <serverID>114150480669573126</serverID>
+    <channelID>176168602007896065</channelID>
+    <games>
+      <game>Yu-Gi-Oh! Forbidden Memories</game>
+    </games>
+    <managers>
+      <manager>111206015369760768</manager>
+      <manager>112090443365220352</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="146307581944528896">
+    <active>false</active>
+    <serverID>146307581944528896</serverID>
+    <channelID>146307581944528896</channelID>
+    <managers>
+      <manager>95949618369564672</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
   </server>
@@ -7864,6 +9935,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>true</compact>
@@ -7884,6 +9956,32 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
+      <notif name="everyone">false</notif>
+    </notifs>
+    <compact>false</compact>
+  </server>
+  <server id="164306693038145536">
+    <active>true</active>
+    <serverID>164306693038145536</serverID>
+    <channelID>177645614316781568</channelID>
+    <channels>
+      <channel>kyle_undefined</channel>
+    </channels>
+    <managers>
+      <manager>164306034331090945</manager>
+    </managers>
+    <permissions>
+      <permission name="add">
+        <role name="everyone">2</role>
+      </permission>
+      <permission name="remove">
+        <role name="everyone">2</role>
+      </permission>
+    </permissions>
+    <notifs>
+      <notif name="here">false</notif>
+      <notif name="164306034331090945">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7907,6 +10005,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7933,6 +10032,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -7981,6 +10081,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8006,6 +10107,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">true</notif>
     </notifs>
     <compact>false</compact>
@@ -8050,6 +10152,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8089,6 +10192,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8143,6 +10247,11 @@
       <channel>goatpuncherarctic</channel>
       <channel>zeuspot</channel>
       <channel>davincilord</channel>
+      <channel>dayoman7</channel>
+      <channel>slasharbiter</channel>
+      <channel>gchierico91</channel>
+      <channel>caitelady</channel>
+      <channel>sadgasmtf2</channel>
     </channels>
     <managers>
       <manager>80528080552079360</manager>
@@ -8158,6 +10267,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8175,6 +10285,7 @@
       <channel>sonicfan2d91</channel>
       <channel>luckyariane</channel>
       <channel>knives__</channel>
+      <channel>technogeeklive</channel>
     </channels>
     <managers>
       <manager>48289176776343552</manager>
@@ -8188,6 +10299,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8208,6 +10320,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8259,6 +10372,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
     </notifs>
     <compact>false</compact>
@@ -8284,6 +10398,7 @@
       </permission>
     </permissions>
     <notifs>
+      <notif name="here">false</notif>
       <notif name="everyone">false</notif>
       <notif name="90535549135224832">true</notif>
       <notif name="126337390930296832">true</notif>
