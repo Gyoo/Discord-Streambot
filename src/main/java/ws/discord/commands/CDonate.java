@@ -1,31 +1,27 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import ovh.gyoo.bot.data.DiscordInstance;
-import ovh.gyoo.bot.data.MessageItem;
+import ws.discord.messages.MessageHandler;
 
-public class CDonate implements Command{
+public class CDonate extends Command{
 
     public static String name = "donate";
-    private static String description = "`donate` : If you like my work, please consider making a donation :)";
+
+    public CDonate(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`donate` : If you like my work, please consider making a donation :)";
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+        Message message = new MessageBuilder()
                 .appendString("Please consider making a donation if you like the bot! http://bit.ly/StreambotDonate")
-                .build());
-        DiscordInstance.getInstance().addToQueue(message);
+                .build();
+        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
     }
-
-    @Override
-    public String getDescription(){
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        return true;
-    }
-
 }

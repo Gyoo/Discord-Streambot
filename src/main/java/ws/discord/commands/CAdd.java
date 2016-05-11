@@ -17,13 +17,12 @@ import java.util.Set;
 public class CAdd extends Command {
 
     public static String name = "add";
-    private static String description = "`add <option> <content>` : Add data to the bot (see options below)";
-    private static List<Allowances> allows = new ArrayList<>();
 
     public CAdd(JDA jda, Dao dao) {
         super(jda, dao);
         allows.add(Allowances.MANAGERS);
         allows.add(Allowances.PERMISSIONS);
+        description = "`add <option> <content>` : Add data to the bot (see options below)";
     }
 
     @Override
@@ -83,11 +82,6 @@ public class CAdd extends Command {
             }
         }
         MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
-    }
-
-    @Override
-    public String getDescription(){
-        return description;
     }
 
     private Message addTeam(GuildEntity guild, String[] team) {

@@ -9,6 +9,7 @@ import net.dv8tion.jda.entities.Role;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Command {
@@ -22,6 +23,8 @@ public abstract class Command {
 
     protected Dao dao;
     protected JDA jda;
+    protected String description;
+    static List<Allowances> allows = new ArrayList<>();
 
     public Command(JDA jda, Dao dao){
         this.dao = dao;
@@ -29,7 +32,10 @@ public abstract class Command {
     }
 
     abstract public void execute(MessageReceivedEvent e, String content);
-    abstract public String getDescription();
+
+    public String getDescription(){
+        return description;
+    }
 
     protected boolean isAllowed(String serverID, String authorID, List<Allowances> allowances, int level){
         boolean allowed = false;
