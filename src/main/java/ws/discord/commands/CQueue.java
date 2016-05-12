@@ -1,45 +1,41 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.GuildEntity;
+import entity.QueueitemEntity;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import ovh.gyoo.bot.data.*;
-import ovh.gyoo.bot.writer.Logger;
+import ws.discord.messages.MessageHandler;
 
-public class CQueue implements Command{
+public class CQueue extends Command{
 
     public static String name = "queue";
-    private static String description = "`queue` : shows queued commands by users with the QUEUE permission set. **Warning** : Using this command cleans the queue !";
+
+    public CQueue(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`queue` : shows queued commands by users with the QUEUE permission set. **Warning** : Using this command cleans the queue !";
+        allows.add(Allowances.MANAGERS);
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId()))
-            message.setMessage(new MessageBuilder().appendString("You are not allowed to use this command").build());
+        Message message;
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+            message = new MessageBuilder().appendString("You are not allowed to use this command").build();
         else{
+            GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
             MessageBuilder builder = new MessageBuilder();
             builder.appendString("Commands queue for server " + e.getGuild().getName() + "\n");
-            for(QueueItem q : ServerList.getInstance().getServer(e.getGuild().getId()).getCommandsQueue()){
-                builder.appendString(q.getAuthor() + " : " + q.getCommand() + "\n");
+            for(QueueitemEntity q : guildEntity.getQueue()){
+                String username = jda.getUserById(Long.toString(q.getUserId())).getUsername();
+                builder.appendString(username + " : " + q.getCommand() + "\n");
+                dao.delete(q);
             }
-            ServerList.getInstance().getServer(e.getGuild().getId()).clearQueue();
-            message.setMessage(builder.build());
+            message = builder.build();
         }
-        DiscordInstance.getInstance().addToQueue(message);
-    }
-
-    @Override
-    public String getDescription(){
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        try{
-            return ServerList.getInstance().getServer(serverID).getManagers().contains(authorID);
-        } catch(NullPointerException e){
-            String message = "Guild ID : " + serverID + "\n" + "Guild Name : " + DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getName();
-            Logger.writeToErr(e, message);
-            return false;
-        }
+        MessageHandler.getInstance().addToQueue(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, message);
     }
 }

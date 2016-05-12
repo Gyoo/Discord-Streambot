@@ -1,34 +1,50 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.*;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
-import net.dv8tion.jda.entities.Role;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import ovh.gyoo.bot.data.*;
-import ovh.gyoo.bot.writer.Logger;
+import ws.discord.messages.MessageHandler;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class CRemove implements Command {
+public class CRemove extends Command {
 
     public static String name = "remove";
-    private static String description = "`remove <option> <content>` : Remove data from the bot";
+
+    public CRemove(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`remove <option> <content>` : Remove data from the bot";
+        allows.add(Allowances.MANAGERS);
+        allows.add(Allowances.PERMISSIONS);
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD);
-        if (!isAllowed(e.getGuild().getId(), e.getAuthor().getId()))
-            message.setMessage(new MessageBuilder().appendString("You are not allowed to use this command").build());
-        else if (getPermissionLevel(e.getGuild().getId(), e.getAuthor().getId()) == Permissions.QUEUE) {
-            ServerList.getInstance().getServer(e.getGuild().getId()).queueCommand(e.getAuthor().getUsername(), "`!streambot remove " + content + "`");
-            message.setMessage(new MessageBuilder()
+        Message message;
+        GuildEntity guild = dao.getLongId(GuildEntity.class, e.getGuild().getId());
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1))
+            message = new MessageBuilder().appendString("You are not allowed to use this command").build();
+        else if(getPermissionsLevel(e.getGuild().getId(), e.getAuthor().getId()) == 1){
+            QueueitemEntity queueitemEntity = new QueueitemEntity();
+            queueitemEntity.setGuild(guild);
+            queueitemEntity.setCommand("`!streambot remove " + content + "`");
+            queueitemEntity.setUserId(Long.parseLong(e.getAuthor().getId()));
+            dao.saveOrUpdate(queueitemEntity);
+
+            message = new MessageBuilder()
                     .appendString("Your request will be treated by a manager soon! (type `!streambot list manager` to check the managers list)")
-                    .build());
+                    .build();
         }
-        else if(null == content || content.isEmpty()) message.setMessage(new MessageBuilder()
+        else if(null == content || content.isEmpty()) message = new MessageBuilder()
                 .appendString("Missing option")
-                .build());
+                .build();
         else {
             String option = "";
             try{
@@ -36,126 +52,138 @@ public class CRemove implements Command {
             } catch(StringIndexOutOfBoundsException sioobe){
 
             }
-            if(option.isEmpty()) message.setMessage(new MessageBuilder()
+            if(option.isEmpty()) message = new MessageBuilder()
                     .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")
-                    .build());
-            String[] contents = content.substring(content.indexOf(" ")).split("\\|");
-            switch (option) {
-                case "game":
-                    message.setMessage(removeGame(e.getGuild().getId(), contents));
-                    break;
-                case "channel":
-                    message.setMessage(removeChannel(e.getGuild().getId(), contents));
-                    break;
-                case "tag":
-                    message.setMessage(removeTag(e.getGuild().getId(), contents));
-                    break;
-                case "team":
-                    message.setMessage(removeTeam(e.getGuild().getId(), contents));
-                    break;
-                case "manager":
-                    message.setMessage(removeManagers(e.getGuild().getId(),e.getAuthor().getId(), e.getMessage().getMentionedUsers()));
-                    break;
-                default:
-                    message.setMessage(new MessageBuilder()
-                            .appendString("Unknown option")
-                            .build());
-                    break;
+                    .build();
+            else{
+                String[] contents = content.substring(content.indexOf(" ")).split("\\|");
+                switch (option) {
+                    case "game":
+                        message = removeGame(guild, contents);
+                        break;
+                    case "channel":
+                        message = removeChannel(guild, contents);
+                        break;
+                    case "tag":
+                        message = removeTag(guild, contents);
+                        break;
+                    case "manager":
+                        message = removeManagers(guild, e.getMessage().getMentionedUsers(), e.getAuthor().getId());
+                        break;
+                    case "team":
+                        message = removeTeam(guild, contents);
+                        break;
+                    default:
+                        message = new MessageBuilder()
+                                .appendString("Unknown option: " + option)
+                                .build();
+                        break;
+                }
             }
         }
-        DiscordInstance.getInstance().addToQueue(message);
+        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
     }
 
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        LocalServer ls = ServerList.getInstance().getServer(serverID);
-        try{
-            return ls.getManagers().contains(authorID) || getPermissionLevel(serverID, authorID) < Permissions.FORBID;
-        } catch(NullPointerException e){
-            String message = "Guild ID : " + serverID + "\n" + "Guild Name : " + DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getName();
-            Logger.writeToErr(e, message);
-            return false;
-        }
-    }
-
-    private int getPermissionLevel(String serverID, String authorID) {
-        int res = Permissions.FORBID;
-        LocalServer ls = ServerList.getInstance().getServer(serverID);
-        if(ls.getManagers().contains(authorID)) return Permissions.USE;
-        for (Role r : DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getRolesForUser(DiscordInstance.getInstance().getDiscord().getUserById(authorID))) {
-            res = Math.min(res, ls.getPermissionsMap().get(name).getPerms().getOrDefault(r.getId(), Permissions.FORBID));
-        }
-        res = Math.min(res,ls.getPermissionsMap().get(name).getPerms().getOrDefault("everyone", Permissions.FORBID));
-        return res;
-    }
-
-    private Message removeGame(String serverId, String[] game){
+    private Message removeGame(GuildEntity guild, String[] game){
         MessageBuilder mb = new MessageBuilder();
+        boolean deleted;
         for(String s : game){
+            Iterator<GameEntity> iterator = guild.getGames().iterator();
             s = s.trim();
-            boolean res = ServerList.getInstance().getServer(serverId).removeGame(s);
-            if(res)
-                mb.appendString("Game " + s + " removed from the game list\n");
-            else
-                mb.appendString("Game " + s + " is not in the game list\n");
+            deleted = false;
+            while(iterator.hasNext()){
+                GameEntity entity = iterator.next();
+                if(entity.getName().equals(s)){
+                    dao.delete(entity);
+                    iterator.remove();
+                    mb.appendString("Game " + s + " removed from the game list\n");
+                    deleted = true;
+                    break;
+                }
+            }
+            if(!deleted) mb.appendString("Game " + s + " is not in the game list\n");
         }
         return mb.build();
     }
 
-    private Message removeChannel(String serverId, String[] channels){
+    private Message removeChannel(GuildEntity guild, String[] channels){
         MessageBuilder mb = new MessageBuilder();
+        boolean deleted;
         for(String s : channels){
+            Iterator<ChannelEntity> iterator = guild.getChannels().iterator();
             s = s.trim();
-            boolean res = ServerList.getInstance().getServer(serverId).removeUser(s.replaceAll("`", "").toLowerCase());
-            if(res)
-                mb.appendString("Channel " + s + " removed from the channels list\n");
-            else
-                mb.appendString("Channel " + s + " is not in the channels list\n");
+            deleted = false;
+            while(iterator.hasNext()){
+                ChannelEntity entity = iterator.next();
+                if(entity.getName().equals(s)){
+                    dao.delete(entity);
+                    iterator.remove();
+                    mb.appendString("Channel " + s + " removed from the game list\n");
+                    deleted = true;
+                    break;
+                }
+            }
+            if(!deleted) mb.appendString("Channel " + s + " is not in the game list\n");
         }
         return mb.build();
     }
 
-    private Message removeTag(String serverId, String[] tags){
+    private Message removeTag(GuildEntity guild, String[] tags){
         MessageBuilder mb = new MessageBuilder();
+        boolean deleted;
         for(String s : tags){
+            Iterator<TagEntity> iterator = guild.getTags().iterator();
             s = s.trim();
-            boolean res = ServerList.getInstance().getServer(serverId).removeTag(s);
-            if(res)
-                mb.appendString("Tag " + s + " removed from the tags list\n");
-            else
-                mb.appendString("Tag " + s + " is not in the tags list\n");
+            deleted = false;
+            while(iterator.hasNext()){
+                TagEntity entity = iterator.next();
+                if(entity.getName().equals(s)){
+                    dao.delete(entity);
+                    iterator.remove();
+                    mb.appendString("Tag " + s + " removed from the game list\n");
+                    deleted = true;
+                    break;
+                }
+            }
+            if(!deleted) mb.appendString("Tag " + s + " is not in the game list\n");
         }
         return mb.build();
     }
 
-    private Message removeTeam(String serverId, String[] teams) {
+    private Message removeTeam(GuildEntity guild, String[] teams) {
         MessageBuilder mb = new MessageBuilder();
+        boolean deleted;
         for(String s : teams){
+            Iterator<TeamEntity> iterator = guild.getTeams().iterator();
             s = s.trim();
-            boolean res = ServerList.getInstance().getServer(serverId).removeTeam(s);
-            if(res)
-                mb.appendString("Team " + s + " removed from the teams list\n");
-            else
-                mb.appendString("Team " + s + " is not in the teams list\n");
+            deleted = false;
+            while(iterator.hasNext()){
+                TeamEntity entity = iterator.next();
+                if(entity.getName().equals(s)){
+                    dao.delete(entity);
+                    iterator.remove();
+                    mb.appendString("Team " + s + " removed from the game list\n");
+                    deleted = true;
+                    break;
+                }
+            }
+            if(!deleted) mb.appendString("Team " + s + " is not in the game list\n");
         }
         return mb.build();
     }
 
-    private Message removeManagers(String serverId, String userId, List<User> users){
+    private Message removeManagers(GuildEntity guild, List<User> users, String userId){
+        List<Allowances> removeManagersAllowance = new ArrayList<>();
+        removeManagersAllowance.add(Allowances.MANAGERS);
         MessageBuilder builder = new MessageBuilder();
-        LocalServer ls = ServerList.getInstance().getServer(serverId);
-        if(ls.getManagers().contains(userId)) {
+        if(isAllowed(Long.toString(guild.getServerId()),userId,removeManagersAllowance,0)) {
             if(users.isEmpty()){
                 builder.appendString("No users detected. Make sure you use the @ mention when adding managers");
             }
             else{
+                boolean deleted;
                 for (User u : users) {
-                    if (ServerList.getInstance().getServer(serverId).getManagers().size() == 1) {
+                    if (guild.getManagers().size() == 1) {
                         builder.appendString("Cannot remove managers : There must be at least one manager per server\n");
                         break;
                     }
@@ -163,11 +191,19 @@ public class CRemove implements Command {
                         builder.appendString("You cannot remove yourself !\n");
                         continue;
                     }
-                    boolean res = ServerList.getInstance().getServer(serverId).removeManager(u.getId());
-                    if (res)
-                        builder.appendString("User " + u.getUsername() + " removed from the managers list\n");
-                    else
-                        builder.appendString("User " + u.getUsername() + " is not in the managers list\n");
+                    Iterator<ManagerEntity> iterator = guild.getManagers().iterator();
+                    deleted = false;
+                    while(iterator.hasNext()){
+                        ManagerEntity entity = iterator.next();
+                        if(entity.getUserId() == Long.parseLong(u.getId())){
+                            dao.delete(entity);
+                            iterator.remove();
+                            builder.appendString("User " + u.getUsername() + " removed from the managers list\n");
+                            deleted = true;
+                            break;
+                        }
+                    }
+                    if(!deleted) builder.appendString("User " + u.getUsername() + " is not in the managers list\n");
                 }
             }
         }

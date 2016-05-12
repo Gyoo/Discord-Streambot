@@ -1,65 +1,71 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.*;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.entities.Role;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import ovh.gyoo.bot.data.*;
+import ws.discord.messages.MessageHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class CList implements Command{
+public class CList extends Command{
 
     public static String name = "list";
-    private static String description = "`list <option>` : List data from the bot";
+
+    public CList(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`list <option>` : List data from the bot";
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE);
+        Message message;
         MessageBuilder builder = new MessageBuilder();
-        LocalServer ls = ServerList.getInstance().getServer(e.getGuild().getId());
-        List<String> list;
+        GuildEntity guild = dao.getLongId(GuildEntity.class, e.getGuild().getId());
+        List<String> list = new ArrayList<>();
         switch (content){
             case "game":
-                list = ls.getGameList();
+                list.addAll(guild.getGames().stream().map(GameEntity::getName).collect(Collectors.toList()));
                 break;
             case "channel":
-                list = ls.getUserList();
+                list.addAll(guild.getChannels().stream().map(ChannelEntity::getName).collect(Collectors.toList()));
                 break;
             case "tag":
-                list = ls.getTagList();
+                list.addAll(guild.getTags().stream().map(TagEntity::getName).collect(Collectors.toList()));
                 break;
             case "manager":
-                list = ls.getManagers();
+                for(ManagerEntity managerEntity : guild.getManagers()){
+                    String name = jda.getUserById(Long.toString(managerEntity.getUserId())).getUsername();
+                    list.add(name);
+                }
                 break;
             case "team":
-                list = ls.getTeamList();
+                list.addAll(guild.getTeams().stream().map(TeamEntity::getName).collect(Collectors.toList()));
                 break;
             case "permissions":
-                list = ls.getPermissionsList();
+                for(PermissionEntity permissionEntity : guild.getPermissions()){
+                    String role;
+                    if(permissionEntity.getRoleId() == 0) role = "Everyone";
+                    else role = jda.getGuildById(e.getGuild().getId()).getRoleById(Long.toString(permissionEntity.getRoleId())).getName();
+                    list.add(role + ": " + permissionEntity.getCommand().getName());
+                }
                 break;
             default:
-                DiscordInstance.getInstance().addToQueue(new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
                         .appendString("Unknown option : " + content)
-                        .build()));
+                        .build());
                 return;
         }
         builder.appendString("List of " + content + (content.endsWith("s") ? "":"s") + " for server **" + e.getGuild().getName() + "**\n");
         for(String s : list){
-            if(content.equals("manager")) builder.appendString(DiscordInstance.getInstance().getDiscord().getUserById(s).getUsername() + " | ");
-            else builder.appendString(s + "\n");
+            builder.appendString(s + "\n");
         }
-        message.setMessage(builder.build());
-        DiscordInstance.getInstance().addToQueue(message);
-    }
-
-    @Override
-    public String getDescription(){
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        return true;
+        message = builder.build();
+        MessageHandler.getInstance().addToQueue(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, message);
     }
 }

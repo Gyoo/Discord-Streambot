@@ -1,32 +1,27 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.utils.InviteUtil;
-import ovh.gyoo.bot.data.DiscordInstance;
-import ovh.gyoo.bot.data.MessageItem;
+import ws.discord.messages.MessageHandler;
 
-public class CInvite implements Command{
+public class CInvite extends Command{
 
     public static String name = "invite";
-    private static String description = "`invite` : Gives an invite link so people can get the bot on their own server !";
+
+    public CInvite(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`invite` : Gives an invite link so people can get the bot on their own server !";
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+        Message message = new MessageBuilder()
                 .appendString("https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528")
-                .build());
-        DiscordInstance.getInstance().addToQueue(message);
+                .build();
+        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
     }
-
-    @Override
-    public String getDescription(){
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        return true;
-    }
-
 }

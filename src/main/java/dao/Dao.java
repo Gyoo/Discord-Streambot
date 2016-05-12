@@ -1,10 +1,14 @@
 package dao;
 
 import common.util.HibernateUtil;
+import entity.GuildEntity;
+import entity.StreamEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -70,5 +74,10 @@ public class Dao {
         final Session session = sessionFactory.getCurrentSession();
         final Criteria crit = session.createCriteria(type);
         return crit.list();
+    }
+
+    public <T> Long count(final Class<T> type){
+        final Session session = sessionFactory.getCurrentSession();
+        return (Long) session.createCriteria(type).setProjection(Projections.rowCount()).uniqueResult();
     }
 }

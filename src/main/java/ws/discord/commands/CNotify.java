@@ -1,76 +1,102 @@
 package ws.discord.commands;
 
+import dao.Dao;
+import entity.GuildEntity;
+import entity.NotificationEntity;
+import entity.local.MessageItem;
+import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import ovh.gyoo.bot.data.DiscordInstance;
-import ovh.gyoo.bot.data.MessageItem;
-import ovh.gyoo.bot.data.ServerList;
-import ovh.gyoo.bot.writer.Logger;
+import ws.discord.messages.MessageHandler;
 
-public class CNotify implements Command {
+public class CNotify extends Command {
 
     public static String name = "notify";
-    private static String description = "`notify <me|everyone>` : Adds a mention at the beginning of the announce. `me` will add a mention to you, `everyone` will add the \"everyone\" mention. (Type command again to remove existing notification)";
+
+    public CNotify(JDA jda, Dao dao) {
+        super(jda, dao);
+        description = "`notify <me|everyone>` : Adds a mention at the beginning of the announce. `me` will add a mention to you, `everyone` will add the \"everyone\" mention. (Type command again to remove existing notification)";
+        allows.add(Allowances.MANAGERS);
+    }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        MessageItem message = new MessageItem(e.getTextChannel().getId(), MessageItem.Type.GUILD);
-        boolean b;
+        Message message;
+        NotificationEntity notif = null;
+        GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
         switch (content) {
             case "me":
-                b = !ServerList.getInstance().getServer(e.getGuild().getId()).getNotifs().getOrDefault(e.getAuthor().getId(), false); //Gets the inverted value and put it back in the map
-                ServerList.getInstance().getServer(e.getGuild().getId()).addNotif(e.getAuthor().getId(), b);
-                if (b)
-                    message.setMessage(new MessageBuilder().appendString("You will be mentioned in announces !").build());
-                else
-                    message.setMessage(new MessageBuilder().appendString("You will not be mentioned in announces anymore !").build());
+                for(NotificationEntity notificationEntity : guildEntity.getNotifications()){
+                    if(notificationEntity.getUserId() == Long.parseLong(e.getAuthor().getId())){
+                        notif = notificationEntity;
+                        break;
+                    }
+                }
+                if(notif != null){
+                    dao.delete(notif);
+                    message = new MessageBuilder().appendString("You will not be mentioned in announces anymore !").build();
+                }
+                else{
+                    notif = new NotificationEntity();
+                    notif.setGuild(guildEntity);
+                    notif.setUserId(Long.parseLong(e.getAuthor().getId()));
+                    dao.saveOrUpdate(notif);
+                    message = new MessageBuilder().appendString("You will be mentioned in announces !").build();
+                }
                 break;
             case "everyone":
-                if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId()))
-                    message.setMessage(new MessageBuilder().appendString("You are not allowed to use this command").build());
+                if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+                    message = new MessageBuilder().appendString("You are not allowed to use this command").build();
                 else{
-                    b = !ServerList.getInstance().getServer(e.getGuild().getId()).getNotifs().get("everyone"); //Gets the inverted value and put it back in the map
-                    ServerList.getInstance().getServer(e.getGuild().getId()).addNotif("everyone", b);
-                    if (b)
-                        message.setMessage(new MessageBuilder().appendString("Announces will mention \"everyone\" !").build());
-                    else
-                        message.setMessage(new MessageBuilder().appendString("Removed \"everyone\" from announces mentions !").build());
+                    for(NotificationEntity notificationEntity : guildEntity.getNotifications()){
+                        if(notificationEntity.getUserId() == 0L){
+                            notif = notificationEntity;
+                            break;
+                        }
+                    }
+                    if(notif != null){
+                        dao.delete(notif);
+                        message = new MessageBuilder().appendString("Removed \"everyone\" from announces mentions !").build();
+                    }
+                    else{
+                        notif = new NotificationEntity();
+                        notif.setGuild(guildEntity);
+                        notif.setUserId(Long.parseLong(e.getAuthor().getId()));
+                        dao.saveOrUpdate(notif);
+                        message = new MessageBuilder().appendString("Announces will mention \"everyone\" !").build();
+                    }
                 }
                 break;
             case "here":
-                if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId()))
-                    message.setMessage(new MessageBuilder().appendString("You are not allowed to use this command").build());
+                if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+                    message = new MessageBuilder().appendString("You are not allowed to use this command").build();
                 else{
-                    b = !ServerList.getInstance().getServer(e.getGuild().getId()).getNotifs().get("here"); //Gets the inverted value and put it back in the map
-                    ServerList.getInstance().getServer(e.getGuild().getId()).addNotif("here", b);
-                    if (b)
-                        message.setMessage(new MessageBuilder().appendString("Announces will mention \"here\" !").build());
-                    else
-                        message.setMessage(new MessageBuilder().appendString("Removed \"here\" from announces mentions !").build());
+                    for(NotificationEntity notificationEntity : guildEntity.getNotifications()){
+                        if(notificationEntity.getUserId() == 1L){
+                            notif = notificationEntity;
+                            break;
+                        }
+                    }
+                    if(notif != null){
+                        dao.delete(notif);
+                        message = new MessageBuilder().appendString("Removed \"here\" from announces mentions !").build();
+                    }
+                    else{
+                        notif = new NotificationEntity();
+                        notif.setGuild(guildEntity);
+                        notif.setUserId(Long.parseLong(e.getAuthor().getId()));
+                        dao.saveOrUpdate(notif);
+                        message = new MessageBuilder().appendString("Announces will mention \"here\" !").build();
+                    }
                 }
                 break;
             default:
-                message.setMessage(new MessageBuilder()
+                message = new MessageBuilder()
                         .appendString("Unknown parameter")
-                        .build());
+                        .build();
                 break;
         }
-        DiscordInstance.getInstance().addToQueue(message);
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public boolean isAllowed(String serverID, String authorID) {
-        try{
-            return ServerList.getInstance().getServer(serverID).getManagers().contains(authorID);
-        } catch(NullPointerException e){
-            String message = "Guild ID : " + serverID + "\n" + "Guild Name : " + DiscordInstance.getInstance().getDiscord().getGuildById(serverID).getName();
-            Logger.writeToErr(e, message);
-            return false;
-        }
+        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
     }
 }

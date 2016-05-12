@@ -43,7 +43,6 @@ public class PermissionEntity {
         this.guild = guild;
     }
 
-
     public long getRoleId() {
         return roleId;
     }
@@ -92,4 +91,5 @@ public class PermissionEntity {
         result = 31 * result + level;
         return result;
     }
+
 }
