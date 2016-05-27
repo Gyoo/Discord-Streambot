@@ -39,8 +39,7 @@ public class CStreams extends Command {
                         url = "http://twitch.tv/";
                         break;
                 }
-                //TODO Re-add game name
-                builder.appendString(stream.getChannelName() + " playing at ` " + url + stream.getChannelName() + " ` : " + stream.getStreamTitle() + "\n");
+                builder.appendString(stream.getChannelName() + " playing " + stream.getGameName() + " at ` " + url + stream.getChannelName() + " ` : " + stream.getStreamTitle() + "\n");
             }
         }
         message = builder.build();

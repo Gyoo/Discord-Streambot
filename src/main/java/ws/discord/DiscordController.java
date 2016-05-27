@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DiscordWS extends ListenerAdapter {
+public class DiscordController extends ListenerAdapter {
 
     private List<String> options = new ArrayList<>();
 

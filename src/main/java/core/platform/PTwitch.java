@@ -77,7 +77,8 @@ public class PTwitch implements Platform {
                         boolean isDisplayed = false;
                         for(StreamEntity streamEntity : guild.getStreams()){
                             if(streamEntity.getChannelName().equalsIgnoreCase(stream.getChannel().getName()) &&
-                                    streamEntity.getStreamTitle().equalsIgnoreCase(stream.getChannel().getStatus())){
+                                    streamEntity.getStreamTitle().equalsIgnoreCase(stream.getChannel().getStatus()) &&
+                                    streamEntity.getGameName().equalsIgnoreCase(stream.getGame())){
                                 isDisplayed = true;
                                 break;
                             }
@@ -143,6 +144,7 @@ public class PTwitch implements Platform {
                 streamEntity.setChannelName(stream.getChannel().getName().toLowerCase());
             }
             streamEntity.setStreamTitle(stream.getChannel().getStatus());
+            streamEntity.setGameName(stream.getGame());
             if(guild.getStreams().contains(streamEntity)){
                 guild.getStreams().remove(streamEntity);
             }

@@ -3,10 +3,7 @@ package dao;
 import common.util.HibernateUtil;
 import entity.GuildEntity;
 import entity.StreamEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -35,8 +32,9 @@ public class Dao {
 
     /***/
     public <T> T getLongId(final Class<T> type, final Long id) {
-        sessionFactory.getCurrentSession().beginTransaction();
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
         T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        trans.commit();
         return t;
     }
 
@@ -47,8 +45,9 @@ public class Dao {
 
     /***/
     public <T> T getIntId(final Class<T> type, final Integer id) {
-        sessionFactory.getCurrentSession().beginTransaction();
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
         T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        trans.commit();
         return t;
     }
 
@@ -59,8 +58,10 @@ public class Dao {
 
     /***/
     public <T> T merge(final T o) {
-        sessionFactory.getCurrentSession().beginTransaction();
-        return (T) sessionFactory.getCurrentSession().merge(o);
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        T t = (T) sessionFactory.getCurrentSession().merge(o);
+        trans.commit();
+        return t;
     }
 
     /***/
@@ -71,13 +72,23 @@ public class Dao {
     }
 
     public <T> List<T> getAll(final Class<T> type) {
-        final Session session = sessionFactory.getCurrentSession();
-        final Criteria crit = session.createCriteria(type);
-        return crit.list();
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        try{
+            final Session session = sessionFactory.getCurrentSession();
+            final Criteria crit = session.createCriteria(type);
+            return crit.list();
+        }finally{
+            trans.commit();
+        }
     }
 
     public <T> Long count(final Class<T> type){
-        final Session session = sessionFactory.getCurrentSession();
-        return (Long) session.createCriteria(type).setProjection(Projections.rowCount()).uniqueResult();
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        try {
+            final Session session = sessionFactory.getCurrentSession();
+            return (Long) session.createCriteria(type).setProjection(Projections.rowCount()).uniqueResult();
+        }finally {
+            trans.commit();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package ws.discord.commands;
 
+import common.util.HibernateUtil;
 import dao.Dao;
 import entity.GuildEntity;
 import entity.ManagerEntity;
@@ -8,6 +9,7 @@ import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.entities.Role;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.hibernate.Hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public abstract class Command {
     protected Dao dao;
     protected JDA jda;
     protected String description;
-    static List<Allowances> allows = new ArrayList<>();
+    public List<Allowances> allows = new ArrayList<>();
 
     public Command(JDA jda, Dao dao){
         this.dao = dao;
@@ -39,7 +41,10 @@ public abstract class Command {
 
     protected boolean isAllowed(String serverID, String authorID, List<Allowances> allowances, int level){
         boolean allowed = false;
-        GuildEntity guild = dao.getLongId(GuildEntity.class, serverID);
+        GuildEntity guild = null;
+        if(serverID != null && !serverID.equals("")){
+            guild = dao.getLongId(GuildEntity.class, serverID);
+        }
         for(Allowances allow : allowances){
             switch (allow){
                 case ALL:
@@ -49,6 +54,7 @@ public abstract class Command {
                     allowed = authorID.equals("63263941735755776");
                     break;
                 case MANAGERS:
+                    assert guild != null;
                     for(ManagerEntity manager : guild.getManagers()){
                         if(manager.getUserId() == Long.parseLong(authorID)){
                             allowed = true;

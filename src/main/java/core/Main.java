@@ -8,6 +8,7 @@ import entity.*;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.Guild;
+import net.dv8tion.jda.utils.AvatarUtil;
 import old.LocalServer;
 import old.Logger;
 import old.Permissions;
@@ -32,14 +33,14 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         Dao dao = new Dao();
         List<Platform> platforms = new ArrayList<>();
-        JDA jda = new JDABuilder().setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.CfObZw.km7UY01em2JAo8ZqCMPV8HfAwqo").buildBlocking();
+        JDA jda = new JDABuilder().setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.Cilk2g.8QrisdnjxlhtBbWUSuyy19tVp-Q").buildBlocking();
 
         Thread messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda);
         messageConsumer.start();
 
         platforms.add(new PTwitch(dao, jda));
 
-        File f = new File("ServerList.xml");
+        /*File f = new File("ServerList.xml");
         if(f.exists()){
             List<LocalServer> servers = Logger.loadData("ServerList.xml");
             for(LocalServer server : servers){
@@ -69,10 +70,9 @@ public class Main {
                     }
                 }
             }
-        }
+        }*/
 
-
-        Session session = HibernateUtil.getSession();
+        /*Session session = HibernateUtil.getSession();
         List<Long> guildIDs = session.createCriteria(GuildEntity.class)
                 .setProjection(Projections.property("id")).list();
         while(true){
@@ -91,7 +91,7 @@ public class Main {
             }
 
             Thread.sleep(20000);
-        }
+        }*/
 
     }
 }

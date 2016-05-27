@@ -26,7 +26,7 @@ public class CAnnounce extends Command{
         if(isAllowed("", e.getAuthor().getId(), allows, 0)){
             List<GuildEntity> guilds = dao.getAll(GuildEntity.class);
             for(GuildEntity guild : guilds){
-                Message message = new MessageBuilder().appendString(" " + content).build();
+                Message message = new MessageBuilder().appendString(content).build();
                 MessageHandler.getInstance().addToQueue(guild.getChannelId(), MessageItem.Type.GUILD, message);
             }
         }

@@ -25,7 +25,7 @@ public class CServers extends Command{
         if(isAllowed("", e.getAuthor().getId(), allows, 0)){
             Message message;
             MessageBuilder builder = new MessageBuilder();
-            builder.appendString("Server count : " + dao.count(GuildEntity.class) + "\n");
+            builder.appendString("Server count : " + dao.count(GuildEntity.class));
             message = builder.build();
             MessageHandler.getInstance().addToQueue(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, message);
         }

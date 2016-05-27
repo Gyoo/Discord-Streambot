@@ -26,6 +26,10 @@ public class StreamEntity{
     @Column(name = "Stream_title", nullable = true, length = -1)
     private String streamTitle;
 
+    @Basic
+    @Column(name = "Game_name", nullable = true, length = -1)
+    private String gameName;
+
     public int getId() {
         return id;
     }
@@ -66,6 +70,14 @@ public class StreamEntity{
         this.streamTitle = streamTitle;
     }
 
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,18 +86,22 @@ public class StreamEntity{
         StreamEntity that = (StreamEntity) o;
 
         if (id != that.id) return false;
-        if (platform != that.platform) return false;
         if (guild != null ? !guild.equals(that.guild) : that.guild != null) return false;
-        return channelName != null ? !channelName.equals(that.channelName) : that.channelName != null;
+        if (platform != null ? !platform.equals(that.platform) : that.platform != null) return false;
+        if (channelName != null ? !channelName.equals(that.channelName) : that.channelName != null) return false;
+        if (streamTitle != null ? !streamTitle.equals(that.streamTitle) : that.streamTitle != null) return false;
+        return gameName != null ? gameName.equals(that.gameName) : that.gameName == null;
+
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (guild != null ? guild.hashCode() : 0);
-        result = 31 * result + platform.hashCode();
+        result = 31 * result + (platform != null ? platform.hashCode() : 0);
         result = 31 * result + (channelName != null ? channelName.hashCode() : 0);
         result = 31 * result + (streamTitle != null ? streamTitle.hashCode() : 0);
+        result = 31 * result + (gameName != null ? gameName.hashCode() : 0);
         return result;
     }
 }

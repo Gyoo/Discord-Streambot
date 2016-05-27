@@ -104,10 +104,10 @@ public class CAdd extends Command {
                 teamEntity.setName(s);
                 teams.add(teamEntity);
                 dao.saveOrUpdate(teamEntity);
-                mb.appendString("Team " + s + " added to the game list\n");
+                mb.appendString("Team " + s + " added to the teams list\n");
             }
             else
-                mb.appendString("Team " + s + " is already in the game list\n");
+                mb.appendString("Team " + s + " is already in the teams list\n");
         }
         return mb.build();
     }
