@@ -45,7 +45,7 @@ public class DiscordInstance {
         try {
             DiscordListener listener = new DiscordListener();
             discord = new JDABuilder()
-                    .setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.CfObZw.km7UY01em2JAo8ZqCMPV8HfAwqo")
+                    .setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.Cilk2g.8QrisdnjxlhtBbWUSuyy19tVp-Q")
                     .addListener(listener)
                     .buildBlocking();
             listener.setApi(discord);

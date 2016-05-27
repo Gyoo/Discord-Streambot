@@ -3,6 +3,7 @@ package ovh.gyoo.bot;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Guild;
 import net.dv8tion.jda.entities.impl.JDAImpl;
+import net.dv8tion.jda.managers.AccountManager;
 import net.dv8tion.jda.utils.InviteUtil;
 import net.dv8tion.jda.utils.SimpleLog;
 import ovh.gyoo.bot.data.DiscordInstance;
@@ -43,7 +44,7 @@ public class Main {
         // Message Consumer (anti rate limiter)
         Thread messageConsumer = new MessageConsumer(DiscordInstance.getInstance().getQueue());
         messageConsumer.start();
-
+        
         // Look for deltas between Guilds list and data list. Kinda hacky to do it here but I can't place it elsewhere...
         List<Guild> guilds = DiscordInstance.getInstance().getDiscord().getGuilds();
         Map<String, String> inactiveManagers = new HashMap<>();
