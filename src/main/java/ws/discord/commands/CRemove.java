@@ -1,5 +1,6 @@
 package ws.discord.commands;
 
+import common.Logger;
 import dao.Dao;
 import entity.*;
 import entity.local.MessageItem;
@@ -50,7 +51,7 @@ public class CRemove extends Command {
             try{
                 option = content.substring(0, content.indexOf(" "));
             } catch(StringIndexOutOfBoundsException sioobe){
-
+                Logger.writeToErr(sioobe, content);
             }
             if(option.isEmpty()) message = new MessageBuilder()
                     .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")
@@ -94,14 +95,14 @@ public class CRemove extends Command {
             while(iterator.hasNext()){
                 GameEntity entity = iterator.next();
                 if(entity.getName().equals(s)){
-                    dao.delete(entity);
+                    dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
-                    mb.appendString("Game " + s + " removed from the game list\n");
+                    mb.appendString("Game " + s + " removed from the games list\n");
                     deleted = true;
                     break;
                 }
             }
-            if(!deleted) mb.appendString("Game " + s + " is not in the game list\n");
+            if(!deleted) mb.appendString("Game " + s + " is not in the games list\n");
         }
         return mb.build();
     }
@@ -116,14 +117,14 @@ public class CRemove extends Command {
             while(iterator.hasNext()){
                 ChannelEntity entity = iterator.next();
                 if(entity.getName().equals(s)){
-                    dao.delete(entity);
+                    dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
-                    mb.appendString("Channel " + s + " removed from the game list\n");
+                    mb.appendString("Channel " + s + " removed from the channels list\n");
                     deleted = true;
                     break;
                 }
             }
-            if(!deleted) mb.appendString("Channel " + s + " is not in the game list\n");
+            if(!deleted) mb.appendString("Channel " + s + " is not in the channels list\n");
         }
         return mb.build();
     }
@@ -138,9 +139,9 @@ public class CRemove extends Command {
             while(iterator.hasNext()){
                 TagEntity entity = iterator.next();
                 if(entity.getName().equals(s)){
-                    dao.delete(entity);
+                    dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
-                    mb.appendString("Tag " + s + " removed from the game list\n");
+                    mb.appendString("Tag " + s + " removed from the tags list\n");
                     deleted = true;
                     break;
                 }
@@ -160,14 +161,14 @@ public class CRemove extends Command {
             while(iterator.hasNext()){
                 TeamEntity entity = iterator.next();
                 if(entity.getName().equals(s)){
-                    dao.delete(entity);
+                    dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
-                    mb.appendString("Team " + s + " removed from the game list\n");
+                    mb.appendString("Team " + s + " removed from the teams list\n");
                     deleted = true;
                     break;
                 }
             }
-            if(!deleted) mb.appendString("Team " + s + " is not in the game list\n");
+            if(!deleted) mb.appendString("Team " + s + " is not in the teams list\n");
         }
         return mb.build();
     }
@@ -196,7 +197,7 @@ public class CRemove extends Command {
                     while(iterator.hasNext()){
                         ManagerEntity entity = iterator.next();
                         if(entity.getUserId() == Long.parseLong(u.getId())){
-                            dao.delete(entity);
+                            dao.deleteIntId(entity.getClass(), entity.getID());
                             iterator.remove();
                             builder.appendString("User " + u.getUsername() + " removed from the managers list\n");
                             deleted = true;

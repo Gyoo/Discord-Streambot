@@ -1,12 +1,11 @@
 package dao;
 
 import common.util.HibernateUtil;
-import entity.GuildEntity;
-import entity.StreamEntity;
+import entity.*;
 import org.hibernate.*;
 import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dao {
@@ -24,9 +23,17 @@ public class Dao {
         return t;
     }
 
-    public void delete(final Object object) {
+    public <T> void deleteLongId(final Class<T> type, final Long id) {
         Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
-        sessionFactory.getCurrentSession().delete(object);
+        T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        sessionFactory.getCurrentSession().delete(t);
+        trans.commit();
+    }
+
+    public <T> void deleteIntId(final Class<T> type, final int id) {
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        sessionFactory.getCurrentSession().delete(t);
         trans.commit();
     }
 
@@ -75,11 +82,35 @@ public class Dao {
         Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
         try{
             final Session session = sessionFactory.getCurrentSession();
-            final Criteria crit = session.createCriteria(type);
-            return crit.list();
-        }finally{
+            final Query query = session.createQuery("from " + type.getName());
+            List<T> response = query.list();
+            trans.commit();
+            return response;
+        }catch(ObjectNotFoundException e){
+            trans.commit();
+            this.deleteAllTraceOfId(e.getIdentifier().toString());
+            return this.getAll(type);
+        }
+    }
+
+    private void deleteAllTraceOfId(final String ServerId){
+        List<String> classNames = new ArrayList<>();
+        classNames.add(ChannelEntity.class.getName());
+        classNames.add(GameEntity.class.getName());
+        classNames.add(ManagerEntity.class.getName());
+        classNames.add(NotificationEntity.class.getName());
+        classNames.add(PermissionEntity.class.getName());
+        classNames.add(QueueitemEntity.class.getName());
+        classNames.add(StreamEntity.class.getName());
+        classNames.add(TagEntity.class.getName());
+        classNames.add(TeamEntity.class.getName());
+        for(String className : classNames){
+            Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+            final Session session = sessionFactory.getCurrentSession();
+            session.createQuery("DELETE " + className + " WHERE guild = :serverid").setString("serverid", ServerId).executeUpdate();
             trans.commit();
         }
+
     }
 
     public <T> Long count(final Class<T> type){

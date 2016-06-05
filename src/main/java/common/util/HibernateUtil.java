@@ -1,5 +1,6 @@
 package common.util;
 
+import common.PropertiesReader;
 import entity.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,7 +16,8 @@ public class HibernateUtil {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure();
+            configuration.mergeProperties(PropertiesReader.getInstance().getProp());
+            configuration.configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(ChannelEntity.class);
             configuration.addAnnotatedClass(GameEntity.class);
             configuration.addAnnotatedClass(GuildEntity.class);

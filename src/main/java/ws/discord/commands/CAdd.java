@@ -1,5 +1,6 @@
 package ws.discord.commands;
 
+import common.Logger;
 import dao.Dao;
 import entity.*;
 import entity.local.MessageItem;
@@ -50,7 +51,7 @@ public class CAdd extends Command {
             try{
                 option = content.substring(0, content.indexOf(" "));
             } catch(StringIndexOutOfBoundsException sioobe){
-
+                Logger.writeToErr(sioobe, "");
             }
             if(option.isEmpty()) message = new MessageBuilder()
                     .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")

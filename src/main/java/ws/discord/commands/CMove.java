@@ -33,7 +33,9 @@ public class CMove extends Command{
                     guildEntity.setChannelId(Long.parseLong(channel.getId()));
                     dao.saveOrUpdate(guildEntity);
                     message = new MessageBuilder()
-                            .appendString("Announces will now be done in #" + channel.getName() + " !")
+                            .appendString("Announces will now be done in ")
+                            .appendMention(channel)
+                            .appendString(" !")
                             .build();
                 }
             }

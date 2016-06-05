@@ -1,5 +1,7 @@
 package ws.discord.messages;
 
+import common.Logger;
+import common.PropertiesReader;
 import entity.local.MessageItem;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.Permission;
@@ -15,8 +17,6 @@ public class MessageConsumer extends Thread {
 
     private final LinkedBlockingQueue<MessageItem> queue;
     private JDA jda;
-    private long start = System.currentTimeMillis();
-    private int nbMessages = 0;
 
     public MessageConsumer(LinkedBlockingQueue<MessageItem> queue, JDA jda) {
         this.queue = queue;
@@ -36,38 +36,40 @@ public class MessageConsumer extends Thread {
                     work = queue.remove();
                 }
 
-                /*switch (work.getType()) {
-                    case GUILD:
-                        User self = jda.getUserById(jda.getSelfInfo().getId());
-                        TextChannel textChannel = jda.getTextChannelById(work.getId());
-                        if (null != work.getMessage()
-                                && null != textChannel
-                                && null != jda.getTextChannelById(work.getId())
-                                && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)) {
+                if(!Boolean.parseBoolean(PropertiesReader.getInstance().getProp().getProperty("mode.debug")) || work.getId().equals("187151369550036994")){
+                    switch (work.getType()) {
+                        case GUILD:
+                            User self = jda.getUserById(jda.getSelfInfo().getId());
+                            TextChannel textChannel = jda.getTextChannelById(work.getId());
+                            if (null != work.getMessage()
+                                    && null != textChannel
+                                    && null != jda.getTextChannelById(work.getId())
+                                    && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)) {
+                                try {
+                                    textChannel.sendMessage(work.getMessage());
+                                } catch (NullPointerException e) {
+                                    Logger.writeToErr(e, "Guild Channel id = " + work.getId());
+                                } catch (RateLimitedException e) {
+                                    Thread.sleep(e.getTimeout());
+                                    MessageHandler.getInstance().addToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
+                                } catch (JSONException e) {
+                                    Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
+                                }
+                            }
+
+                            break;
+                        case PRIVATE:
                             try {
-                                textChannel.sendMessage(work.getMessage());
-                            } catch (NullPointerException e) {
-                                //Logger.writeToErr(e, "Guild Channel id = " + work.getId());
+                                jda.getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                            } catch (NullPointerException | BlockedException e) {
+                                Logger.writeToErr(e, "Private Channel id = " + work.getId());
                             } catch (RateLimitedException e) {
                                 Thread.sleep(e.getTimeout());
                                 MessageHandler.getInstance().addToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
-                            } catch (JSONException e) {
-                                //Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
                             }
-                        }
-
-                        break;
-                    case PRIVATE:
-                        try {
-                            jda.getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
-                        } catch (NullPointerException | BlockedException e) {
-                            //Logger.writeToErr(e, "Private Channel id = " + work.getId());
-                        } catch (RateLimitedException e) {
-                            Thread.sleep(e.getTimeout());
-                            MessageHandler.getInstance().addToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
-                        }
-                        break;
-                }*/ //Keep this switch commented while testing.
+                            break;
+                    }
+                }
             } catch (InterruptedException ie) {
                 continue;
             }

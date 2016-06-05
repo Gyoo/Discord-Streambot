@@ -12,6 +12,8 @@ import entity.*;
 import entity.local.MessageItem;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Guild;
+import net.dv8tion.jda.entities.User;
 import ws.discord.messages.MessageHandler;
 
 import java.util.*;
@@ -41,7 +43,7 @@ public class PTwitch implements Platform {
     }
 
     @Override
-    public void checkStreams(Long guildID) {
+    public void checkStreams(final Long guildID) {
         GuildEntity guild = dao.getLongId(GuildEntity.class, guildID);
         if(!guild.isActive()) return;
         if(guild.getChannels().size() == 0 && guild.getGames().size() == 0 && guild.getTeams().size() == 0 && guild.getTags().size() == 0) return;
@@ -70,36 +72,7 @@ public class PTwitch implements Platform {
                 rp.put("channel", channels);
             }
             rp.put("limit", 100);
-            twitch.streams().get(rp, new StreamsResponseHandler() {
-                @Override
-                public void onSuccess(int i, List<Stream> list) {
-                    for (Stream stream : list) {
-                        boolean isDisplayed = false;
-                        for(StreamEntity streamEntity : guild.getStreams()){
-                            if(streamEntity.getChannelName().equalsIgnoreCase(stream.getChannel().getName()) &&
-                                    streamEntity.getStreamTitle().equalsIgnoreCase(stream.getChannel().getStatus()) &&
-                                    streamEntity.getGameName().equalsIgnoreCase(stream.getGame())){
-                                isDisplayed = true;
-                                break;
-                            }
-                        }
-                        if(!isDisplayed){
-                            updateDiscordList(guild, stream);
-                        }
-                    }
-                    HibernateUtil.getSession().evict(guild);
-                }
-
-                @Override
-                public void onFailure(int i, String s, String s1) {
-
-                }
-
-                @Override
-                public void onFailure(Throwable throwable) {
-
-                }
-            });
+            twitch.streams().get(rp, new CustomStreamResponseHandler(dao, jda, guild));
         }
     }
 
@@ -112,7 +85,7 @@ public class PTwitch implements Platform {
                     @Override
                     public void onSuccess(Stream stream) {
                         if(null == stream || !stream.isOnline()){
-                            dao.delete(streamEntity);
+                            dao.deleteIntId(StreamEntity.class, streamEntity.getId());
                             System.out.println("Deleted " + streamEntity.getChannelName());
                         }
                     }
@@ -151,8 +124,22 @@ public class PTwitch implements Platform {
             guild.getStreams().add(streamEntity);
             dao.saveOrUpdate(streamEntity);
             System.out.println("[GUILD : " + jda.getGuildById(Long.toString(guild.getServerId())).getName() + "] " + streamEntity.getChannelName() + " is streaming : " + streamEntity.getStreamTitle());
+            for(NotificationEntity notif : guild.getNotifications()){
+                switch(Long.toString(notif.getUserId())){
+                    case "0":
+                        builder.appendEveryoneMention().appendString(" ");
+                        break;
+                    case "1":
+                        builder.appendString("@here ");
+                        break;
+                    default:
+                        User user = jda.getUserById(Long.toString(notif.getUserId()));
+                        builder.appendMention(user).appendString(" ");
+                        break;
+                }
+            }
             builder.appendString("NOW LIVE : " + linkBeginning + "http://twitch.tv/" + stream.getChannel().getName() + linkEnd + " playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
-            MessageHandler.getInstance().addToQueue(guild.getServerId(), MessageItem.Type.GUILD, builder.build());
+            MessageHandler.getInstance().addToQueue(guild.getChannelId(), MessageItem.Type.GUILD, builder.build());
         }
     }
 
@@ -178,12 +165,12 @@ public class PTwitch implements Platform {
         }
         if(!hasGame) return false;
 
-        boolean hasTag = false;
+        boolean hasTag = guild.getTags().isEmpty();
         List<String> split;
         if (null != stream.getChannel().getStatus())
             split = Arrays.asList(stream.getChannel().getStatus().toLowerCase().split(" "));
         else split = new ArrayList<>();
-        for(TagEntity tag : guild.getTags())  {
+        for(TagEntity tag : guild.getTags()){
             for(String word : split){
                 if(word.startsWith(tag.getName().toLowerCase())){
                     hasTag = true;
@@ -195,5 +182,46 @@ public class PTwitch implements Platform {
         if (!hasTag) return false;
 
         return true;
+    }
+
+    private class CustomStreamResponseHandler implements StreamsResponseHandler{
+
+        Dao dao;
+        JDA jda;
+        GuildEntity guild;
+
+        CustomStreamResponseHandler(Dao dao, JDA jda, GuildEntity guild){
+            this.dao = dao;
+            this.jda = jda;
+            this.guild = guild;
+        }
+
+        @Override
+        public void onSuccess(int i, List<Stream> list) {
+            for (Stream stream : list) {
+                boolean isDisplayed = false;
+                for(StreamEntity streamEntity : guild.getStreams()){
+                    if(streamEntity.getChannelName().equalsIgnoreCase(stream.getChannel().getName()) &&
+                            (streamEntity.getGameName() == null && stream.getGame() == null || streamEntity.getGameName().equalsIgnoreCase(stream.getGame()))){
+                        isDisplayed = true;
+                        break;
+                    }
+                }
+                if(!isDisplayed){
+                    updateDiscordList(guild, stream);
+                }
+            }
+            HibernateUtil.getSession().evict(guild);
+        }
+
+        @Override
+        public void onFailure(int i, String s, String s1) {
+
+        }
+
+        @Override
+        public void onFailure(Throwable throwable) {
+
+        }
     }
 }

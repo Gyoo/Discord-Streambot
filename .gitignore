@@ -98,3 +98,4 @@ hs_err_pid*
 tokens.json
 ServerList.ser
 /src/main/resources/credentials.xml
+/src/main/resources/config.properties

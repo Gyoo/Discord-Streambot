@@ -34,7 +34,7 @@ public class CNotify extends Command {
                     }
                 }
                 if(notif != null){
-                    dao.delete(notif);
+                    dao.deleteIntId(NotificationEntity.class, notif.getID());
                     message = new MessageBuilder().appendString("You will not be mentioned in announces anymore !").build();
                 }
                 else{
@@ -56,13 +56,13 @@ public class CNotify extends Command {
                         }
                     }
                     if(notif != null){
-                        dao.delete(notif);
+                        dao.deleteIntId(NotificationEntity.class, notif.getID());
                         message = new MessageBuilder().appendString("Removed \"everyone\" from announces mentions !").build();
                     }
                     else{
                         notif = new NotificationEntity();
                         notif.setGuild(guildEntity);
-                        notif.setUserId(Long.parseLong(e.getAuthor().getId()));
+                        notif.setUserId(0L);
                         dao.saveOrUpdate(notif);
                         message = new MessageBuilder().appendString("Announces will mention \"everyone\" !").build();
                     }
@@ -79,13 +79,13 @@ public class CNotify extends Command {
                         }
                     }
                     if(notif != null){
-                        dao.delete(notif);
+                        dao.deleteIntId(NotificationEntity.class, notif.getID());
                         message = new MessageBuilder().appendString("Removed \"here\" from announces mentions !").build();
                     }
                     else{
                         notif = new NotificationEntity();
                         notif.setGuild(guildEntity);
-                        notif.setUserId(Long.parseLong(e.getAuthor().getId()));
+                        notif.setUserId(1L);
                         dao.saveOrUpdate(notif);
                         message = new MessageBuilder().appendString("Announces will mention \"here\" !").build();
                     }

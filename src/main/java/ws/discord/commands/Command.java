@@ -1,6 +1,5 @@
 package ws.discord.commands;
 
-import common.util.HibernateUtil;
 import dao.Dao;
 import entity.GuildEntity;
 import entity.ManagerEntity;
@@ -9,7 +8,6 @@ import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.entities.Role;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.hibernate.Hibernate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,7 @@ public abstract class Command {
         return description;
     }
 
-    protected boolean isAllowed(String serverID, String authorID, List<Allowances> allowances, int level){
+    public boolean isAllowed(String serverID, String authorID, List<Allowances> allowances, int level){
         boolean allowed = false;
         GuildEntity guild = null;
         if(serverID != null && !serverID.equals("")){

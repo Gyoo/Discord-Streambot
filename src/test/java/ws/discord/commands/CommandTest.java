@@ -6,27 +6,25 @@ import com.ninja_squad.dbsetup.destination.DriverManagerDestination;
 import com.ninja_squad.dbsetup.operation.Operation;
 import common.CommonData;
 import common.CommonOperations;
+import common.PropertiesReader;
 import dao.Dao;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import ws.discord.messages.MessageHandler;
 
 import javax.security.auth.login.LoginException;
 
 import static com.ninja_squad.dbsetup.Operations.sequenceOf;
 
-/**
- * Created by Gyoo on 24/05/2016.
- */
 public abstract class CommandTest {
 
     protected static JDA jda;
 
     static {
         try {
-            jda = new JDABuilder().setBotToken("OTk4NTI5MDQ1MDQwMDQ2MDg.CfObZw.km7UY01em2JAo8ZqCMPV8HfAwqo").buildBlocking();
+            String token = PropertiesReader.getInstance().getProp().getProperty("bot.token");
+            jda = new JDABuilder().setBotToken(token).buildBlocking();
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
         }

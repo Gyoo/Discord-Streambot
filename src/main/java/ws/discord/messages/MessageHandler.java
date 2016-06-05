@@ -29,11 +29,11 @@ public class MessageHandler {
         List<String> messages = new ArrayList<>();
         while(message.length()>2000)
         {
-            int index = message.lastIndexOf("\n",2000);
+            int index = message.lastIndexOf("\n",1999);
             if(index==-1)
-                index = message.lastIndexOf(" ",2000);
+                index = message.lastIndexOf(" ",1999);
             if(index==-1)
-                index=2000;
+                index=1999;
             messages.add(message.substring(0,index));
             message = message.substring(index);
         }

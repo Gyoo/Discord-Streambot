@@ -32,7 +32,7 @@ public class CQueue extends Command{
             for(QueueitemEntity q : guildEntity.getQueue()){
                 String username = jda.getUserById(Long.toString(q.getUserId())).getUsername();
                 builder.appendString(username + " : " + q.getCommand() + "\n");
-                dao.delete(q);
+                dao.deleteIntId(QueueitemEntity.class, q.getID());
             }
             message = builder.build();
         }
