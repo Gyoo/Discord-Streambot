@@ -1,7 +1,7 @@
 package ws.discord.commands;
 
 import dao.Dao;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -20,8 +20,8 @@ public class CInvite extends Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message = new MessageBuilder()
-                .appendString("https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528")
+                .appendString("https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=224256")
                 .build();
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 }

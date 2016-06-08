@@ -1,7 +1,7 @@
 package ws.discord.commands;
 
 import dao.Dao;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -22,6 +22,6 @@ public class CDonate extends Command{
         Message message = new MessageBuilder()
                 .appendString("Please consider making a donation if you like the bot! http://bit.ly/StreambotDonate")
                 .build();
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 }

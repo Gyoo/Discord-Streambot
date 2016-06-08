@@ -2,7 +2,7 @@ package ws.discord.commands;
 
 import dao.Dao;
 import entity.*;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -56,7 +56,7 @@ public class CList extends Command{
                 }
                 break;
             default:
-                MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, new MessageBuilder()
                         .appendString("Unknown option : " + content)
                         .build());
                 return;
@@ -66,6 +66,6 @@ public class CList extends Command{
             builder.appendString(s + "\n");
         }
         message = builder.build();
-        MessageHandler.getInstance().addToQueue(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getAuthor().getPrivateChannel().getId(), MessageCreateAction.Type.PRIVATE, message);
     }
 }

@@ -30,6 +30,10 @@ public class StreamEntity{
     @Column(name = "Game_name", nullable = true, length = -1)
     private String gameName;
 
+    @Basic
+    @Column(name = "MessageId", nullable = true)
+    private Long messageId;
+
     public int getId() {
         return id;
     }
@@ -76,6 +80,14 @@ public class StreamEntity{
 
     public void setGameName(String gameName) {
         this.gameName = gameName;
+    }
+
+    public Long getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(Long messageId) {
+        this.messageId = messageId;
     }
 
     @Override

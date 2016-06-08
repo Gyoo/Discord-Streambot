@@ -26,6 +26,10 @@ public class GuildEntity {
     @Column(name = "isActive")
     private boolean isActive;
 
+    @Basic
+    @Column(name = "Cleanup")
+    private int cleanup;
+
     @OneToMany(mappedBy = "guild", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     private Set<ChannelEntity> channels;
 
@@ -155,6 +159,14 @@ public class GuildEntity {
 
     public void setPermissions(Set<PermissionEntity> permissions) {
         this.permissions = permissions;
+    }
+
+    public int getCleanup() {
+        return cleanup;
+    }
+
+    public void setCleanup(int cleanup) {
+        this.cleanup = cleanup;
     }
 
     @Override

@@ -41,7 +41,7 @@ public class Main {
                 .buildBlocking();
         discordController.setJda(jda);
 
-        Thread messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda);
+        Thread messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda, dao);
         messageConsumer.start();
 
         platforms = setPlatforms(dao, jda);
@@ -60,7 +60,7 @@ public class Main {
             }
 
             if(!messageConsumer.isAlive()){
-                messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda);
+                messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda, dao);
                 messageConsumer.start();
             }
 

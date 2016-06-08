@@ -3,7 +3,7 @@ package ws.discord.commands;
 
 import dao.Dao;
 import entity.GuildEntity;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -41,6 +41,6 @@ public class CMove extends Command{
             }
         }
         assert null != message;
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 }

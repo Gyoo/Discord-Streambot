@@ -3,7 +3,7 @@ package ws.discord.commands;
 import common.Logger;
 import dao.Dao;
 import entity.*;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -82,7 +82,7 @@ public class CRemove extends Command {
                 }
             }
         }
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 
     private Message removeGame(GuildEntity guild, String[] game){

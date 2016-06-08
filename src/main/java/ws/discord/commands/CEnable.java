@@ -2,7 +2,7 @@ package ws.discord.commands;
 
 import dao.Dao;
 import entity.GuildEntity;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -30,6 +30,6 @@ public class CEnable extends Command{
             dao.saveOrUpdate(guild);
             message = new MessageBuilder().appendString("Bot enabled !").build();
         }
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 }

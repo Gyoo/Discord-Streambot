@@ -1,6 +1,10 @@
 package ws.discord.messages;
 
-import entity.local.MessageItem;
+import entity.StreamEntity;
+import entity.local.MessageAction;
+import entity.local.MessageCreateAction;
+import entity.local.MessageDeleteAction;
+import entity.local.MessageEditAction;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
 
@@ -10,7 +14,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class MessageHandler {
 
-    private static final LinkedBlockingQueue<MessageItem> queue = new LinkedBlockingQueue<>();
+    private static final LinkedBlockingQueue<MessageAction> queue = new LinkedBlockingQueue<>();
     private static MessageHandler ourInstance = new MessageHandler();
 
     public static MessageHandler getInstance() {
@@ -20,11 +24,15 @@ public class MessageHandler {
     private MessageHandler() {
     }
 
-    public static LinkedBlockingQueue<MessageItem> getQueue() {
+    public static LinkedBlockingQueue<MessageAction> getQueue() {
         return queue;
     }
 
-    public void addToQueue(Long _id, MessageItem.Type _type, Message _message){
+    public void addCreateToQueue(Long _id, MessageCreateAction.Type _type, Message _message, StreamEntity... _stream){
+        this.addCreateToQueue(Long.toString(_id), _type, _message, _stream);
+    }
+
+    public void addCreateToQueue(String _id, MessageCreateAction.Type _type, Message _message, StreamEntity... _stream){
         String message = _message.getRawContent();
         List<String> messages = new ArrayList<>();
         while(message.length()>2000)
@@ -40,7 +48,13 @@ public class MessageHandler {
         messages.add(message);
         for(String cutMessage : messages){
             MessageBuilder builder = new MessageBuilder();
-            MessageItem messageItem = new MessageItem(Long.toString(_id), _type,builder.appendString(cutMessage).build());
+            MessageCreateAction messageItem;
+            if(_stream.length > 0){
+                messageItem = new MessageCreateAction(_id, _type, builder.appendString(cutMessage).build(), _stream[0]);
+            }
+            else {
+                messageItem = new MessageCreateAction(_id, _type, builder.appendString(cutMessage).build(), null);
+            }
             synchronized (queue){
                 queue.add(messageItem);
                 queue.notify();
@@ -48,7 +62,30 @@ public class MessageHandler {
         }
     }
 
-    public void addToQueue(String _id, MessageItem.Type _type, Message _message){
-        addToQueue(Long.parseLong(_id), _type, _message);
+    public void addEditToQueue(Long id, Message message, String newMessage){
+        this.addEditToQueue(Long.toString(id), message, newMessage);
     }
+
+    public void addEditToQueue(String id, Message message, String newMessage){
+        if(newMessage.length() < 2000){
+            MessageEditAction messageEditAction = new MessageEditAction(id, message, newMessage);
+            synchronized (queue){
+                queue.add(messageEditAction);
+                queue.notify();
+            }
+        }
+    }
+
+    public void addDeleteToQueue(Long id, Message message){
+        this.addDeleteToQueue(Long.toString(id), message);
+    }
+
+    public void addDeleteToQueue(String id, Message message){
+            MessageDeleteAction messageDeleteAction = new MessageDeleteAction(id, message);
+            synchronized (queue){
+                queue.add(messageDeleteAction);
+                queue.notify();
+            }
+    }
+
 }

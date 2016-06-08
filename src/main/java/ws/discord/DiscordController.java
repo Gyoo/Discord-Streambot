@@ -5,7 +5,7 @@ import common.util.HibernateUtil;
 import dao.Dao;
 import entity.GuildEntity;
 import entity.ManagerEntity;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.Permission;
@@ -55,6 +55,7 @@ public class DiscordController extends ListenerAdapter {
         commandMap.put(CInvite.name, new CInvite(this.jda, this.dao));
         commandMap.put(CMove.name, new CMove(this.jda, this.dao));
         commandMap.put(CCompact.name, new CCompact(this.jda, this.dao));
+        commandMap.put(CCleanup.name, new CCleanup(this.jda, this.dao));
         commandMap.put(CQueue.name, new CQueue(this.jda, this.dao));
         commandMap.put(CDonate.name, new CDonate(this.jda, this.dao));
         commandMap.put(CServers.name, new CServers(this.jda, this.dao));
@@ -73,7 +74,7 @@ public class DiscordController extends ListenerAdapter {
         }
         else{
             if (e.getMessage().getContent().startsWith("!ping")) {
-                MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, new MessageBuilder()
                         .appendString("Pong !")
                         .build());
             }
@@ -81,7 +82,7 @@ public class DiscordController extends ListenerAdapter {
                 try {
                     commands(e, e.getMessage().getContent().substring(11));
                 } catch (StringIndexOutOfBoundsException sioobe) {
-                    MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+                    MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, new MessageBuilder()
                             .appendString("You must put a command behind `!streambot` !")
                             .build());
                 }
@@ -116,7 +117,7 @@ public class DiscordController extends ListenerAdapter {
                     break;
                 }
             }
-            MessageHandler.getInstance().addToQueue(e.getGuild().getOwner().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, new MessageBuilder()
+            MessageHandler.getInstance().addCreateToQueue(e.getGuild().getOwner().getPrivateChannel().getId(), MessageCreateAction.Type.PRIVATE, new MessageBuilder()
                     .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
                             InviteUtil.createInvite(jda.getTextChannelById("131483070464393216")).getUrl() + "\n" +
                             "You can also get news about the updates, alert about bugs or just ask questions !")
@@ -136,7 +137,7 @@ public class DiscordController extends ListenerAdapter {
                 for (ManagerEntity manager : guildEntity.getManagers()) {
                     builder.appendMention(jda.getUserById(Long.toString(manager.getUserId()))).appendString("\n");
                 }
-                MessageHandler.getInstance().addToQueue(guildEntity.getChannelId(), MessageItem.Type.GUILD, builder.build());
+                MessageHandler.getInstance().addCreateToQueue(guildEntity.getChannelId(), MessageCreateAction.Type.GUILD, builder.build());
             }
         } catch (NullPointerException npe) {
             Logger.writeToErr(npe, "Guild name : " + e.getGuild().getName());
@@ -162,12 +163,12 @@ public class DiscordController extends ListenerAdapter {
             }
             MessageBuilder builder = new MessageBuilder();
             builder.appendString("Hello " + e.getUser().getUsername() + "!\n");
-            builder.appendString("If you wish to add me to your server, use this link : https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528\n");
+            builder.appendString("If you wish to add me to your server, use this link : https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=224256\n");
             builder.appendString("Then, you can follow the guidelines in #faq to set me up!\n");
             builder.appendString("If you forgot the commands, type `!streambot commands` or `!streambot help` on **your** server.\n");
             builder.appendString("Don't hesitate to ask questions to Gyoo, my creator!\n");
             builder.appendString("Hope you'll enjoy my work!");
-            MessageHandler.getInstance().addToQueue(e.getUser().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, builder.build());
+            MessageHandler.getInstance().addCreateToQueue(e.getUser().getPrivateChannel().getId(), MessageCreateAction.Type.PRIVATE, builder.build());
         }
     }
 
@@ -184,13 +185,13 @@ public class DiscordController extends ListenerAdapter {
             for (String option : options) {
                 builder.appendString(option + "\n");
             }
-            MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, builder.build());
+            MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, builder.build());
             return;
         }
         if (commandMap.containsKey(split[0]))
             commandMap.get(split[0]).execute(e, content);
         else
-            MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, new MessageBuilder()
+            MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, new MessageBuilder()
                     .appendString("Unknown command")
                     .build());
     }

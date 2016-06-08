@@ -9,13 +9,15 @@ import common.util.HibernateUtil;
 import dao.Dao;
 import dao.StreamDao;
 import entity.*;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.entities.Guild;
+import net.dv8tion.jda.MessageHistory;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.User;
 import ws.discord.messages.MessageHandler;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class PTwitch implements Platform {
@@ -85,8 +87,29 @@ public class PTwitch implements Platform {
                     @Override
                     public void onSuccess(Stream stream) {
                         if(null == stream || !stream.isOnline()){
+                            if(streamEntity.getMessageId() != null){
+                                MessageHistory history = new MessageHistory(jda.getTextChannelById(Long.toString(streamEntity.getGuild().getChannelId())));
+                                List<Message> messages = history.retrieveAll();
+                                for(Message message : messages){
+                                    if(message.getId().equals(Long.toString(streamEntity.getMessageId()))){
+                                        switch(streamEntity.getGuild().getCleanup()){
+                                            case 1:
+                                                String content = message.getRawContent().substring(message.getRawContent().indexOf(":"));
+                                                MessageHandler.getInstance().addEditToQueue(streamEntity.getGuild().getChannelId(), message, "OFFLINE :" + content);
+                                                break;
+                                            case 2:
+                                                MessageHandler.getInstance().addDeleteToQueue(streamEntity.getGuild().getChannelId(), message);
+                                                break;
+                                            case 0:
+                                            default:
+                                                break;
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
                             dao.deleteIntId(StreamEntity.class, streamEntity.getId());
-                            System.out.println("Deleted " + streamEntity.getChannelName());
+                            System.out.println("[" + LocalDateTime.now().toString() + "] Deleted " + streamEntity.getChannelName());
                         }
                     }
 
@@ -123,7 +146,7 @@ public class PTwitch implements Platform {
             }
             guild.getStreams().add(streamEntity);
             dao.saveOrUpdate(streamEntity);
-            System.out.println("[GUILD : " + jda.getGuildById(Long.toString(guild.getServerId())).getName() + "] " + streamEntity.getChannelName() + " is streaming : " + streamEntity.getStreamTitle());
+            System.out.println("[" + LocalDateTime.now().toString() + "] [GUILD : " + jda.getGuildById(Long.toString(guild.getServerId())).getName() + "] " + streamEntity.getChannelName() + " is streaming : " + streamEntity.getStreamTitle());
             for(NotificationEntity notif : guild.getNotifications()){
                 switch(Long.toString(notif.getUserId())){
                     case "0":
@@ -139,7 +162,8 @@ public class PTwitch implements Platform {
                 }
             }
             builder.appendString("NOW LIVE : " + linkBeginning + "http://twitch.tv/" + stream.getChannel().getName() + linkEnd + " playing " + stream.getGame() + " | " + stream.getChannel().getStatus() + " | (" + stream.getChannel().getBroadcasterLanguage() + ")");
-            MessageHandler.getInstance().addToQueue(guild.getChannelId(), MessageItem.Type.GUILD, builder.build());
+            streamEntity = streamDao.getByIdAndName(guild, streamEntity.getChannelName());
+            MessageHandler.getInstance().addCreateToQueue(guild.getChannelId(), MessageCreateAction.Type.GUILD, builder.build(), streamEntity);
         }
     }
 

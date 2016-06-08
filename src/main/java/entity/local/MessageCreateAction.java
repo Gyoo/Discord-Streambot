@@ -1,8 +1,9 @@
 package entity.local;
 
+import entity.StreamEntity;
 import net.dv8tion.jda.entities.Message;
 
-public class MessageItem {
+public class MessageCreateAction extends MessageAction{
 
     public enum Type{
         GUILD,
@@ -12,18 +13,17 @@ public class MessageItem {
     private Message message;
     private String id;
     private Type type;
+    private StreamEntity streamEntity;
 
-    public MessageItem(String _id, Type _type, Message _message){
+    public MessageCreateAction(String _id, Type _type, Message _message, StreamEntity _stream){
         message = _message;
         type = _type;
         id = _id;
+        streamEntity = _stream;
+        action = Action.CREATE;
     }
 
-    public MessageItem(String _id, Type _type){
-        type = _type;
-        id = _id;
-    }
-
+    @Override
     public Message getMessage() {
         return message;
     }
@@ -38,5 +38,9 @@ public class MessageItem {
 
     public Type getType() {
         return type;
+    }
+
+    public StreamEntity getStreamEntity() {
+        return streamEntity;
     }
 }

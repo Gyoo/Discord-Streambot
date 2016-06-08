@@ -2,9 +2,15 @@ package ws.discord.messages;
 
 import common.Logger;
 import common.PropertiesReader;
-import entity.local.MessageItem;
+import dao.Dao;
+import entity.StreamEntity;
+import entity.local.MessageAction;
+import entity.local.MessageCreateAction;
+import entity.local.MessageDeleteAction;
+import entity.local.MessageEditAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.Permission;
+import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.exceptions.BlockedException;
@@ -15,19 +21,21 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class MessageConsumer extends Thread {
 
-    private final LinkedBlockingQueue<MessageItem> queue;
+    private final LinkedBlockingQueue<MessageAction> queue;
     private JDA jda;
+    private Dao dao;
 
-    public MessageConsumer(LinkedBlockingQueue<MessageItem> queue, JDA jda) {
+    public MessageConsumer(LinkedBlockingQueue<MessageAction> queue, JDA jda, Dao dao) {
         this.queue = queue;
         this.jda = jda;
+        this.dao = dao;
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                MessageItem work;
+                MessageAction work;
 
                 synchronized (queue) {
                     while (queue.isEmpty()) queue.wait();
@@ -36,44 +44,83 @@ public class MessageConsumer extends Thread {
                     work = queue.remove();
                 }
 
-                if(!Boolean.parseBoolean(PropertiesReader.getInstance().getProp().getProperty("mode.debug")) || work.getId().equals("187151369550036994")){
-                    switch (work.getType()) {
-                        case GUILD:
-                            User self = jda.getUserById(jda.getSelfInfo().getId());
-                            TextChannel textChannel = jda.getTextChannelById(work.getId());
-                            if (null != work.getMessage()
-                                    && null != textChannel
-                                    && null != jda.getTextChannelById(work.getId())
-                                    && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)) {
-                                try {
-                                    textChannel.sendMessage(work.getMessage());
-                                } catch (NullPointerException e) {
-                                    Logger.writeToErr(e, "Guild Channel id = " + work.getId());
-                                } catch (RateLimitedException e) {
-                                    Thread.sleep(e.getTimeout());
-                                    MessageHandler.getInstance().addToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
-                                } catch (JSONException e) {
-                                    Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
-                                }
-                            }
-
-                            break;
-                        case PRIVATE:
-                            try {
-                                jda.getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
-                            } catch (NullPointerException | BlockedException e) {
-                                Logger.writeToErr(e, "Private Channel id = " + work.getId());
-                            } catch (RateLimitedException e) {
-                                Thread.sleep(e.getTimeout());
-                                MessageHandler.getInstance().addToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
-                            }
-                            break;
-                    }
+                if (Boolean.parseBoolean(PropertiesReader.getInstance().getProp().getProperty("mode.debug"))) {
+                    continue;
                 }
+
+                switch (work.action) {
+                    case CREATE:
+                        this.createMessage((MessageCreateAction) work);
+                        break;
+                    case EDIT:
+                        this.editMessage((MessageEditAction) work);
+                        break;
+                    case DELETE:
+                        this.deleteMessage((MessageDeleteAction) work);
+                        break;
+                }
+
             } catch (InterruptedException ie) {
                 continue;
             }
         }
 
+    }
+
+    private void createMessage(MessageCreateAction work) throws InterruptedException {
+        switch (work.getType()) {
+            case GUILD:
+                User self = jda.getUserById(jda.getSelfInfo().getId());
+                TextChannel textChannel = jda.getTextChannelById(work.getId());
+                if (null != work.getMessage()
+                        && null != textChannel
+                        && null != jda.getTextChannelById(work.getId())
+                        && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_WRITE)) {
+                    try {
+                        Message message = textChannel.sendMessage(work.getMessage());
+                        if (work.getStreamEntity() != null) {
+                            StreamEntity streamEntity = work.getStreamEntity();
+                            streamEntity.setMessageId(Long.parseLong(message.getId()));
+                            dao.saveOrUpdate(streamEntity);
+                        }
+                    } catch (NullPointerException e) {
+                        Logger.writeToErr(e, "Guild Channel id = " + work.getId());
+                    } catch (RateLimitedException e) {
+                        Thread.sleep(e.getTimeout());
+                        MessageHandler.getInstance().addCreateToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
+                    } catch (JSONException e) {
+                        Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
+                    }
+                }
+
+                break;
+            case PRIVATE:
+                try {
+                    jda.getPrivateChannelById(work.getId()).sendMessage(work.getMessage());
+                } catch (NullPointerException | BlockedException e) {
+                    Logger.writeToErr(e, "Private Channel id = " + work.getId());
+                } catch (RateLimitedException e) {
+                    Thread.sleep(e.getTimeout());
+                    MessageHandler.getInstance().addCreateToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
+                }
+                break;
+        }
+    }
+
+    private void editMessage(MessageEditAction work) {
+        User self = jda.getUserById(jda.getSelfInfo().getId());
+        if (null != work.getMessage()
+                && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_MANAGE)) {
+            Message message = work.getMessage();
+            message.updateMessage(work.getNewString());
+        }
+    }
+
+    private void deleteMessage(MessageDeleteAction work){
+        User self = jda.getUserById(jda.getSelfInfo().getId());
+        if (null != work.getMessage()
+                && jda.getTextChannelById(work.getId()).checkPermission(self, Permission.MESSAGE_MANAGE)) {
+            work.getMessage().deleteMessage();
+        }
     }
 }

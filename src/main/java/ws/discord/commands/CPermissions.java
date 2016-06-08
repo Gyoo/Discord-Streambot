@@ -4,7 +4,7 @@ import dao.Dao;
 import entity.CommandEntity;
 import entity.GuildEntity;
 import entity.PermissionEntity;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -33,7 +33,7 @@ public class CPermissions extends Command{
                 message = new MessageBuilder()
                         .appendString("Error : wrong number of parameters")
                         .build();
-                MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+                MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
                 return;
             }
             /* params[0] = "use" || "queue" || "forbid"
@@ -56,7 +56,7 @@ public class CPermissions extends Command{
                     message = new MessageBuilder()
                             .appendString("Unknown parameter : " + params[0])
                             .build();
-                    MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+                    MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
                     return;
             }
             // Command affected
@@ -72,7 +72,7 @@ public class CPermissions extends Command{
                     message = new MessageBuilder()
                             .appendString("Command unknown or unsupported : " + params[1])
                             .build();
-                    MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+                    MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
                     return;
             }
             // Role affected
@@ -90,7 +90,7 @@ public class CPermissions extends Command{
                 message = new MessageBuilder()
                         .appendString("Unknown role : " + params[2])
                         .build();
-                MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+                MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
                 return;
             }
             GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
@@ -105,7 +105,7 @@ public class CPermissions extends Command{
                     .appendString("Added permission for Role " + params[2] + "!")
                     .build();
         }
-        MessageHandler.getInstance().addToQueue(e.getTextChannel().getId(), MessageItem.Type.GUILD, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
     }
 }
 

@@ -99,3 +99,6 @@ tokens.json
 ServerList.ser
 /src/main/resources/credentials.xml
 /src/main/resources/config.properties
+/build/
+META-INF/
+build/

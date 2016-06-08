@@ -3,7 +3,7 @@ package ws.discord.commands;
 import dao.Dao;
 import entity.GuildEntity;
 import entity.StreamEntity;
-import entity.local.MessageItem;
+import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
@@ -43,6 +43,6 @@ public class CStreams extends Command {
             }
         }
         message = builder.build();
-        MessageHandler.getInstance().addToQueue(e.getAuthor().getPrivateChannel().getId(), MessageItem.Type.PRIVATE, message);
+        MessageHandler.getInstance().addCreateToQueue(e.getAuthor().getPrivateChannel().getId(), MessageCreateAction.Type.PRIVATE, message);
     }
 }
