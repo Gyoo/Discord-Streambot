@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" parallel="false">
+    <test name="Commands">
+        <classes>
+            <class name="ws.discord.commands.CInviteTest" />
+            <class name="ws.discord.commands.CAddTest" />
+            <class name="ws.discord.commands.CAnnounceTest" />
+            <class name="ws.discord.commands.CCompactTest" />
+            <class name="ws.discord.commands.CDisableTest" />
+            <class name="ws.discord.commands.CDonateTest" />
+            <class name="ws.discord.commands.CEnableTest" />
+            <class name="ws.discord.commands.CListTest" />
+            <class name="ws.discord.commands.CMoveTest" />
+            <class name="ws.discord.commands.CNotifyTest" />
+            <class name="ws.discord.commands.CQueueTest" />
+            <class name="ws.discord.commands.CServersTest" />
+            <class name="ws.discord.commands.CStreamsTest" />
+        </classes>
+    </test>
+</suite>

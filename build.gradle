@@ -1,0 +1,41 @@
+group 'ovh.gyoo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Streambot',
+                'Implementation-Version': version,
+                'Main-Class': 'core.Main'
+    }
+    baseName = project.name + '-all'
+    exclude('**/old/**')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url  "http://dl.bintray.com/dv8fromtheworld/maven"
+    }
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.testng:testng:6.9.10'
+    testCompile group: 'com.ninja-squad', name: 'DbSetup', version: '2.0.0'
+    compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile 'mysql:mysql-connector-java:6.0.2'
+    compile 'net.dv8tion:JDA:2.0.0_274'
+    compile 'com.sparkjava:spark-core:2.3'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'org.jdom:jdom2:2.0.6'
+    compile name: 'twitch-api-wrapper-0.3-jar-with-dependencies'
+}
