@@ -15,6 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class MessageHandler {
 
     private static final LinkedBlockingQueue<MessageAction> queue = new LinkedBlockingQueue<>();
+    private static final LinkedBlockingQueue<StreamEntity> deletequeue = new LinkedBlockingQueue<>();
     private static MessageHandler ourInstance = new MessageHandler();
 
     public static MessageHandler getInstance() {
@@ -26,6 +27,10 @@ public class MessageHandler {
 
     public static LinkedBlockingQueue<MessageAction> getQueue() {
         return queue;
+    }
+
+    public static LinkedBlockingQueue<StreamEntity> getDeleteQueue() {
+        return deletequeue;
     }
 
     public void addCreateToQueue(Long _id, MessageCreateAction.Type _type, Message _message, StreamEntity... _stream){
@@ -86,6 +91,13 @@ public class MessageHandler {
                 queue.add(messageDeleteAction);
                 queue.notify();
             }
+    }
+
+    public void addStreamToDeleteQueue(StreamEntity streamEntity){
+        synchronized (deletequeue){
+            deletequeue.add(streamEntity);
+            deletequeue.notify();
+        }
     }
 
 }

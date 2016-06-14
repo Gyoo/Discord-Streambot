@@ -3,6 +3,7 @@ package ws.discord.messages;
 import common.Logger;
 import common.PropertiesReader;
 import dao.Dao;
+import entity.PermissionEntity;
 import entity.StreamEntity;
 import entity.local.MessageAction;
 import entity.local.MessageCreateAction;
@@ -15,6 +16,7 @@ import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.exceptions.BlockedException;
 import net.dv8tion.jda.exceptions.RateLimitedException;
+import net.dv8tion.jda.exceptions.VerificationLevelException;
 import org.json.JSONException;
 
 import java.util.concurrent.LinkedBlockingQueue;
@@ -48,18 +50,19 @@ public class MessageConsumer extends Thread {
                     continue;
                 }
 
-                switch (work.action) {
-                    case CREATE:
-                        this.createMessage((MessageCreateAction) work);
-                        break;
-                    case EDIT:
-                        this.editMessage((MessageEditAction) work);
-                        break;
-                    case DELETE:
-                        this.deleteMessage((MessageDeleteAction) work);
-                        break;
+                if(work != null){
+                    switch (work.action) {
+                        case CREATE:
+                            this.createMessage((MessageCreateAction) work);
+                            break;
+                        case EDIT:
+                            this.editMessage((MessageEditAction) work);
+                            break;
+                        case DELETE:
+                            this.deleteMessage((MessageDeleteAction) work);
+                            break;
+                    }
                 }
-
             } catch (InterruptedException ie) {
                 continue;
             }
@@ -89,7 +92,9 @@ public class MessageConsumer extends Thread {
                         Thread.sleep(e.getTimeout());
                         MessageHandler.getInstance().addCreateToQueue(Long.parseLong(work.getId()), work.getType(), work.getMessage());
                     } catch (JSONException e) {
-                        Logger.writeToErr(e, "[JSON Exception] : \n" + e.getLocalizedMessage());
+                        Logger.writeToErr(e, "[JSON Exception] : " + e.getLocalizedMessage());
+                    } catch (VerificationLevelException e){
+                        Logger.writeToErr(e, "Guild : " + jda.getGuildById(Long.toString(work.getStreamEntity().getGuild().getServerId())).getName());
                     }
                 }
 

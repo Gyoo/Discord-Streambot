@@ -16,6 +16,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import ws.discord.DiscordController;
 import ws.discord.messages.MessageConsumer;
+import ws.discord.messages.MessageFinder;
 import ws.discord.messages.MessageHandler;
 
 import java.io.File;
@@ -44,6 +45,9 @@ public class Main {
         Thread messageConsumer = new MessageConsumer(MessageHandler.getQueue(), jda, dao);
         messageConsumer.start();
 
+        Thread messageFinder = new MessageFinder(MessageHandler.getDeleteQueue(), jda);
+        messageFinder.start();
+
         platforms = setPlatforms(dao, jda);
 
         platforms.forEach(Platform::checkStillOnline);
@@ -64,7 +68,12 @@ public class Main {
                 messageConsumer.start();
             }
 
-            if(ticks < 90){
+            if(!messageFinder.isAlive()){
+                messageFinder = new MessageFinder(MessageHandler.getDeleteQueue(), jda);
+                messageFinder.start();
+            }
+
+            if(ticks < 30){
                 Session session = HibernateUtil.getSession();
                 List<Long> guildIDs = session.createCriteria(GuildEntity.class)
                         .setProjection(Projections.property("id")).list();
@@ -85,6 +94,8 @@ public class Main {
             }
 
             Thread.sleep(20000);
+
+
         }
 
     }

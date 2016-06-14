@@ -5,6 +5,7 @@ import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.StreamResponseHandler;
 import com.mb3364.twitch.api.handlers.StreamsResponseHandler;
 import com.mb3364.twitch.api.models.Stream;
+import common.Logger;
 import common.util.HibernateUtil;
 import dao.Dao;
 import dao.StreamDao;
@@ -19,6 +20,8 @@ import ws.discord.messages.MessageHandler;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PTwitch implements Platform {
 
@@ -47,7 +50,7 @@ public class PTwitch implements Platform {
     @Override
     public void checkStreams(final Long guildID) {
         GuildEntity guild = dao.getLongId(GuildEntity.class, guildID);
-        if(!guild.isActive()) return;
+        if(guild == null || !guild.isActive()) return;
         if(guild.getChannels().size() == 0 && guild.getGames().size() == 0 && guild.getTeams().size() == 0 && guild.getTags().size() == 0) return;
         if(guild.getGames().size() == 0){
             Set<GameEntity> games = new HashSet<>();
@@ -88,25 +91,7 @@ public class PTwitch implements Platform {
                     public void onSuccess(Stream stream) {
                         if(null == stream || !stream.isOnline()){
                             if(streamEntity.getMessageId() != null){
-                                MessageHistory history = new MessageHistory(jda.getTextChannelById(Long.toString(streamEntity.getGuild().getChannelId())));
-                                List<Message> messages = history.retrieveAll();
-                                for(Message message : messages){
-                                    if(message.getId().equals(Long.toString(streamEntity.getMessageId()))){
-                                        switch(streamEntity.getGuild().getCleanup()){
-                                            case 1:
-                                                String content = message.getRawContent().substring(message.getRawContent().indexOf(":"));
-                                                MessageHandler.getInstance().addEditToQueue(streamEntity.getGuild().getChannelId(), message, "OFFLINE :" + content);
-                                                break;
-                                            case 2:
-                                                MessageHandler.getInstance().addDeleteToQueue(streamEntity.getGuild().getChannelId(), message);
-                                                break;
-                                            case 0:
-                                            default:
-                                                break;
-                                        }
-                                        break;
-                                    }
-                                }
+                                MessageHandler.getInstance().addStreamToDeleteQueue(streamEntity);
                             }
                             dao.deleteIntId(StreamEntity.class, streamEntity.getId());
                             System.out.println("[" + LocalDateTime.now().toString() + "] Deleted " + streamEntity.getChannelName());
@@ -128,8 +113,8 @@ public class PTwitch implements Platform {
     }
 
     private void updateDiscordList(GuildEntity guild, Stream stream) {
-        String linkBeginning = guild.isCompact() ? "<" : "`";
-        String linkEnd = guild.isCompact() ? ">" : " `";
+        String linkBeginning = guild.isCompact() ? "<" : "";
+        String linkEnd = guild.isCompact() ? ">" : "";
         if(streamMatchesAttributes(guild, stream)) {
             MessageBuilder builder = new MessageBuilder();
             StreamEntity streamEntity = streamDao.getByIdAndName(guild, stream.getChannel().getName());
@@ -139,7 +124,15 @@ public class PTwitch implements Platform {
                 streamEntity.setGuild(guild);
                 streamEntity.setChannelName(stream.getChannel().getName().toLowerCase());
             }
-            streamEntity.setStreamTitle(stream.getChannel().getStatus());
+            if(stream.getChannel().getStatus() != null) {
+                String title = stream.getChannel().getStatus();
+                Pattern unicodeOutliers = Pattern.compile("[^\\x00-\\x7F]",
+                        Pattern.UNICODE_CASE | Pattern.CANON_EQ
+                                | Pattern.CASE_INSENSITIVE);
+                Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(title);
+                title = unicodeOutlierMatcher.replaceAll(" ");
+                streamEntity.setStreamTitle(title);
+            }
             streamEntity.setGameName(stream.getGame());
             if(guild.getStreams().contains(streamEntity)){
                 guild.getStreams().remove(streamEntity);
@@ -225,8 +218,7 @@ public class PTwitch implements Platform {
             for (Stream stream : list) {
                 boolean isDisplayed = false;
                 for(StreamEntity streamEntity : guild.getStreams()){
-                    if(streamEntity.getChannelName().equalsIgnoreCase(stream.getChannel().getName()) &&
-                            (streamEntity.getGameName() == null && stream.getGame() == null || streamEntity.getGameName().equalsIgnoreCase(stream.getGame()))){
+                    if(streamEntity.getChannelName().equalsIgnoreCase(stream.getChannel().getName())){
                         isDisplayed = true;
                         break;
                     }
