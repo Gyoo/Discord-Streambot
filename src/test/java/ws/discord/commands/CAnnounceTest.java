@@ -32,7 +32,7 @@ public class CAnnounceTest extends CommandTest{
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "test");
         Assert.assertEquals(MessageHandler.getQueue().size(), 1);
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
                 "test");
     }
 

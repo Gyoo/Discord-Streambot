@@ -43,7 +43,7 @@ public class CQueueTest extends CommandTest{
                 insertInto("queueitem")
                         .row()
                         .column("ServerID", 131483070464393216L)
-                        .column("UserID", 180922097399365632L)
+                        .column("UserID", 63263941735755776L)
                         .column("Command", "Test")
                         .end()
                         .build();
@@ -53,13 +53,13 @@ public class CQueueTest extends CommandTest{
         List<QueueitemEntity> list = dao.getAll(QueueitemEntity.class);
         Assert.assertEquals(list.size(), 1);
 
-        User user = jda.getUserById("180922097399365632");
+        User user = jda.getUserById("63263941735755776");
         Message message = new MessageImpl("", null).setChannelId("131483070464393216").setAuthor(user).setContent("lol");
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
 
         Assert.assertEquals(MessageHandler.getQueue().size(), 1);
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
                 "Commands queue for server StreamBot\nGyoo_Test : Test\n");
 
         list = dao.getAll(QueueitemEntity.class);
@@ -69,13 +69,13 @@ public class CQueueTest extends CommandTest{
 
     @Test
     public void testExecuteNotAllowed() throws Exception {
-        User user = jda.getUserById("180922097399365632");
+        User user = jda.getUserById("63263941735755776");
         Message message = new MessageImpl("", null).setChannelId("131483070464393216").setAuthor(user).setContent("lol");
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "You are not allowed to use this command");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "You are not allowed to use this command");
     }
 
 }

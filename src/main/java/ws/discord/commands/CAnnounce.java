@@ -25,24 +25,10 @@ public class CAnnounce extends Command{
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
-        if(isAllowed("", e.getAuthor().getId(), allows, 0)){
+        if(isAllowed("", e.getAuthor().getId(), allows, 0, null)){
             List<GuildEntity> guilds = dao.getAll(GuildEntity.class);
             for(GuildEntity guild : guilds){
                 MessageBuilder builder = new MessageBuilder();
-                for(NotificationEntity notif : guild.getNotifications()){
-                    switch(Long.toString(notif.getUserId())){
-                        case "0":
-                            builder.appendEveryoneMention().appendString(" ");
-                            break;
-                        case "1":
-                            builder.appendString("@here ");
-                            break;
-                        default:
-                            User user = jda.getUserById(Long.toString(notif.getUserId()));
-                            builder.appendMention(user).appendString(" ");
-                            break;
-                    }
-                }
                 Message message = builder.appendString(content).build();
                 MessageHandler.getInstance().addCreateToQueue(guild.getChannelId(), MessageCreateAction.Type.GUILD, message);
             }

@@ -14,7 +14,7 @@
             <class name="ws.discord.commands.CMoveTest" />
             <class name="ws.discord.commands.CNotifyTest" />
             <class name="ws.discord.commands.CQueueTest" />
-            <class name="ws.discord.commands.CServersTest" />
+            <class name="ws.discord.commands.CStatsTest" />
             <class name="ws.discord.commands.CStreamsTest" />
         </classes>
     </test>

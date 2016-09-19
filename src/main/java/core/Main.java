@@ -2,6 +2,7 @@ package core;
 
 import common.Logger;
 import common.PropertiesReader;
+import common.api.twitch.Twitch;
 import common.util.HibernateUtil;
 import core.platform.PTwitch;
 import core.platform.Platform;
@@ -18,6 +19,7 @@ import ws.discord.DiscordController;
 import ws.discord.messages.MessageConsumer;
 import ws.discord.messages.MessageFinder;
 import ws.discord.messages.MessageHandler;
+import ws.web.WebController;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,6 +52,9 @@ public class Main {
 
         platforms = setPlatforms(dao, jda);
 
+        WebController webController = new WebController(jda, dao);
+        webController.serve();
+
         platforms.forEach(Platform::checkStillOnline);
         int ticks = 0;
         while(true){
@@ -60,6 +65,7 @@ public class Main {
                 }
                 discordController.setJda(jda);
                 platforms = setPlatforms(dao, jda);
+                //webController.setJda(jda);
                 continue;
             }
 
@@ -73,7 +79,7 @@ public class Main {
                 messageFinder.start();
             }
 
-            if(ticks < 30){
+            if(ticks < 10){
                 Session session = HibernateUtil.getSession();
                 List<Long> guildIDs = session.createCriteria(GuildEntity.class)
                         .setProjection(Projections.property("id")).list();
@@ -93,7 +99,7 @@ public class Main {
                 ticks = 0;
             }
 
-            Thread.sleep(20000);
+            Thread.sleep(60000);
 
 
         }

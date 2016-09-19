@@ -46,7 +46,7 @@ public class MessageConsumer extends Thread {
                     work = queue.remove();
                 }
 
-                if (Boolean.parseBoolean(PropertiesReader.getInstance().getProp().getProperty("mode.debug"))) {
+                if (Boolean.parseBoolean(PropertiesReader.getInstance().getProp().getProperty("mode.debug"))){
                     continue;
                 }
 

@@ -9,14 +9,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ws.discord.messages.MessageHandler;
 
-import static org.testng.Assert.*;
-
-public class CServersTest extends CommandTest{
+public class CStatsTest extends CommandTest{
 
     @BeforeMethod
     public void setUp() throws Exception {
         super.setUp();
-        command = new CServers(jda, dao);
+        command = new CStats(jda, dao);
     }
 
     @Test
@@ -27,7 +25,7 @@ public class CServersTest extends CommandTest{
         command.execute(mre, "");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "Server count : 1");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "Server count : 1");
     }
 
 }

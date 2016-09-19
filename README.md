@@ -19,8 +19,8 @@ Join the [Discord server](https://discord.gg/0jXAp5dkKPUoM7ZW) to invite Streamb
 
 `list <option>` : List data from the bot
 
-
-`notify <me|everyone|here>` : Adds a mention at the beginning of the announce. me will add a mention to you, everyone will add the "everyone" mention, here will add the "here" mention. (Type command again to remove existing notification)
+`notify <me|everyone|here>` : Adds a mention at the beginning of the announce. me will add a mention to you, everyone will add the "everyone" mention, here will add the "here" mention. (Type command again to remove
+existing notification)
 
 `enable` : Activates bot after configuration
 
@@ -29,6 +29,8 @@ Join the [Discord server](https://discord.gg/0jXAp5dkKPUoM7ZW) to invite Streamb
 `invite` : Gives an invite link so people can get the bot on their own server !
 
 `compact on|off` : Enables/Disables compact mode
+
+`cleanup <none|edit|delete>` : When a stream goes offline, choose to either leave the message (`none`), `edit` the "NOW LIVE" to "OFFLINE" or `delete` the announce
 
 `move <channel>` : Moves the bot announces to another channel (Must use the #channel identifier !)
 
@@ -52,7 +54,7 @@ _Options_ :
 
 **Recommended process**
 
-Invite the bot from anywhere using this link : https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528
+Invite the bot from anywhere using this link : https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=224256
 
 **WARNING** : You must be the owner of a server to invite the bot to said server
 
@@ -83,8 +85,6 @@ Commands supported are currently `add` and `remove` only. I can add some more wi
 Permissions are set for a given role. Please type the exact Role name, or `everyone` to give the permission level to... everyone, no matter the role.
 
 # Development, help
-
-As I run out of free time, I decided to make the bot open source. I hope that people will be able to help me adding more features !
 
 Please check the issues to see both bugs to fix and features to add !
 

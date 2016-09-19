@@ -23,7 +23,7 @@ public class CQueue extends Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0, null))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
         else{
             GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());

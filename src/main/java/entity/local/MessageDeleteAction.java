@@ -10,6 +10,7 @@ public class MessageDeleteAction extends MessageAction{
     public MessageDeleteAction(String id, Message message) {
         this.id = id;
         this.message = message;
+        this.action = Action.DELETE;
     }
 
     public String getId() {

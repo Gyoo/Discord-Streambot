@@ -30,8 +30,8 @@ public class CInviteTest extends CommandTest{
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
-                "https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=150528");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
+                "https://discordapp.com/oauth2/authorize?&client_id=170832003715956746&scope=bot&permissions=224256");
     }
 
 }

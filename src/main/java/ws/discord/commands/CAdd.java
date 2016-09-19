@@ -7,8 +7,10 @@ import entity.local.MessageCreateAction;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
+import net.dv8tion.jda.entities.MessageEmbed;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 import ws.discord.messages.MessageHandler;
 
 import java.util.ArrayList;
@@ -19,20 +21,23 @@ public class CAdd extends Command {
 
     public static String name = "add";
 
+    private CommandEntity commandEntity;
+
     public CAdd(JDA jda, Dao dao) {
         super(jda, dao);
         allows.add(Allowances.MANAGERS);
         allows.add(Allowances.PERMISSIONS);
         description = "`add <option> <content>` : Add data to the bot (see options below)";
+        commandEntity = dao.getLongId(CommandEntity.class, 1L);
     }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
         GuildEntity guild = dao.getLongId(GuildEntity.class, e.getGuild().getId());
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1, commandEntity))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
-        else if(getPermissionsLevel(e.getGuild().getId(), e.getAuthor().getId()) == 1){
+        else if(getPermissionsLevel(e.getGuild().getId(), e.getAuthor().getId(), commandEntity) == 1){
             QueueitemEntity queueitemEntity = new QueueitemEntity();
             queueitemEntity.setGuild(guild);
             queueitemEntity.setCommand("`!streambot add " + content + "`");
@@ -49,12 +54,12 @@ public class CAdd extends Command {
         else {
             String option = "";
             try{
-                option = content.substring(0, content.indexOf(" "));
+                option = StringUtils.substring(content, 0, content.indexOf(" "));
             } catch(StringIndexOutOfBoundsException sioobe){
-                Logger.writeToErr(sioobe, "");
+                Logger.writeToErr(sioobe, "Content : " + content);
             }
             if(option.isEmpty()) message = new MessageBuilder()
-                    .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")
+                    .appendString("It looks like an argument is missing. Please make sure you got the command right.")
                     .build();
             else{
                 String[] contents = content.substring(content.indexOf(" ")).split("\\|");
@@ -199,7 +204,7 @@ public class CAdd extends Command {
         MessageBuilder mb = new MessageBuilder();
         List<Allowances> managerAllowance = new ArrayList<>();
         managerAllowance.add(Allowances.MANAGERS);
-        if(isAllowed(Long.toString(guild.getServerId()),authorID,managerAllowance,0)){
+        if(isAllowed(Long.toString(guild.getServerId()),authorID,managerAllowance,0, commandEntity)){
             if(users.isEmpty()) {
                 mb.appendString("No users detected. Make sure you use the @ mention when adding managers");
             }
@@ -228,5 +233,10 @@ public class CAdd extends Command {
         }
         else mb.appendString("You are not allowed to use this command");
         return mb.build();
+    }
+
+    @Override
+    public CommandEntity getCommandEntity(){
+        return commandEntity;
     }
 }

@@ -58,15 +58,15 @@ public class DiscordController extends ListenerAdapter {
         commandMap.put(CCleanup.name, new CCleanup(this.jda, this.dao));
         commandMap.put(CQueue.name, new CQueue(this.jda, this.dao));
         commandMap.put(CDonate.name, new CDonate(this.jda, this.dao));
-        commandMap.put(CServers.name, new CServers(this.jda, this.dao));
+        commandMap.put(CStats.name, new CStats(this.jda, this.dao));
         commandMap.put(CAnnounce.name, new CAnnounce(this.jda, this.dao));
     }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent e){
         if(e.isPrivate()){
-            if (e.getMessage().getContent().equals("!streambot servers")) {
-                commandMap.get("servers").execute(e, "");
+            if (e.getMessage().getContent().equals("!streambot stats")) {
+                commandMap.get("stats").execute(e, "");
             }
             if (e.getMessage().getContent().startsWith("!streambot announce")) {
                 commandMap.get("announce").execute(e, e.getMessage().getContent().substring(20));
@@ -102,24 +102,27 @@ public class DiscordController extends ListenerAdapter {
             dao.saveOrUpdate(guildEntity);
 
             //Add server owner + Administrators as managers
-            ManagerEntity managerEntity = new ManagerEntity();
-            managerEntity.setGuild(guildEntity);
-            managerEntity.setUserId(Long.parseLong(e.getGuild().getOwnerId()));
-            dao.saveOrUpdate(managerEntity);
+            List<String> userIDs = new ArrayList<>();
+            userIDs.add(e.getGuild().getOwner().getId());
             for(Role role : e.getGuild().getRoles()){
                 if(role.hasPermission(Permission.MANAGE_SERVER)){
                     for(User user : e.getGuild().getUsersWithRole(role)){
-                        managerEntity = new ManagerEntity();
-                        managerEntity.setGuild(guildEntity);
-                        managerEntity.setUserId(Long.parseLong(user.getId()));
-                        dao.saveOrUpdate(managerEntity);
+                        if(!userIDs.contains(user.getId())){
+                            userIDs.add(user.getId());
+                        }
                     }
-                    break;
                 }
             }
+            ManagerEntity managerEntity;
+            for(String userID : userIDs){
+                managerEntity = new ManagerEntity();
+                managerEntity.setGuild(guildEntity);
+                managerEntity.setUserId(Long.parseLong(userID));
+                dao.saveOrUpdate(managerEntity);
+            }
             MessageHandler.getInstance().addCreateToQueue(e.getGuild().getOwner().getPrivateChannel().getId(), MessageCreateAction.Type.PRIVATE, new MessageBuilder()
-                    .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : " +
-                            InviteUtil.createInvite(jda.getTextChannelById("131483070464393216")).getUrl() + "\n" +
+                    .appendString("Thanks for inviting me ! By joining the following Guild, you can have access to guidelines to configure me properly, in the #faq channel : http://discord.gg/" +
+                            InviteUtil.createInvite(jda.getTextChannelById("131483070464393216")).getCode() + "\n" +
                             "You can also get news about the updates, alert about bugs or just ask questions !")
                     .build());
         }
@@ -171,7 +174,7 @@ public class DiscordController extends ListenerAdapter {
             MessageBuilder builder = new MessageBuilder();
             builder.appendString("`!streambot <command>`\n");
             builder.appendString("`commands` || `help` : List of available commands\n");
-            commandMap.entrySet().stream().filter(c -> c.getValue().isAllowed(e.getGuild().getId(), e.getAuthor().getId(), c.getValue().allows,1)).forEach(c -> builder.appendString(c.getValue().getDescription() + "\n"));
+            commandMap.entrySet().stream().filter(c -> c.getValue().isAllowed(e.getGuild().getId(), e.getAuthor().getId(), c.getValue().allows,1, c.getValue().getCommandEntity())).forEach(c -> builder.appendString(c.getValue().getDescription() + "\n"));
             builder.appendString("\n*Options* :\n");
             for (String option : options) {
                 builder.appendString(option + "\n");

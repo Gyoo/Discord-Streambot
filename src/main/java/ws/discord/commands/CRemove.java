@@ -9,6 +9,7 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 import ws.discord.messages.MessageHandler;
 
 import java.util.ArrayList;
@@ -19,20 +20,23 @@ public class CRemove extends Command {
 
     public static String name = "remove";
 
+    private CommandEntity commandEntity;
+
     public CRemove(JDA jda, Dao dao) {
         super(jda, dao);
         description = "`remove <option> <content>` : Remove data from the bot";
         allows.add(Allowances.MANAGERS);
         allows.add(Allowances.PERMISSIONS);
+        commandEntity = dao.getLongId(CommandEntity.class, 2L);
     }
 
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
         GuildEntity guild = dao.getLongId(GuildEntity.class, e.getGuild().getId());
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1, commandEntity))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
-        else if(getPermissionsLevel(e.getGuild().getId(), e.getAuthor().getId()) == 1){
+        else if(getPermissionsLevel(e.getGuild().getId(), e.getAuthor().getId(), commandEntity) == 1){
             QueueitemEntity queueitemEntity = new QueueitemEntity();
             queueitemEntity.setGuild(guild);
             queueitemEntity.setCommand("`!streambot remove " + content + "`");
@@ -49,12 +53,12 @@ public class CRemove extends Command {
         else {
             String option = "";
             try{
-                option = content.substring(0, content.indexOf(" "));
+                option = StringUtils.substring(content, 0, content.indexOf(" "));
             } catch(StringIndexOutOfBoundsException sioobe){
-                Logger.writeToErr(sioobe, content);
+                Logger.writeToErr(sioobe, "Content : " + content);
             }
             if(option.isEmpty()) message = new MessageBuilder()
-                    .appendString("An error has occured. Please let the bot's manager for this server contact @Gyoo.")
+                    .appendString("It looks like an argument is missing. Please make sure you got the command right.")
                     .build();
             else{
                 String[] contents = content.substring(content.indexOf(" ")).split("\\|");
@@ -94,7 +98,7 @@ public class CRemove extends Command {
             deleted = false;
             while(iterator.hasNext()){
                 GameEntity entity = iterator.next();
-                if(entity.getName().equals(s)){
+                if(entity.getName().equalsIgnoreCase(s)){
                     dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
                     mb.appendString("Game " + s + " removed from the games list\n");
@@ -116,7 +120,7 @@ public class CRemove extends Command {
             deleted = false;
             while(iterator.hasNext()){
                 ChannelEntity entity = iterator.next();
-                if(entity.getName().equals(s)){
+                if(entity.getName().equalsIgnoreCase(s)){
                     dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
                     mb.appendString("Channel " + s + " removed from the channels list\n");
@@ -138,7 +142,7 @@ public class CRemove extends Command {
             deleted = false;
             while(iterator.hasNext()){
                 TagEntity entity = iterator.next();
-                if(entity.getName().equals(s)){
+                if(entity.getName().equalsIgnoreCase(s)){
                     dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
                     mb.appendString("Tag " + s + " removed from the tags list\n");
@@ -146,7 +150,7 @@ public class CRemove extends Command {
                     break;
                 }
             }
-            if(!deleted) mb.appendString("Tag " + s + " is not in the game list\n");
+            if(!deleted) mb.appendString("Tag " + s + " is not in the tags list\n");
         }
         return mb.build();
     }
@@ -160,7 +164,7 @@ public class CRemove extends Command {
             deleted = false;
             while(iterator.hasNext()){
                 TeamEntity entity = iterator.next();
-                if(entity.getName().equals(s)){
+                if(entity.getName().equalsIgnoreCase(s)){
                     dao.deleteLongId(entity.getClass(), entity.getId());
                     iterator.remove();
                     mb.appendString("Team " + s + " removed from the teams list\n");
@@ -177,7 +181,7 @@ public class CRemove extends Command {
         List<Allowances> removeManagersAllowance = new ArrayList<>();
         removeManagersAllowance.add(Allowances.MANAGERS);
         MessageBuilder builder = new MessageBuilder();
-        if(isAllowed(Long.toString(guild.getServerId()),userId,removeManagersAllowance,0)) {
+        if(isAllowed(Long.toString(guild.getServerId()),userId,removeManagersAllowance,0, commandEntity)) {
             if(users.isEmpty()){
                 builder.appendString("No users detected. Make sure you use the @ mention when adding managers");
             }
@@ -210,5 +214,10 @@ public class CRemove extends Command {
         }
         else builder.appendString("You are not allowed to use this command");
         return builder.build();
+    }
+
+    @Override
+    public CommandEntity getCommandEntity(){
+        return commandEntity;
     }
 }

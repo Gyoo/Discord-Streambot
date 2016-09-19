@@ -32,7 +32,7 @@ public class CStreamsTest extends CommandTest{
         command.execute(mre, "");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "No streams online ! :(");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "No streams online ! :(");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CStreamsTest extends CommandTest{
         command.execute(mre, "");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "test playing test at ` http://twitch.tv/test ` : test\n");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "test playing test at ` http://twitch.tv/test ` : test\n");
     }
 
 }

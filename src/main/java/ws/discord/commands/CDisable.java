@@ -22,7 +22,7 @@ public class CDisable extends Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1, null))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
         else{
             GuildEntity guild = dao.getLongId(GuildEntity.class, e.getGuild().getId());

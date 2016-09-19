@@ -52,7 +52,21 @@ public class CList extends Command{
                     String role;
                     if(permissionEntity.getRoleId() == 0) role = "Everyone";
                     else role = jda.getGuildById(e.getGuild().getId()).getRoleById(Long.toString(permissionEntity.getRoleId())).getName();
-                    list.add(role + ": " + permissionEntity.getCommand().getName());
+                    String typeString;
+                    switch(permissionEntity.getLevel()){
+                        case 0:
+                            typeString = "USE";
+                            break;
+                        case 1:
+                            typeString = "QUEUE";
+                            break;
+                        case 2:
+                            typeString = "FORBID";
+                            break;
+                        default:
+                            typeString = "UNKNOWN";
+                    }
+                    list.add(role + ": " + permissionEntity.getCommand().getName() + " -> " + typeString);
                 }
                 break;
             default:

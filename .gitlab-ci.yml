@@ -1,0 +1,12 @@
+before_script:
+  - chmod +x gradlew
+
+dev:
+  script:
+    - ./gradlew fatJar
+    - mkdir -p ~/streambot
+    - cp build/libs/streambot-all-1.0-SNAPSHOT.jar ~/streambot/StreamBot.jar
+    - cp restart.sh ~/streambot/restart.sh
+    - cd ~/streambot
+    - chmod +x restart.sh
+    - ./restart.sh >/dev/null

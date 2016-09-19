@@ -40,7 +40,9 @@ public class Dao {
     /***/
     public <T> T getLongId(final Class<T> type, final Long id) {
         Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        sessionFactory.getCurrentSession().setCacheMode(CacheMode.IGNORE);
         T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        sessionFactory.getCurrentSession().setCacheMode(CacheMode.IGNORE);
         trans.commit();
         return t;
     }
@@ -53,7 +55,9 @@ public class Dao {
     /***/
     public <T> T getIntId(final Class<T> type, final Integer id) {
         Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        sessionFactory.getCurrentSession().setCacheMode(CacheMode.IGNORE);
         T t = (T) sessionFactory.getCurrentSession().get(type, id);
+        sessionFactory.getCurrentSession().setCacheMode(CacheMode.IGNORE);
         trans.commit();
         return t;
     }
@@ -120,6 +124,21 @@ public class Dao {
             return (Long) session.createCriteria(type).setProjection(Projections.rowCount()).uniqueResult();
         }finally {
             trans.commit();
+        }
+    }
+
+    public <T> List<T> getForGuild(final Class<T> type, final String serverId){
+        Transaction trans=sessionFactory.getCurrentSession().beginTransaction();
+        try{
+            final Session session = sessionFactory.getCurrentSession();
+            final Query query = session.createQuery("from " + type.getName() + " where guild = :serverid").setString("serverid", serverId);
+            List<T> response = query.list();
+            trans.commit();
+            return response;
+        }catch(ObjectNotFoundException e){
+            trans.commit();
+            this.deleteAllTraceOfId(e.getIdentifier().toString());
+            return this.getAll(type);
         }
     }
 }

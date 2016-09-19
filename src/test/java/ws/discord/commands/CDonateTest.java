@@ -24,7 +24,7 @@ public class CDonateTest extends CommandTest{
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
         Assert.assertEquals(MessageHandler.getQueue().size(), 1);
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
                 "Please consider making a donation if you like the bot! http://bit.ly/StreambotDonate");
     }
 }

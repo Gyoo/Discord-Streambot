@@ -23,24 +23,28 @@ public class CCleanup extends Command {
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
         GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
-        switch (content) {
-            case "none":
-                guildEntity.setCleanup(0);
-                message = new MessageBuilder().appendString("When a stream goes off, nothing will be done to the announces !").build();
-                break;
-            case "edit":
-                guildEntity.setCleanup(1);
-                message = new MessageBuilder().appendString("When a stream goes off, announces will be edited !").build();
-                break;
-            case "delete":
-                guildEntity.setCleanup(2);
-                message = new MessageBuilder().appendString("When a stream goes off, announces will be deleted !").build();
-                break;
-            default:
-                message = new MessageBuilder()
-                        .appendString("Unknown parameter")
-                        .build();
-                break;
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 1, null))
+            message = new MessageBuilder().appendString("You are not allowed to use this command").build();
+        else{
+            switch (content) {
+                case "none":
+                    guildEntity.setCleanup(0);
+                    message = new MessageBuilder().appendString("When a stream goes off, nothing will be done to the announces !").build();
+                    break;
+                case "edit":
+                    guildEntity.setCleanup(1);
+                    message = new MessageBuilder().appendString("When a stream goes off, announces will be edited !").build();
+                    break;
+                case "delete":
+                    guildEntity.setCleanup(2);
+                    message = new MessageBuilder().appendString("When a stream goes off, announces will be deleted !").build();
+                    break;
+                default:
+                    message = new MessageBuilder()
+                            .appendString("Unknown parameter")
+                            .build();
+                    break;
+            }
         }
         dao.saveOrUpdate(guildEntity);
         MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);

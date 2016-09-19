@@ -37,6 +37,7 @@ public class CEnableTest extends CommandTest{
                         .column("ChannelID", 131483070464393216L)
                         .column("isCompact", 0)
                         .column("isActive", 0)
+                        .column("Cleanup", 0)
                         .end()
                         .build()
         );
@@ -61,7 +62,7 @@ public class CEnableTest extends CommandTest{
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
         Assert.assertEquals(MessageHandler.getQueue().size(), 1);
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
                 "You are not allowed to use this command");
 
         HibernateUtil.getSession().refresh(guild);
@@ -74,12 +75,12 @@ public class CEnableTest extends CommandTest{
         GuildEntity guild = dao.getAll(GuildEntity.class).get(0);
         Assert.assertEquals(guild.isActive(), false);
 
-        User user = jda.getUserById("180922097399365632");
+        User user = jda.getUserById("63263941735755776");
         Message message = new MessageImpl("", null).setChannelId("131483070464393216").setAuthor(user).setContent("lol");
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
         Assert.assertEquals(MessageHandler.getQueue().size(), 1);
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(),
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(),
                 "Bot enabled !");
 
         HibernateUtil.getSession().refresh(guild);

@@ -25,7 +25,7 @@ public class CPermissions extends Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0, null))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
         else{
             String[] params = content.split(" ");
@@ -42,15 +42,19 @@ public class CPermissions extends Command{
              */
             // Type of permission
             int type;
+            String typeString;
             switch (params[0]){
                 case "use":
                     type = 0;
+                    typeString = "USE";
                     break;
                 case "queue":
                     type = 1;
+                    typeString = "QUEUE";
                     break;
                 case "forbid":
                     type = 2;
+                    typeString = "FORBID";
                     break;
                 default:
                     message = new MessageBuilder()
@@ -61,12 +65,15 @@ public class CPermissions extends Command{
             }
             // Command affected
             Long command;
+            String commandString;
             switch (params[1]){
                 case "add":
                     command = 1L;
+                    commandString = "Add";
                     break;
                 case "remove":
                     command = 2L;
+                    commandString = "Remove";
                     break;
                 default:
                     message = new MessageBuilder()
@@ -93,16 +100,24 @@ public class CPermissions extends Command{
                 MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);
                 return;
             }
-            GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
-            PermissionEntity permissionEntity = new PermissionEntity();
-            permissionEntity.setGuild(guildEntity);
             CommandEntity commandEntity = dao.getLongId(CommandEntity.class, command);
-            permissionEntity.setCommand(commandEntity);
-            permissionEntity.setRoleId(role);
+            GuildEntity guildEntity = dao.getLongId(GuildEntity.class, e.getGuild().getId());
+            PermissionEntity permissionEntity = null;
+            for(PermissionEntity savedPerm : guildEntity.getPermissions()){
+                if(savedPerm.getRoleId() == role && savedPerm.getCommand().getCommandId() == commandEntity.getCommandId()){
+                    permissionEntity = savedPerm;
+                }
+            }
+            if(permissionEntity == null){
+                permissionEntity = new PermissionEntity();
+                permissionEntity.setGuild(guildEntity);
+                permissionEntity.setCommand(commandEntity);
+                permissionEntity.setRoleId(role);
+            }
             permissionEntity.setLevel(type);
             dao.saveOrUpdate(permissionEntity);
             message = new MessageBuilder()
-                    .appendString("Added permission for Role " + params[2] + "!")
+                    .appendString("Permission for command " + commandString + " was set to " + typeString + " for Role " + params[2] + "!")
                     .build();
         }
         MessageHandler.getInstance().addCreateToQueue(e.getTextChannel().getId(), MessageCreateAction.Type.GUILD, message);

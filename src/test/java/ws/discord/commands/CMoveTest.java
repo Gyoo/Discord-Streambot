@@ -37,25 +37,25 @@ public class CMoveTest extends CommandTest{
 
     @Test
     public void testExecuteNotAllowed() throws Exception {
-        User user = jda.getUserById("180922097399365632");
+        User user = jda.getUserById("63263941735755776");
         Message message = new MessageImpl("", null).setChannelId("131483070464393216").setAuthor(user).setContent("test");
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "You are not allowed to use this command");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "You are not allowed to use this command");
     }
 
     @Test
     public void testExecute() throws Exception{
         this.initManager();
-        User user = jda.getUserById("180922097399365632");
+        User user = jda.getUserById("63263941735755776");
         Message message = new MessageImpl("", null).setChannelId("131483070464393216").setAuthor(user).setContent("test");
         MessageReceivedEvent mre = new MessageReceivedEvent(jda, 1, message);
         command.execute(mre, "#bugs");
 
         Assert.assertEquals(1, MessageHandler.getQueue().size());
-        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getContent(), "Announces will now be done in #bugs !");
+        Assert.assertEquals(MessageHandler.getQueue().peek().getMessage().getRawContent(), "Announces will now be done in #bugs !");
     }
 
 }

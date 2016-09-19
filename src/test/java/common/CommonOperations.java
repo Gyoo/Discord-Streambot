@@ -21,6 +21,7 @@ public class CommonOperations {
                     .column("ChannelID", 131483070464393216L)
                     .column("isCompact", 0)
                     .column("isActive", 1)
+                    .column("Cleanup", 0)
                     .end()
                 .build();
 
@@ -38,7 +39,7 @@ public class CommonOperations {
             insertInto("manager")
                 .row()
                     .column("ServerID", 131483070464393216L)
-                    .column("UserID", 180922097399365632L)
+                    .column("UserID", 63263941735755776L)
                     .end()
                 .build();
 

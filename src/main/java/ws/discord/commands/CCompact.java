@@ -22,7 +22,7 @@ public class CCompact extends Command{
     @Override
     public void execute(MessageReceivedEvent e, String content) {
         Message message;
-        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0))
+        if(!isAllowed(e.getGuild().getId(), e.getAuthor().getId(), allows, 0, null))
             message = new MessageBuilder().appendString("You are not allowed to use this command").build();
         else {
             String[] params = content.toLowerCase().split(" ");
